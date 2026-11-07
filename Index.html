@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEVO-AI</title>
+<style>
+body{margin:0;font-family:Arial;background:#0f0f0f;color:white}
+header{padding:20px;text-align:center;background:#111;border-bottom:1px solid #333}
+header h1{margin:0;font-size:28px}
+header h1 span{color:#00ff88}
+header p{color:#aaa}
+.chat{max-width:600px;margin:20px auto;padding:0 15px}
+.msg{padding:12px 15px;border-radius:15px;margin:10px 0;max-width:80%;line-height:1.5}
+.bot{background:#222;float:left;clear:both}
+.user{background:#00ff88;color:black;float:right;clear:both}
+.box{position:fixed;bottom:0;left:0;right:0;background:#111;padding:12px;display:flex;gap:10px}
+input{flex:1;padding:14px;border-radius:25px;border:none;outline:none;background:#222;color:white}
+button{padding:14px 20px;border-radius:25px;border:none;background:#00ff88;font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<h1>STEVO-<span>AI</span></h1>
+<p>Ask me anything. I go answer you sharp sharp.</p>
+</header>
+
+<div class="chat" id="chat">
+<div class="msg bot">Hello! I be STEVO-AI. Wetin you wan know today?</div>
+</div>
+
+<div class="box">
+<input id="input" placeholder="Type your message..." />
+<button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+  let input = document.getElementById('input');
+  let chat = document.getElementById('chat');
+  let text = input.value.trim();
+  if(!text) return;
+  chat.innerHTML += '<div class="msg user">'+text+'</div>';
+  input.value = '';
+  setTimeout(()=>{
+    let reply = "Na wa! Good question. STEVO-AI dey think... For now, I fit help you with ideas, writing, coding, and gist. Ask me another one!";
+    if(text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi')) reply = "Hello my guy! How you dey? Wetin I go do for you today?";
+    if(text.toLowerCase().includes('who are you')) reply = "I be STEVO-AI, your personal AI assistant built by Stevo. I dey here to help you anytime.";
+    if(text.toLowerCase().includes('code')) reply = "I fit help you write code - HTML, CSS, JavaScript, Python. Just tell me wetin you wan build.";
+    chat.innerHTML += '<div class="msg bot">'+reply+'</div>';
+    window.scrollTo(0, document.body.scrollHeight);
+  }, 800);
+}
+</script>
+</body>
+</html>
