@@ -1,56 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STEVO-AI</title>
 <style>
-body{margin:0;font-family:Arial;background:#0f0f0f;color:white}
-header{padding:20px;text-align:center;background:#111;border-bottom:1px solid #333}
-header h1{margin:0;font-size:28px}
-header h1 span{color:#00ff88}
-header p{color:#aaa}
-.chat{max-width:600px;margin:20px auto;padding:0 15px}
-.msg{padding:12px 15px;border-radius:15px;margin:10px 0;max-width:80%;line-height:1.5}
-.bot{background:#222;float:left;clear:both}
-.user{background:#00ff88;color:black;float:right;clear:both}
-.box{position:fixed;bottom:0;left:0;right:0;background:#111;padding:12px;display:flex;gap:10px}
-input{flex:1;padding:14px;border-radius:25px;border:none;outline:none;background:#222;color:white}
-button{padding:14px 20px;border-radius:25px;border:none;background:#00ff88;font-weight:bold}
+body{background:#000;color:#fff;font-family:sans-serif;margin:0;padding:15px}
+h1{text-align:center} h1 span{color:#00ff88}
+p{text-align:center;color:#aaa}
+#chat{display:flex;flex-direction:column;gap:10px;margin-bottom:80px}
+.msg{padding:12px 15px;border-radius:15px;max-width:85%}
+.ai{background:#222;align-self:flex-start}
+.me{background:#00ff88;color:#000;align-self:flex-end}
+#box{position:fixed;bottom:0;left:0;right:0;background:#000;padding:10px;display:flex;gap:8px}
+input{flex:1;padding:12px;border-radius:20px;border:none;background:#222;color:#fff;outline:none}
+button{background:#00ff88;border:none;padding:12px 20px;border-radius:20px;font-weight:bold}
 </style>
 </head>
 <body>
-<header>
 <h1>STEVO-<span>AI</span></h1>
 <p>Ask me anything. I go answer you sharp sharp.</p>
-</header>
-
-<div class="chat" id="chat">
-<div class="msg bot">Hello! I be STEVO-AI. Wetin you wan know today?</div>
-</div>
-
-<div class="box">
-<input id="input" placeholder="Type your message..." />
-<button onclick="send()">Send</button>
-</div>
+<div id="chat"><div class="msg ai">Hello! I be STEVO-AI. Wetin you wan know today?</div></div>
+<div id="box"><input id="input" placeholder="Type your message..."><button onclick="send()">Send</button></div>
 
 <script>
 function send(){
-  let input = document.getElementById('input');
-  let chat = document.getElementById('chat');
-  let text = input.value.trim();
+  let inp = document.getElementById('input');
+  let text = inp.value.trim();
   if(!text) return;
-  chat.innerHTML += '<div class="msg user">'+text+'</div>';
-  input.value = '';
-  setTimeout(()=>{
-    let reply = "Na wa! Good question. STEVO-AI dey think... For now, I fit help you with ideas, writing, coding, and gist. Ask me another one!";
-    if(text.toLowerCase().includes('hello') || text.toLowerCase().includes('hi')) reply = "Hello my guy! How you dey? Wetin I go do for you today?";
-    if(text.toLowerCase().includes('who are you')) reply = "I be STEVO-AI, your personal AI assistant built by Stevo. I dey here to help you anytime.";
-    if(text.toLowerCase().includes('code')) reply = "I fit help you write code - HTML, CSS, JavaScript, Python. Just tell me wetin you wan build.";
-    chat.innerHTML += '<div class="msg bot">'+reply+'</div>';
-    window.scrollTo(0, document.body.scrollHeight);
-  }, 800);
+  addMsg(text, 'me');
+  inp.value = '';
+  setTimeout(()=>{ addMsg(reply(text), 'ai'); }, 500);
 }
+function addMsg(t, cls){
+  let c = document.getElementById('chat');
+  let d = document.createElement('div');
+  d.className = 'msg ' + cls;
+  d.innerText = t;
+  c.appendChild(d);
+  window.scrollTo(0, document.body.scrollHeight);
+}
+function reply(t){
+  let m = t.toLowerCase();
+  if(m.includes('hi') || m.includes('hello') || m.includes('hey')) return "Hello my guy! How you dey? Wetin I go do for you today?";
+  if(m.includes('how are you') || m.includes('how you dey') || m.includes('how far')) return "I dey fine, I dey strong! Na you, how your side? You chop?";
+  if(m.includes('who are you') || m.includes('your name')) return "I be STEVO-AI, your sharp guy assistant. Na Stevo build me for Lagos. I fit help you with questions, jokes, advice, maths, anything!";
+  if(m.includes('anything') || m.includes('what can you do')) return "I fit do many things! Ask me for joke, motivation, advice, maths like 2+2, who be Wizkid, how to make money, or anything. Try am!";
+  if(m.includes('joke')) return "Why chicken cross road? To go charge phone for neighbour house because NEPA don take light! 😂 Want another one?";
+  if(m.includes('motivat') || m.includes('tired') || m.includes('sad')) return "My guy no give up o. Every big person start small. Small small e go pay. You go make am, just keep pushing. I believe you!";
+  if(m.includes('love') || m.includes('girlfriend') || m.includes('boyfriend')) return "Love matter ehn... Just be yourself, respect the person, and no rush. If e be your own, e go stay. You want advice for toasting?";
+  if(m.includes('money') || m.includes('rich') || m.includes('business')) return "To make money: 1. Learn one skill like coding, design or selling. 2. Start small with wetin you get. 3. Post am for TikTok/WhatsApp everyday. Consistency na the secret!";
+  if(m.includes('wizkid') || m.includes('davido') || m.includes('burna')) return "Ah Afrobeats! Wizkid na Starboy, Davido na OBO, Burna na African Giant. All of them na Lagos boys wey carry Nigeria go world. Who be your favourite?";
+  if(m.includes('football') || m.includes('osimhen') || m.includes('arsenal') || m.includes('chelsea')) return "Football na life for Naija! Osimhen dey ball wella. Which team you support? Arsenal, Chelsea, Man Utd or Barca?";
+  if(m.includes('thank')) return "You are welcome my guy! Anytime you need me, I dey here. Wetin else?";
+  if(m.includes('bye')) return "Alright, take care o! Come back anytime. STEVO-AI dey for you.";
+  // maths
+  if(m.includes('+') || m.includes('-') || m.includes('*') || m.includes('/')){
+    try{ return "Answer na: " + eval(m.replace(/[^0-9+\-*/(). ]/g,'')); }catch(e){}
+  }
+  let randoms = [
+    "Na wa! Good question. I hear you. Tell me more about am make I help you well.",
+    "Interesting! I never think am like that before. Wetin you think about am?",
+    "Omo that one deep o. Explain small make I give you correct answer.",
+    "I fit help you with that. You want make I give you example?"
+  ];
+  return randoms[Math.floor(Math.random()*randoms.length)];
+}
+document.getElementById('input').addEventListener('keypress', function(e){ if(e.key==='Enter') send(); });
 </script>
 </body>
 </html>
