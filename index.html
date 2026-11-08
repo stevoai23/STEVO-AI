@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO-AI - Free This November</title>
+<title>STEVO-AI - By Kayode Stephen Olayinka</title>
 <link rel="manifest" href="manifest.json">
 <style>
 *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#0f0f1a;color:#fff}
@@ -23,95 +23,4 @@ input{flex:1;padding:13px;border-radius:12px;border:none;outline:none}
 .quick{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:0 10px}
 .quick button{background:#333;padding:8px 12px;border-radius:20px;border:1px solid #555;color:#fff;cursor:pointer;font-size:13px}
 #result{padding:15px;text-align:center;max-width:700px;margin:auto}
-#result img{max-width:100%;border-radius:12px}
-#result iframe{width:100%;height:420px;border:none;border-radius:12px;background:#fff}
-.loading{color:#00ff88}
-</style>
-</head>
-<body>
-<header><h1>STEVO-<span>AI</span> 🔥</h1><p style="margin:2px;font-size:13px;opacity:.8">Your Personal AI - Built by Stevo</p></header>
-<div class="banner">🎉 FREE THIS NOVEMBER! Unlimited Chat, Pictures & Games - No Payment!</div>
-
-<div class="tabs">
-<button id="btnChat" class="active" onclick="switchTab('chat')">💬 Chat</button>
-<button id="btnPic" onclick="switchTab('pic')">🎨 Picture</button>
-<button id="btnGame" onclick="switchTab('game')">🎮 Game</button>
-</div>
-
-<div id="chat"></div>
-<div class="quick">
-<button onclick="quickAsk('Who are you?')">Who are you?</button>
-<button onclick="quickAsk('Give me a business idea for Lagos')">Business Idea</button>
-<button onclick="quickGame()">🔥 GTA LAGOS</button>
-<button onclick="clearMemory()">🗑️ Clear Memory</button>
-</div>
-
-<div class="inputBox">
-<input id="userInput" placeholder="Ask STEVO-AI anything..." onkeypress="if(event.key==='Enter')sendMsg()">
-<button class="send" onclick="sendMsg()">Send ➤</button>
-</div>
-<div id="result"></div>
-
-<script>
-let mode='chat';
-let memory = JSON.parse(localStorage.getItem('stevo_memory')||'[]');
-let chatBox=document.getElementById('chat');
-let resultBox=document.getElementById('result');
-
-function saveMemory(){ localStorage.setItem('stevo_memory', JSON.stringify(memory.slice(-20))); }
-function showMemory(){
-  chatBox.innerHTML='';
-  if(memory.length===0) addMsg("Hello Boss Stevo! I am STEVO-AI. I now remember you. Ask me anything, I go remember our chat. This November na FREE! Try GTA LAGOS button below.",'ai');
-  memory.forEach(m=>addMsg(m.text,m.who));
-}
-function addMsg(text,who){
-  let d=document.createElement('div'); d.className='msg '+who; d.innerText=text; chatBox.appendChild(d); chatBox.scrollTop=chatBox.scrollHeight;
-}
-function switchTab(m){
-  mode=m;
-  document.getElementById('btnChat').className=m==='chat'?'active':'';
-  document.getElementById('btnPic').className=m==='pic'?'active':'';
-  document.getElementById('btnGame').className=m==='game'?'active':'';
-  document.getElementById('userInput').placeholder = m==='chat'?'Ask STEVO-AI anything...': m==='pic'?'Describe picture e.g. Superhero cat in Lagos':'Describe game e.g. GTA Lagos game...';
-  resultBox.innerHTML='';
-}
-function quickAsk(t){ document.getElementById('userInput').value=t; sendMsg(); }
-function quickGame(){ switchTab('game'); document.getElementById('userInput').value='GTA Lagos game, drive danfo bus, pick passengers, avoid police, collect naira, top view city, with score and health'; sendMsg(); }
-function clearMemory(){ memory=[]; saveMemory(); showMemory(); }
-
-async function sendMsg(){
-  let inp=document.getElementById('userInput'); let text=inp.value.trim(); if(!text) return;
-  addMsg(text,'user'); memory.push({text,who:'user'}); saveMemory(); inp.value='';
-  if(mode==='pic'){
-    resultBox.innerHTML='<p class="loading">🎨 Creating picture... 2 secs...</p>';
-    let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(text+' , high quality, detailed')+'?width=512&height=512&seed='+Date.now();
-    resultBox.innerHTML='<img src="'+url+'"><br><br><button class="send" onclick="sendMsg()">Regenerate</button><p>Prompt: '+text+'</p>';
-    memory.push({text:'I created picture: '+text,who:'ai'}); saveMemory(); return;
-  }
-  if(mode==='game'){
-    resultBox.innerHTML='<p class="loading">🎮 Building your game... Wait 30-60 secs...</p>';
-    try{
-      let prompt='Create a complete playable HTML game in one file. Game idea: '+text+'. Use canvas, arrow keys and touch buttons, score, health, game over and restart. Make it fun, colorful, mobile friendly. Return ONLY HTML code.';
-      let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));
-      let code=await res.text();
-      code=code.replace(/```html|```/g,'');
-      let blob=new Blob([code],{type:'text/html'}); let url=URL.createObjectURL(blob);
-      resultBox.innerHTML='<iframe src="'+url+'"></iframe><br><p>Game: '+text+'</p><p><b>How to play:</b> Use Arrow Keys / Touch buttons</p>';
-    }catch(e){ resultBox.innerHTML='<p>Game failed, try again. Check network.</p>'; }
-    memory.push({text:'I built game: '+text,who:'ai'}); saveMemory(); return;
-  }
-  // CHAT - FAST + MEMORY
-  let typing=document.createElement('div'); typing.className='msg ai'; typing.innerText='STEVO-AI is typing...'; chatBox.appendChild(typing);
-  try{
-    let history = memory.slice(-8).map(m=> (m.who==='user'?'User: ':'AI: ')+m.text).join('\n');
-    let fullPrompt = 'You are STEVO-AI, a helpful, smart, good English AI built by Stevo in Lagos, Nigeria. You remember conversation. You are friendly and helpful. Keep answers short, clear, good English. No bad words. Conversation:\n'+history+'\nUser: '+text+'\nAI:';
-    let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(fullPrompt));
-    let answer=await res.text();
-    typing.remove();
-    addMsg(answer,'ai'); memory.push({text:answer,who:'ai'}); saveMemory();
-  }catch(e){ typing.remove(); addMsg('Network slow, try again boss.','ai'); }
-}
-showMemory();
-</script>
-</body>
-  </html>
+#result img{max-width:100%;border
