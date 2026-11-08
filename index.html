@@ -3,275 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO-AI</title>
+<title>STEVO TECH AI</title>
 <style>
-body{margin:0;background:#0f0f1a;color:#fff;font-family:Arial;padding:10px}
-h1{text-align:center;color:#00ffcc;margin:5px}
-button{border:none;border-radius:12px;padding:13px;font-weight:bold;cursor:pointer;min-height:48px}
-.tab{background:#222;color:#fff;flex:1;padding:10px;font-size:11px}
-.tab.on{background:#00ffcc;color:#000}
-.card{background:#1c1c2e;padding:14px;border-radius:14px;margin-top:10px;display:none}
-.card.show{display:block}
-input,select,textarea{width:100%;padding:12px;border-radius:10px;border:none;background:#2a2a3f;color:#fff;margin:6px 0;font-size:14px;box-sizing:border-box}
+body{margin:0;background:#02010a;color:#fff;font-family:Arial;padding:0}
+.hero{background:linear-gradient(135deg,#000428,#004e92,#00ffcc);padding:18px 12px 14px;text-align:center;border-bottom:3px solid #00ffcc;box-shadow:0 0 30px #00ffcc88}
+.hero h1{margin:0;color:#fff;font-size:30px;letter-spacing:3px;text-shadow:0 0 15px #00ffcc,0 0 30px #00ffcc}
+.hero .tag{color:#00ffcc;font-size:12px;letter-spacing:1px;margin:4px 0}
+.creator{font-size:12px;color:#e0e0e0;line-height:1.6;background:rgba(0,0,0,0.4);padding:8px;border-radius:10px;margin-top:8px;display:inline-block}
+.creator b{color:#ffd700}
+.techStrip{display:flex;gap:6px;overflow-x:auto;padding:8px;background:#050514;border-bottom:1px solid #00ffcc33;white-space:nowrap}
+.techStrip span{background:#0f0f1f;border:1px solid #00ffcc44;padding:6px 10px;border-radius:20px;font-size:11px;color:#00ffcc}
+.main{padding:10px}
+.tbdsBar{background:#ffcc00;color:#000;padding:10px;border-radius:12px;text-align:center;margin:10px 0;font-weight:bold}
+.tbdsBar button{background:#000;color:#ffcc00;border:none;padding:10px 14px;border-radius:9px;font-weight:bold;margin-top:6px}
+button{border:none;border-radius:12px;padding:13px;font-weight:bold;cursor:pointer;min-height:46px}
 .go{width:100%;background:#00ffcc;color:#000}
-.go2{width:100%;background:#ffcc00;color:#000}
+.go2{width:100%;background:#ff6600;color:#fff}
 .go3{width:100%;background:#ff00aa;color:#fff}
-.goEng{width:100%;background:#ff6600;color:#fff}
-.back{width:100%;background:#333;color:#fff;margin-bottom:10px}
-.small{background:#333;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px}
-.smallEng{background:#333;color:#ffaa00;padding:10px 12px;font-size:12px;margin:3px}
-.box{background:#2a2a3f;padding:12px;border-radius:10px;margin:8px 0}
-.menuBtn{width:100%;text-align:left;background:#1c1c2e;border:1px solid #333;padding:16px;margin:6px 0;font-size:15px;color:#fff}
-.menuBtn b{color:#00ffcc}
-.chat{height:260px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
-.msg{padding:9px;border-radius:9px;margin:5px 0;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.goPic{width:100%;background:linear-gradient(90deg,#00ffcc,#0099ff);color:#000;font-size:15px}
+.small{background:#1a1a2e;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px;border:1px solid #00ffcc44}
+.smallCurrent{background:#1a1a2e;color:#ffff00;padding:10px 12px;font-size:12px;margin:3px;border:1px solid #ffff0044}
+.card{background:#0f0f1f;padding:13px;border-radius:14px;margin-top:10px;display:none;border:1px solid #00ffcc33}
+.card.show{display:block}
+input,textarea,select{width:100%;padding:12px;border-radius:10px;border:none;background:#1e1e35;color:#fff;margin:6px 0;font-size:14px;box-sizing:border-box}
+.chat{height:280px;overflow-y:auto;background:#050514;padding:12px;border-radius:12px;border:1px solid #00ffcc33}
+.msg{padding:10px;border-radius:10px;margin:6px 0;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
 .u{background:#00ffcc;color:#000;margin-left:20px}
-.a{background:#2a2a3f}
-.aEng{background:#331a00;border:1px solid #ff6600}
-img.pic{width:100%;border-radius:12px;margin-top:8px}
-.coins{font-size:20px;color:#ffd700;font-weight:bold}
+.a{background:#1e1e35;border:1px solid #333}
+.jokeBox{background:#2a001a;border:1px solid #ff00aa;padding:12px;border-radius:12px;margin:8px 0}
+.box{background:#1e1e35;padding:12px;border-radius:10px;margin:8px 0}
+.menuBtn{width:100%;text-align:left;background:#0f0f1f;border:1px solid #00ffcc33;padding:15px;margin:6px 0;font-size:15px;color:#fff}
+.menuBtn b{color:#00ffcc}
+.coins{color:#ffd700;font-weight:bold}
+img.pic{width:100%;border-radius:12px;margin-top:8px;border:1px solid #00ffcc44}
+.picGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.picGrid img{width:100%;border-radius:10px;border:1px solid #333}
 </style>
 </head>
 <body>
-<h1>STEVO-AI</h1>
 
-<!-- HOME PAGE - ONLY MENU, NOTHING ELSE -->
+<!-- TECH LOOK FROM VIEW ALONE - HERO -->
+<div class="hero">
+<h1>⚡ STEVO TECH AI ⚡</h1>
+<div class="tag">AI • ROBOT • CURRENT • SOLAR • CODING • APP • CIRCUIT</div>
+<div class="creator">
+Created by <b>Kayode Stephen Olayinka</b><br>
+Co-Owner: <b>Ikudehinbu Promise Ayomide</b><br>
+<span class="coins"><span id="coinsHome">5000</span> Tech Coins</span> | <button class="small" onclick="dailyBonus()">Daily +500</button> <button class="small" onclick="testButton()">Test</button>
+<p id="testResult" style="font-size:12px;color:#00ffcc;margin:3px">Not tested yet.</p>
+</div>
+</div>
+
+<div class="techStrip"><span>🤖 AI</span><span>⚡ CURRENT</span><span>🔧 BUILD</span><span>🔌 CONNECT</span><span>☀️ SOLAR</span><span>💻 CODE</span><span>🎨 PICTURE - FREE</span><span>🏭 TBDS</span></div>
+
+<div class="main">
+<div class="tbdsBar">🏭 TBDS CONNECTED - FACTORY SIDE <br><button onclick="openTBDS()">OPEN TBDS ➤</button></div>
+
+<!-- HOME -->
 <div id="home" class="card show">
-<div style="background:#1c1c2e;padding:12px;border-radius:12px;text-align:center;border:2px solid #ffcc00">
-<span class="coins"><span id="coinsHome">5000</span> STEVO Coins</span> | Garage: <span id="garageCountHome">0</span><br>
-<button class="small" onclick="dailyBonus()">Daily Bonus +500</button> <button class="small" onclick="testButton()">Test Buttons</button>
-<p id="testResult" style="font-size:12px">Not tested yet.</p>
+<p style="text-align:center;font-size:13px;color:#aaa">Tech from view alone. Pick one.</p>
+<button class="menuBtn" onclick="showTab('ai')"><b>🤖 Ask Tech AI - Main</b><br><span style="font-size:12px;color:#aaa">Ask anything. Teaches, jokes, gives steps. Fast.</span></button>
+<button class="menuBtn" onclick="showTab('pic')" style="border:2px solid #00ffcc"><b>🎨 Pictures - Anytime, NO LIMIT, FREE</b><br><span style="font-size:12px;color:#aaa">Make as many pictures as you want. No coins. No limit.</span></button>
+<button class="menuBtn" onclick="showTab('current')" style="border:2px solid #ffff00"><b>⚡ EVERYTHING THAT USES CURRENT</b><br><span style="font-size:12px;color:#aaa">Phone, Laptop, Car, Robot, Solar, Motor, Fridge, Fan, TV, Charger, Inverter.</span></button>
+<button class="menuBtn" onclick="showTab('build')"><b>🔧 Build & Connect</b><br><span style="font-size:12px;color:#aaa">How to build and connect: App, Website, Robot, Circuit, WiFi, Bluetooth, Solar.</span></button>
+<button class="menuBtn" onclick="showTab('fix')"><b>💻 Fix My Code / Fix My Device</b><br><span style="font-size:12px;color:#aaa">Paste code or describe problem. It will fix it.</span></button>
+<button class="menuBtn" onclick="showTab('learn')"><b>📚 Learn Tech - All Topics</b><br><span style="font-size:12px;color:#aaa">AI, Coding, Robot, Phone, Computer, Internet, Security.</span></button>
+<button class="menuBtn" onclick="showTab('idea')"><b>💡 App & Business Ideas</b><br><span style="font-size:12px;color:#aaa">What to build, who will use it, how to make money.</span></button>
+<button class="menuBtn" onclick="showTab('joke')"><b>😂 Tech Jokes & Fun</b><br><span style="font-size:12px;color:#aaa">Laugh small. Tech is not only serious.</span></button>
+<button class="menuBtn" onclick="showTab('tbds')"><b>🏭 TBDS</b><br><span style="font-size:12px;color:#aaa">Factory side. Open TBDS.</span></button>
 </div>
 
-<p style="font-size:13px;color:#aaa;text-align:center">Choose one. Each one opens on its own page.</p>
-
-<button class="menuBtn" onclick="showTab('ai')"><b>Normal AI</b><br><span style="font-size:12px;color:#aaa">Ask anything. Speaks all languages. Most important.</span></button>
-<button class="menuBtn" onclick="showTab('eng')"><b>Engineer AI</b><br><span style="font-size:12px;color:#aaa">Engineering questions with proof, formula and calculation.</span></button>
-<button class="menuBtn" onclick="showTab('tbds')"><b>TBDS</b><br><span style="font-size:12px;color:#aaa">Factory side. Important. Opens TBDS.</span></button>
-<button class="menuBtn" onclick="showTab('pic')"><b>Picture Generator</b><br><span style="font-size:12px;color:#aaa">Create any picture you imagine.</span></button>
-<button class="menuBtn" onclick="showTab('course')"><b>Courses</b><br><span style="font-size:12px;color:#aaa">Nursing, Doctor, Business, Coding, Cooking.</span></button>
-<button class="menuBtn" onclick="showTab('car')"><b>Build Car</b><br><span style="font-size:12px;color:#aaa">Build your car step by step.</span></button>
-<button class="menuBtn" onclick="showTab('garage')"><b>My Garage</b><br><span style="font-size:12px;color:#aaa">See cars you built.</span></button>
-</div>
-
-<!-- NORMAL AI - SEPARATE PAGE -->
+<!-- ASK TECH AI -->
 <div id="ai" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>Normal AI - Ask Anything - All Languages</b>
-<p style="font-size:12px;color:#aaa">Ask in English, Yoruba, Hausa, Igbo, French, Spanish, Arabic. AI will answer in your language.</p>
-<div id="chatBox" class="chat"><div class="msg a">Hello. I am your Normal AI. Ask me anything in any language.</div></div>
-<input id="q" placeholder="Ask anything...">
-<button class="go" onclick="askNormalAI()">Ask Normal AI</button>
-<button class="go" style="background:#ff00aa;color:#fff;margin-top:6px" onclick="surpriseMe()">Surprise Me</button>
-<div id="surpriseBox"></div>
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>🤖 STEVO TECH AI - Ask Anything</b>
+<p style="font-size:12px;color:#aaa">It teaches EVERYTHING that uses current. Ask in any language. With joke and steps.</p>
+<div id="chatBox" class="chat"><div class="msg a">Hello! I am STEVO TECH AI. I teach everything that uses current - phone, car, robot, solar, motor, TV, fridge, fan, charger. Ask me: Why is my phone not charging? How does current work?</div></div>
+<input id="q" placeholder="Ask any tech question...">
+<div>
+<button class="small" onclick="setQ('What is electric current? Explain AC and DC with examples')">What Is Current?</button>
+<button class="small" onclick="setQ('Why is my phone not charging? How to fix it?')">Phone Not Charging</button>
+<button class="small" onclick="setQ('How to build a robot that uses current?')">Build Robot</button>
+</div>
+<button class="go" onclick="askTechAI()">Ask Tech AI - Fast</button>
+<button class="goPic" style="margin-top:6px" onclick="showTab('pic')">🎨 Or Make A Picture - FREE, No Limit</button>
+<button class="go3" style="margin-top:6px" onclick="tellJoke()">Tell Me A Tech Joke</button>
+<div id="jokeOut"></div>
 </div>
 
-<!-- ENGINEER AI - SEPARATE PAGE -->
-<div id="eng" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>Engineer AI - Answers With Proof</b>
-<div id="engBox" class="chat"><div class="msg aEng">Hello. I am Engineer AI. Ask me any engineering question. I will answer with proof.</div></div>
-<input id="eq" placeholder="Ask engineering...">
-<button class="smallEng" onclick="setEng('How does a car engine work? Explain with proof')">Car Engine</button>
-<button class="smallEng" onclick="setEng('How to calculate load for a beam? Give formula and example')">Beam Load</button>
-<button class="smallEng" onclick="setEng('How to wire a house safely?')">House Wiring</button>
-<button class="goEng" onclick="askEngAI()">Ask Engineer AI - With Proof</button>
-</div>
-
-<!-- PICTURE - SEPARATE PAGE -->
+<!-- PICTURE - NO LIMIT, FREE, ANYTIME -->
 <div id="pic" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>Generate Any Picture</b>
-<textarea id="picPrompt" rows="2" placeholder="Type anything..."></textarea>
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>🎨 Pictures - Anytime, NO LIMIT, FREE</b>
+<p style="font-size:12px;color:#00ffcc">No coins. No limit. Make 1 picture or 100 pictures. It is free.</p>
+<p style="font-size:12px;color:#aaa">Pictures made: <b id="picCount" style="color:#00ffcc">0</b> | This session: Unlimited</p>
+<textarea id="picPrompt" rows="2" placeholder="Type ANYTHING... e.g A futuristic robot in Lagos, My dream solar house, A gold electric car"></textarea>
 <select id="picStyle">
-<option value="realistic, high quality, professional photo">Real Photo</option>
-<option value="cartoon, colorful, 3D pixar style">Cartoon / 3D</option>
-<option value="anime, beautiful">Anime</option>
-<option value="cinematic, movie poster">Movie Poster</option>
-<option value="logo, clean, minimal">Logo</option>
+<option value="realistic, high quality, professional photo, tech style">📸 Real Photo - Tech</option>
+<option value="futuristic, neon, sci-fi, high tech, glowing">⚡ Futuristic Tech</option>
+<option value="cartoon, colorful, 3D pixar style">🎬 Cartoon / 3D</option>
+<option value="anime, beautiful">✨ Anime</option>
+<option value="cinematic, movie poster, tech">🎥 Movie Poster</option>
+<option value="blueprint, technical diagram, engineering drawing">📐 Blueprint / Diagram</option>
+<option value="logo, clean, minimal, tech">🏷️ Logo - Tech</option>
 </select>
-<button class="go3" onclick="genPic()">Generate Picture (-50 Coins)</button>
-<div id="picOut"><p style="font-size:12px;color:#aaa">Your picture will appear here.</p></div>
-<button class="small" onclick="downloadPic()">Save Picture</button>
+<button class="goPic" onclick="genPic()">🎨 GENERATE PICTURE - FREE, NO LIMIT</button>
+<div style="display:flex;gap:5px;margin-top:6px;flex-wrap:wrap">
+<button class="small" onclick="quickPic('A futuristic robot engineer in Lagos, neon, tech lab')">🤖 Robot</button>
+<button class="small" onclick="quickPic('A gold electric car with solar roof in Lagos, futuristic')">🚗 Electric Car</button>
+<button class="small" onclick="quickPic('A solar powered smart house in Lekki, futuristic, tech')">🏠 Solar House</button>
+<button class="small" onclick="quickPic('A circuit board with glowing blue lines, tech, macro')">🔌 Circuit</button>
+<button class="small" onclick="quickPic('A Nigerian tech billionaire in futuristic office, hologram')">👑 Tech Billionaire</button>
+<button class="small" onclick="surprisePic()">🎲 Surprise Picture</button>
+</div>
+<div id="picOut"><p style="font-size:12px;color:#aaa">Your pictures will appear here. No limit.</p></div>
+<div id="picGallery" class="picGrid"></div>
+<button class="small" onclick="downloadPic()">⬇️ Save Last Picture</button>
+<button class="small" onclick="clearPics()">Clear Pictures</button>
 </div>
 
-<!-- COURSES - SEPARATE PAGE -->
-<div id="course" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>Courses</b>
-<div class="box"><b>Nursing Course</b><br><button class="small" onclick="openCourse('nursing')">Start Nursing</button></div>
-<div class="box"><b>Doctor Course</b><br><button class="small" onclick="openCourse('doctor')">Start Doctor</button></div>
-<div class="box"><b>Business Course</b><br><button class="small" onclick="openCourse('business')">Start Business</button></div>
-<div class="box"><b>Coding Course</b><br><button class="small" onclick="openCourse('coding')">Start Coding</button></div>
-<div class="box"><b>Cooking Course</b><br><button class="small" onclick="openCourse('cooking')">Start Cooking</button></div>
-<div id="lessonBox"></div>
+<!-- CURRENT -->
+<div id="current" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>⚡ EVERYTHING THAT USES CURRENT</b>
+<p style="font-size:12px;color:#ffff00">If it uses current, STEVO TECH AI will teach you: What it is, How it works, How to build it, How to connect it, How to fix it, How to stay safe.</p>
+<p style="font-size:13px"><b>Basics:</b></p>
+<button class="smallCurrent" onclick="learnCurrent('What is electric current? Explain voltage, current, resistance with formula V=IR, AC vs DC')">What Is Current?</button>
+<button class="smallCurrent" onclick="learnCurrent('How to measure current with multimeter? Give steps and safety')">Measure Current</button>
+<button class="smallCurrent" onclick="learnCurrent('What is AC and DC? Which one is in house, which one is in battery?')">AC vs DC</button>
+<p style="font-size:13px"><b>House:</b></p>
+<button class="smallCurrent" onclick="learnCurrent('How does a phone charger work? Explain current, AC to DC, why phone gets hot')">Phone & Charger</button>
+<button class="smallCurrent" onclick="learnCurrent('How does a laptop work? Explain battery, charger, current flow')">Laptop</button>
+<button class="smallCurrent" onclick="learnCurrent('How does a fridge work? Explain motor, current, compressor')">Fridge</button>
+<button class="smallCurrent" onclick="learnCurrent('How does a fan work? Explain motor and current')">Fan</button>
+<p style="font-size:13px"><b>Things That Move:</b></p>
+<button class="smallCurrent" onclick="learnCurrent('How does a car use current? Explain battery, starter motor, alternator')">Car</button>
+<button class="smallCurrent" onclick="learnCurrent('How does an electric car work? Explain battery, motor, controller')">Electric Car</button>
+<button class="smallCurrent" onclick="learnCurrent('How does a robot use current? Explain motor, sensor, battery')">Robot</button>
+<p style="font-size:13px"><b>Power:</b></p>
+<button class="smallCurrent" onclick="learnCurrent('How does solar panel work? Explain current from sun, how to connect panel, battery, inverter')">Solar Panel</button>
+<button class="smallCurrent" onclick="learnCurrent('How does an inverter work? Explain DC to AC, battery connection')">Inverter</button>
+<button class="smallCurrent" onclick="learnCurrent('How does a battery work? Explain charging and discharging')">Battery</button>
+<p style="font-size:13px"><b>Fix It:</b></p>
+<button class="smallCurrent" onclick="learnCurrent('Why is my phone not charging? Give all reasons and how to fix each one')">Phone Not Charging</button>
+<button class="smallCurrent" onclick="learnCurrent('Why does my socket spark? Is it dangerous? How to fix it safely?')">Socket Sparks</button>
+<button class="smallCurrent" onclick="learnCurrent('How to stay safe with current? 10 safety rules for home')">Safety With Current</button>
+<div id="currentOut"></div>
 </div>
 
-<!-- CAR - SEPARATE PAGE -->
-<div id="car" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>Build Car Inside The App</b>
-<input id="carName" placeholder="Car name e.g STEVO X1">
-<div class="box" style="text-align:center;font-size:50px"><span id="carEmoji">Car</span><br><span id="carInfo" style="font-size:13px">Step 1: Choose Chassis</span><br><span style="font-size:12px;color:#ffcc00" id="carProgress">Progress: 0 / 5</span></div>
-<div id="carOptions"></div>
-<button class="go" id="carNextBtn" onclick="carNext()">Next Step</button>
-<div id="carDone"></div>
+<!-- BUILD -->
+<div id="build" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>🔧 Build & Connect</b>
+<button class="small" onclick="buildThing('How to build a simple website and connect it to the internet? Give steps and code')">Build Website</button>
+<button class="small" onclick="buildThing('How to build a mobile app and connect it to a database? Give steps')">Build App</button>
+<button class="small" onclick="buildThing('How to build a robot and connect motor, sensor and battery? Give wiring and code')">Build Robot</button>
+<button class="small" onclick="buildThing('How to build a solar power system and connect solar panel, battery, inverter? Give steps and safety')">Build Solar</button>
+<button class="small" onclick="buildThing('How to connect Arduino to phone with Bluetooth? Give wiring and code')">Arduino + Bluetooth</button>
+<div id="buildOut"></div>
 </div>
 
-<!-- GARAGE - SEPARATE PAGE -->
-<div id="garage" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>My Garage</b>
-<div id="garageList"><p style="font-size:12px;color:#aaa">No car yet. Build one.</p></div>
+<!-- FIX -->
+<div id="fix" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>💻 Fix My Code / Fix My Device</b>
+<textarea id="codeInput" rows="4" placeholder="Paste your code OR describe your problem... e.g My phone is not charging, My fan is not turning"></textarea>
+<button class="go" onclick="fixCode()">Fix It Now</button>
+<div id="fixOut"></div>
 </div>
 
-<!-- TBDS - SEPARATE PAGE -->
+<!-- LEARN -->
+<div id="learn" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>📚 Learn Tech - Everything</b>
+<button class="small" onclick="learnTopic('Teach me Artificial Intelligence like I am 12 years old, with joke and real example')">What Is AI?</button>
+<button class="small" onclick="learnTopic('Teach me Coding - HTML, CSS, JavaScript - with simple example')">Coding</button>
+<button class="small" onclick="learnTopic('Teach me how the Internet works, with joke and example')">Internet</button>
+<button class="small" onclick="learnTopic('Teach me Cyber Security - how to protect my phone and password')">Security</button>
+<button class="small" onclick="learnTopic('Teach me Electronics - resistor, capacitor, transistor, with example')">Electronics</button>
+<div id="learnOut"></div>
+</div>
+
+<!-- IDEAS -->
+<div id="idea" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>💡 App & Business Ideas</b>
+<button class="small" onclick="getIdea('Give me a simple tech idea for students in Nigeria I can build in 1 week')">For Students</button>
+<button class="small" onclick="getIdea('Give me a tech idea for business owners in Lagos')">For Business</button>
+<button class="small" onclick="getIdea('Give me a tech idea that uses current - solar, charging, electric - and can make money')">Current Business Idea</button>
+<div id="ideaOut"></div>
+</div>
+
+<!-- JOKES -->
+<div id="joke" class="card">
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>😂 Tech Jokes</b>
+<button class="go3" onclick="tellJoke()">Tell Me A Joke</button>
+<div id="jokePageOut"></div>
+</div>
+
+<!-- TBDS -->
 <div id="tbds" class="card">
-<button class="back" onclick="showTab('home')">Back To Home</button>
-<b>TBDS - Important</b><br><br>
+<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
+<b>🏭 TBDS - Factory Side</b><br><br>
 <b style="color:#00ffcc">https://t-b-d-s-engineering-hub.ai.studio</b><br><br>
-<button class="go2" onclick="openTBDS()">OPEN TBDS</button>
-<p style="font-size:12px;color:#aaa">TBDS is your factory side. STEVO-AI is the learning and AI side. Normal AI and TBDS are the two most important parts.</p>
+<button class="go" style="background:#ffcc00;color:#000" onclick="openTBDS()">OPEN TBDS</button>
+<p style="font-size:12px;color:#aaa">TBDS is the factory side. STEVO TECH AI teaches you everything that uses current, then TBDS helps you build it for real.</p>
+</div>
+
 </div>
 
 <script>
 var TBDS_URL = "https://t-b-d-s-engineering-hub.ai.studio";
 var coins = 5000;
-try { coins = parseInt(localStorage.getItem('stevo_coins') || '5000'); } catch(err){ coins = 5000; }
-var garage = [];
-try { garage = JSON.parse(localStorage.getItem('stevo_garage') || '[]'); } catch(err){ garage = []; }
-var carStep = 0;
-var carData = { name:'', chassis:'', engine:'', wheels:'', color:'', interior:'' };
-var lastPic = '';
+try { coins = parseInt(localStorage.getItem('stevo_tech_coins') || '5000'); } catch(e){ coins = 5000; }
 var chatHistory = [];
-var engHistory = [];
-// Hidden knowledge only. NOT shown on screen. AI will say it only when asked.
-var FOUNDER_INFO = "Founder: Kayode Stephen Olayinka. Co-Founder: Ikudehinbu Promise.";
-
-function testButton(){ document.getElementById('testResult').innerHTML = 'SUCCESS! Buttons are working.'; alert('Buttons are working!'); }
-function refreshCoins(){
-  var c1 = document.getElementById('coinsHome'); if(c1) c1.innerText = coins;
-  var g1 = document.getElementById('garageCountHome'); if(g1) g1.innerText = garage.length;
-  try{ localStorage.setItem('stevo_coins', coins); localStorage.setItem('stevo_garage', JSON.stringify(garage)); }catch(err){}
-}
-function dailyBonus(){ coins += 500; refreshCoins(); alert('Daily Bonus +500 Coins. Balance: ' + coins); }
+var picCount = 0;
+var lastPic = '';
+var FOUNDER_INFO = "Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide.";
+var jokes = [
+  "Why did the computer go to the doctor? Because it had a virus! But don't worry, your phone virus is not Corona, it is just too many apps.",
+  "Why do programmers prefer dark mode? Because light attracts bugs! And in Nigeria, light also attracts mosquitoes.",
+  "My phone battery is like my motivation on Monday - it dies fast. But with STEVO TECH AI, both will last longer.",
+  "Why did the robot break up with his girlfriend? She kept saying he had no feelings. He said: I have sensors, that is enough!",
+  "Why did the WiFi go to school? To get a stronger connection. Just like you, you are here to get a stronger connection to tech.",
+  "My code was working yesterday. Today it is not working. I did not touch anything. The code is like NEPA light - it goes when it wants.",
+  "What is a computer's favorite snack? Micro-chips! And my favorite snack is puff puff while coding.",
+  "Why does current not like to be alone? Because it always wants to flow. Just like you, you want to flow to the top."
+];
+function refreshCoins(){ var c=document.getElementById('coinsHome'); if(c) c.innerText=coins; try{localStorage.setItem('stevo_tech_coins',coins);}catch(e){} }
+function testButton(){ document.getElementById('testResult').innerHTML='SUCCESS! Buttons are working.'; alert('Buttons are working!'); }
+function dailyBonus(){ coins+=500; refreshCoins(); alert('Daily Bonus +500 Coins. Balance: '+coins); }
 function showTab(id){
-  var all = ['home','ai','eng','pic','course','car','garage','tbds'];
+  var all=['home','ai','pic','current','build','fix','learn','idea','joke','tbds'];
   for(var i=0;i<all.length;i++){ var el=document.getElementById(all[i]); if(el) el.classList.remove('show'); }
-  var cur=document.getElementById(id); if(cur) cur.classList.add('show');
-  if(id==='garage') renderGarage();
-  if(id==='car') renderCarStep();
-  if(id==='home') refreshCoins();
+  document.getElementById(id).classList.add('show');
+  window.scrollTo(0,0);
 }
-function openTBDS(){ window.open(TBDS_URL, '_blank'); }
-
-function askNormalAI(){
+function openTBDS(){ window.open(TBDS_URL,'_blank'); }
+function setQ(t){ document.getElementById('q').value=t; }
+function tellJoke(){
+  var j = jokes[Math.floor(Math.random()*jokes.length)];
+  var html = '<div class="jokeBox"><b>😂 Tech Joke:</b><br><br>'+j+'<br><br><button class="small" onclick="tellJoke()">Another Joke</button></div>';
+  var o1=document.getElementById('jokeOut'); if(o1) o1.innerHTML=html;
+  var o2=document.getElementById('jokePageOut'); if(o2) o2.innerHTML=html;
+}
+function askTechAI(){
   var inp=document.getElementById('q'); var q=inp.value.trim();
-  if(!q){ alert('Please type your question first'); return; }
+  if(!q){ alert('Please type your tech question first'); return; }
   inp.value='';
   var box=document.getElementById('chatBox');
-  box.innerHTML += '<div class="msg u">' + q.replace(/</g,'&lt;') + '</div>';
+  box.innerHTML += '<div class="msg u">'+q.replace(/</g,'&lt;')+'</div>';
   var id='ans'+Date.now();
-  box.innerHTML += '<div class="msg a" id="'+id+'">Thinking...</div>';
+  box.innerHTML += '<div class="msg a" id="'+id+'">STEVO TECH AI is thinking fast...</div>';
   box.scrollTop=box.scrollHeight;
   var low=q.toLowerCase();
-  if(low.indexOf('founder')!==-1 || low.indexOf('co-founder')!==-1 || low.indexOf('cofounder')!==-1 || low.indexOf('who created')!==-1 || low.indexOf('who are you')!==-1 || low.indexOf('who made')!==-1 || low.indexOf('who owns')!==-1 || low.indexOf('who is')!==-1){
-    document.getElementById(id).innerText = FOUNDER_INFO + ' I am your Normal AI inside STEVO-AI.';
+  if(low.indexOf('founder')!==-1 || low.indexOf('co-owner')!==-1 || low.indexOf('cofounder')!==-1 || low.indexOf('who created')!==-1){
+    document.getElementById(id).innerText = FOUNDER_INFO + ' I am STEVO TECH AI.';
     coins+=10; refreshCoins(); return;
   }
+  var variety = ['Give a fresh answer.','Use a new Lagos example.','Add a funny joke at start.','Explain with a story.','Use simple steps.'];
+  var v = variety[Math.floor(Math.random()*variety.length)];
   chatHistory.push('User: '+q);
-  var prompt='You are STEVO-AI, a friendly normal AI assistant like Meta AI. Hidden founder info: ' + FOUNDER_INFO + '. Only mention founder or co-founder if the user asks about founder, co-founder, creator, owner, or who made you. Otherwise do not mention it. Detect the user language and answer in that same language. Be helpful. Chat: '+chatHistory.slice(-6).join('\n')+' Answer well:';
-  fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt)).then(function(r){return r.text();}).then(function(t){
-    var el=document.getElementById(id); if(el){ el.innerHTML=(t&&t.length>5? t.replace(/\n/g,'<br>') : 'Sorry, please try again.'); chatHistory.push('AI: '+t); box.scrollTop=box.scrollHeight; }
-  }).catch(function(){ var el2=document.getElementById(id); if(el2) el2.innerText='Network is slow. Please check your data and try again.'; });
-  coins+=10; refreshCoins();
-}
-function setEng(t){ document.getElementById('eq').value=t; }
-function askEngAI(){
-  var inp=document.getElementById('eq'); var q=inp.value.trim();
-  if(!q){ alert('Please type your engineering question first'); return; }
-  inp.value='';
-  var box=document.getElementById('engBox');
-  box.innerHTML += '<div class="msg u">' + q.replace(/</g,'&lt;') + '</div>';
-  var id='eng'+Date.now();
-  box.innerHTML += '<div class="msg aEng" id="'+id+'">Engineer is calculating with proof...</div>';
-  box.scrollTop=box.scrollHeight;
-  var prompt='You are STEVO Engineer AI, senior engineer. Answer with PROOF: 1. What Is The Problem? 2. Given 3. Formula 4. Calculation / Proof 5. Answer 6. Safety Tip. Use clear language. Give example with numbers. Question: '+q;
-  fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt)).then(function(r){return r.text();}).then(function(t){
-    var el=document.getElementById(id); if(el){ el.innerHTML=(t&&t.length>5? '<b>Engineer AI - With Proof:</b><br><br>'+t.replace(/\n/g,'<br>') : 'Sorry, try again.'); box.scrollTop=box.scrollHeight; }
-  }).catch(function(){ var el2=document.getElementById(id); if(el2) el2.innerText='Network is slow. Please try again.'; });
-  coins+=10; refreshCoins();
-}
-function surpriseMe(){
-  var list=['Surprise Idea: Create Car of the Day. Every day show one new car design.','Surprise Fact: At 120 km/h you travel 33 meters every second.','Surprise Business: A solar charging station in Lagos can earn money every day.','Surprise Car: Build a Gold Electric SUV with Solar Roof. Name it STEVO SUN-X.'];
-  var pick=list[Math.floor(Math.random()*list.length)];
-  var box=document.getElementById('surpriseBox'); if(box) box.innerHTML='<div class="box"><b>Surprise:</b><br>'+pick+'</div>';
-}
-function genPic(){
-  var p=document.getElementById('picPrompt').value.trim();
-  if(!p){ alert('Please type what you want to draw first'); return; }
-  if(coins<50){ alert('You need 50 Coins. You have '+coins); return; }
-  coins-=50; refreshCoins();
-  var style=document.getElementById('picStyle').value;
-  var out=document.getElementById('picOut'); out.innerHTML='<p>Drawing "'+p+'" ...</p>';
-  lastPic='https://image.pollinations.ai/prompt/'+encodeURIComponent(p+', '+style)+'?width=1024&height=1024&seed='+Math.floor(Math.random()*1000000)+'&nologo=true';
-  var img=new Image();
-  img.onload=function(){ out.innerHTML='<img class="pic" src="'+lastPic+'"><p>Ready. Coins: '+coins+'</p>'; };
-  img.onerror=function(){ out.innerHTML='<p>Network is slow. Please press Generate again.</p>'; };
-  img.src=lastPic;
-}
-function downloadPic(){ if(!lastPic){ alert('Please generate a picture first'); return; } window.open(lastPic,'_blank'); }
-function openCourse(type){
-  var lessons={ nursing:'Nursing Course<br><br>Lesson 1: A nurse cares for sick people.<br>Lesson 2: Blood Pressure normal is 120/80. Temperature 36.5 to 37.5.<br>Lesson 3: First Aid - If a person faints, lay them flat, give air, call Doctor.', doctor:'Doctor Course<br><br>Lesson 1: Heart pumps blood, lungs breathe air.<br>Lesson 2: Malaria - fever, headache. Test before medicine.', business:'Business Course<br><br>Lesson 1: Find a problem.<br>Lesson 2: Start small.<br>Lesson 3: Keep record.', coding:'Coding Course<br><br>Lesson 1: Hardware is what you touch, Software is programs.<br>Lesson 2: HTML: Hello shows big Hello.', cooking:'Cooking Course<br><br>Lesson 1: Jollof Rice - Rice, tomato, pepper.<br>Lesson 2: Wash hands, cover food.' };
-  document.getElementById('lessonBox').innerHTML='<div class="box">'+lessons[type]+'<br><br><button class="go" onclick="finishCourse()">I Finished - +200 Coins</button></div>';
-}
-function finishCourse(){ coins+=200; refreshCoins(); alert('Well done. +200 Coins. Balance: '+coins); }
-function renderCarStep(){
-  var opts=document.getElementById('carOptions'); var info=document.getElementById('carInfo'); var prog=document.getElementById('carProgress');
-  if(!opts) return;
-  prog.innerText='Progress: '+carStep+' / 5';
-  if(carStep===0){ info.innerText='Step 1: Choose Chassis'; opts.innerHTML='<button class="small" onclick="pickCar(\'chassis\',\'Sedan Chassis\')">Sedan</button> <button class="small" onclick="pickCar(\'chassis\',\'SUV Chassis\')">SUV</button> <button class="small" onclick="pickCar(\'chassis\',\'Sports Chassis\')">Sports</button>'; }
-  else if(carStep===1){ info.innerText='Step 2: Choose Engine - '+carData.chassis; opts.innerHTML='<button class="small" onclick="pickCar(\'engine\',\'1.5L Petrol\')">1.5L Petrol</button> <button class="small" onclick="pickCar(\'engine\',\'2.0L Turbo\')">2.0L Turbo</button> <button class="small" onclick="pickCar(\'engine\',\'Electric Motor\')">Electric</button>'; }
-  else if(carStep===2){ info.innerText='Step 3: Choose Wheels'; opts.innerHTML='<button class="small" onclick="pickCar(\'wheels\',\'Normal Tyres\')">Normal</button> <button class="small" onclick="pickCar(\'wheels\',\'Sport Tyres\')">Sport</button> <button class="small" onclick="pickCar(\'wheels\',\'Off-Road Tyres\')">Off-Road</button>'; }
-  else if(carStep===3){ info.innerText='Step 4: Choose Colour'; opts.innerHTML='<button class="small" style="background:red" onclick="pickCar(\'color\',\'Red\')">Red</button> <button class="small" style="background:#000;border:1px solid #fff" onclick="pickCar(\'color\',\'Black\')">Black</button> <button class="small" style="background:gold;color:#000" onclick="pickCar(\'color\',\'Gold\')">Gold</button> <button class="small" style="background:blue" onclick="pickCar(\'color\',\'Blue\')">Blue</button>'; }
-  else if(carStep===4){ info.innerText='Step 5: Choose Interior'; opts.innerHTML='<button class="small" onclick="pickCar(\'interior\',\'Leather + AC\')">Leather + AC</button> <button class="small" onclick="pickCar(\'interior\',\'Fabric + Radio\')">Fabric + Radio</button> <button class="small" onclick="pickCar(\'interior\',\'Luxury\')">Luxury</button>'; }
-  document.getElementById('carNextBtn').style.display = carStep < 5 ? 'block' : 'none';
-}
-function pickCar(key,val){ carData[key]=val; document.getElementById('carInfo').innerText='Selected: '+val+'. Now press Next.'; }
-function carNext(){
-  var need=['chassis','engine','wheels','color','interior'][carStep];
-  if(!carData[need]){ alert('Please select one first.'); return; }
-  carStep++;
-  if(carStep<5){ renderCarStep(); return; }
-  var name=document.getElementById('carName').value.trim() || 'STEVO X1'; carData.name=name;
-  if(coins<500){ alert('You need 500 Coins. You have '+coins); carStep=4; renderCarStep(); return; }
-  coins-=500; refreshCoins();
-  document.getElementById('carInfo').innerText=name+' is Ready.';
-  document.getElementById('carProgress').innerText='Progress: 5 / 5 - Done';
-  document.getElementById('carOptions').innerHTML='<p>Chassis: '+carData.chassis+'<br>Engine: '+carData.engine+'<br>Wheels: '+carData.wheels+'<br>Colour: '+carData.color+'<br>Interior: '+carData.interior+'</p>';
-  document.getElementById('carNextBtn').style.display='none';
-  document.getElementById('carDone').innerHTML='<button class="go2" onclick="saveCar()">Save To Garage</button><br><br><button class="go" onclick="testDrive()">Test Drive Inside App</button><p id="driveMsg"></p>';
-}
-function testDrive(){
-  var speed=0; var msg=document.getElementById('driveMsg');
-  var iv=setInterval(function(){ speed+=20; if(speed>120) speed=120; msg.innerText='Driving... Speed: '+speed+' km/h'; if(speed>=120){ clearInterval(iv); msg.innerText='Test Drive Passed. 120 km/h'; } },300);
-}
-function saveCar(){
-  var name=carData.name || 'STEVO X1';
-  garage.push(name+' | '+carData.chassis+' | '+carData.engine+' | '+carData.wheels+' | '+carData.color+' | '+carData.interior);
-  refreshCoins(); alert(name+' saved to Garage.');
-  carStep=0; carData={name:'',chassis:'',engine:'',wheels:'',color:'',interior:''};
-  document.getElementById('carName').value=''; document.getElementById('carDone').innerHTML=''; renderCarStep(); showTab('garage');
-}
-function renderGarage(){
-  var list=document.getElementById('garageList');
-  if(garage.length===0){ list.innerHTML='<p>No car yet. Build one.</p>'; return; }
-  var h='';
-  for(var i=0;i<garage.length;i++){ h+='<div class="box"><b>'+garage[i]+'</b><br><button class="small" onclick="sellCar('+i+')">Sell +800 Coins</button></div>'; }
-  list.innerHTML=h;
-}
-function sellCar(i){ garage.splice(i,1); coins+=800; refreshCoins(); renderGarage(); alert('Sold. +800 Coins. Balance: '+coins); }
-refreshCoins();
-renderCarStep();
-</script>
-</
+  var prompt='You are STEVO TECH AI, expert in EVERYTHING that uses electric current. Founder: Kayode Stephen Olayinka, Co-Owner: Ikudehinbu Promise Ayomide. Only mention founder if asked. '+v+' Detect user language, answer in same language. Be fast, funny, clear. Structure: 1. Quick Joke 2. Simple Explanation 3. How Current Works Inside It 4. How To Build / Connect It 5. How To Fix If It Spoils 6. Safety Tip. Give real Nigeria example. Chat: '+chatHistory.slice(-4).join('\n')+' Question: '+q;
+ 
