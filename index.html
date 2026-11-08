@@ -1,241 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO-AI + TBDS - Founder Kayode Stephen Olayinka</title>
+<title>STEVO-AI REAL - Founder Kayode Stephen Olayinka</title>
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#0f0f1a;color:#fff;padding:10px;padding-bottom:30px}
-h1{text-align:center;color:#00ffcc;font-size:22px;margin:5px}
-.sub{text-align:center;color:#aaa;font-size:12px;margin:0}
-.top{background:#1c1c2e;padding:12px;border-radius:14px;text-align:center;font-size:13px;line-height:1.7;border:1px solid #ffcc00;margin:10px 0}
-.top b{color:#00ffcc}.top b.gold{color:#ffd700}
-.tbdsBox{background:linear-gradient(135deg,#ffcc00,#ff8800);color:#000;padding:13px;border-radius:14px;text-align:center;margin:10px 0}
-.tbdsBox b{font-size:16px}
-.tbdsBox button{background:#000;color:#ffcc00;border:none;padding:11px 16px;border-radius:10px;font-weight:bold;margin:5px 3px;font-size:13px}
-.tbdsBox button.white{background:#fff;color:#000}
-.dl{background:#00ffcc;color:#000;padding:12px;border-radius:14px;text-align:center;margin:10px 0}
-.dl button{background:#000;color:#00ffcc;border:none;padding:11px 18px;border-radius:10px;font-weight:bold;margin-top:6px;font-size:14px}
-.tabs{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}
-.tabs button{flex:1;padding:10px 3px;border:none;border-radius:11px;background:#222;color:#fff;font-weight:bold;font-size:11px;min-width:58px}
-.tabs button.active{background:#00ffcc;color:#000}
-.card{background:#1c1c2e;padding:13px;border-radius:16px;margin-bottom:12px}
-input,select{width:100%;padding:11px;border-radius:10px;border:none;margin:6px 0;background:#2a2a3f;color:#fff;font-size:14px}
-button.go{width:100%;padding:12px;border:none;border-radius:12px;background:#00ffcc;font-weight:bold;font-size:14px;color:#000;margin-top:5px}
-button.go2{background:#ffcc00}
-button.small{padding:6px 10px;border:none;border-radius:8px;background:#333;color:#00ffcc;font-size:12px;margin:2px}
-.item{background:#2a2a3f;padding:11px;border-radius:12px;margin:7px 0;display:flex;gap:10px;align-items:center}
-.item .ico{font-size:30px}
-.item .info{flex:1}
-.item .info b{font-size:14px}
-.item .info span{font-size:12px;color:#aaa;display:block}
-.avatar{width:50px;height:50px;border-radius:50%;background:#444;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;border:2px solid #00ffcc}
-.progress{height:10px;background:#111;border-radius:10px;overflow:hidden;margin:6px 0}
-.progress div{height:100%;background:#00ffcc;width:0%}
-#chatBox{height:230px;overflow-y:auto;background:#111;padding:10px;border-radius:12px}
-.msg{padding:8px 10px;border-radius:10px;margin:6px 0;font-size:14px;line-height:1.4;white-space:pre-wrap;word-break:break-word}
-.user{background:#00ffcc;color:#000;margin-left:auto}.ai{background:#2a2a3f}
-.lesson{background:#111;padding:10px;border-radius:10px;margin:6px 0;font-size:13px;line-height:1.6}
-.small{font-size:11px;color:#888;text-align:center}
-.statusBox{background:#111;padding:10px;border-radius:10px;margin:8px 0;font-size:13px;line-height:1.6}
+body{margin:0;background:#0f0f1a;color:#fff;font-family:Arial;padding:12px}
+h1{text-align:center;color:#00ffcc;margin:5px}
+.top{background:#1c1c2e;padding:12px;border-radius:12px;text-align:center;border:1px solid #ffcc00;line-height:1.7;font-size:13px}
+button{border:none;border-radius:10px;padding:12px;font-weight:bold;cursor:pointer}
+.tab{background:#222;color:#fff;flex:1;padding:10px;font-size:12px}
+.tab.on{background:#00ffcc;color:#000}
+.card{background:#1c1c2e;padding:12px;border-radius:12px;margin-top:10px}
+input,select,textarea{width:100%;padding:11px;border-radius:10px;border:none;background:#2a2a3f;color:#fff;margin:6px 0;font-size:14px}
+.go{width:100%;background:#00ffcc;color:#000}
+.go2{width:100%;background:#ffcc00;color:#000}
+.small{background:#333;color:#00ffcc;padding:7px 10px;font-size:12px;margin:2px}
+.box{background:#2a2a3f;padding:10px;border-radius:10px;margin:6px 0}
+#chatBox{height:220px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
+.msg{padding:8px;border-radius:8px;margin:5px 0;font-size:14px;line-height:1.4;white-space:pre-wrap}
+.u{background:#00ffcc;color:#000;margin-left:20px}.a{background:#2a2a3f}
+.warn{background:#2a1a00;border:1px solid #ffcc00;padding:10px;border-radius:10px;font-size:13px;line-height:1.6;margin-top:10px}
 </style>
 </head>
 <body>
-<h1>🤖 STEVO-AI</h1>
-<p class="sub">Connected to TBDS • Learn • Build Car • Build Robot • No 404</p>
+<h1>🤖 STEVO-AI - REAL</h1>
+<div class="top">👑 FOUNDER: <b style="color:#ffd700">Kayode Stephen Olayinka</b><br>🤝 CO-OWNER: Ikudehinbu Promise<br><span style="font-size:12px;color:#aaa">No fake balance • No fake customers • Only real things</span></div>
 
-<!-- TBDS CONNECTED - MUST BE HERE -->
-<div class="tbdsBox">
-<b>🏭 TBDS - CONNECTED</b><br>
-<span style="font-size:12px">TBDS Engineering Hub • Founder: Kayode Stephen Olayinka • Co-Owner: Ikudehinbu Promise</span><br>
-<span style="font-size:12px">Status: <b id="tbdsStatus">🟡 Checking TBDS...</b></span><br>
-<button onclick="openTBDS()">🏭 OPEN TBDS ➤</button>
-<button class="white" onclick="checkTBDS()">🔄 CHECK CONNECTION</button>
-<button onclick="showTab('tbds')">👁️ SEE TBDS INSIDE APP</button>
-<p id="tbdsMsg" style="font-size:12px;margin:6px 0 0"></p>
+<div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
+<button class="tab on" id="tAI" onclick="show('ai')">💬 Real AI</button>
+<button class="tab" id="tLearn" onclick="show('learn')">📚 Real Learn</button>
+<button class="tab" id="tBuild" onclick="show('build')">🏭 Real Build Plan</button>
+<button class="tab" id="tOrder" onclick="show('order')">🧑‍🤝‍🧑 Real Order</button>
+<button class="tab" id="tTBDS" onclick="show('tbds')">🏭 TBDS</button>
 </div>
 
-<div class="dl"><b>📥 DOWNLOAD STEVO-AI APP</b><br><span style="font-size:12px">Install for phone like WhatsApp</span><br><button onclick="showDownload()">📥 HOW TO DOWNLOAD</button><p id="dlMsg" style="font-size:12px;margin:6px 0 0"></p></div>
-
-<div class="top">👑 <b class="gold">FOUNDER:</b> <b class="gold">Kayode Stephen Olayinka</b><br>🤝 <b>CO-OWNER:</b> Ikudehinbu Promise<br>💰 Balance: ₦<span id="balance">125000</span> | 👥 Customers: <span id="custCount">4</span> | 📚 Courses Done: <span id="myCourseCount">0</span> | ✅ Built: <span id="builtCount">0</span></div>
-
-<div class="tabs">
-<button id="bAI" class="active" onclick="showTab('ai')">💬 AI</button>
-<button id="bTBDS" onclick="showTab('tbds')">🏭 TBDS</button>
-<button id="bCourses" onclick="showTab('courses')">📚 Courses</button>
-<button id="bCar" onclick="showTab('car')">🚗 Car</button>
-<button id="bRobot" onclick="showTab('robot')">🤖 Robot</button>
-<button id="bWorkers" onclick="showTab('workers')">👩‍⚕️ Workers</button>
-<button id="bCust" onclick="showTab('cust')">🧑‍🤝‍🧑 Customers</button>
-</div>
-
+<!-- REAL AI -->
 <div id="ai" class="card">
-<h3 style="margin:0 0 6px">💬 Ask STEVO-AI</h3>
-<div id="chatBox"><div class="msg ai">Hello! I be STEVO-AI. Founded by Kayode Stephen Olayinka. Connected to TBDS. Ask me anything!</div></div>
-<input id="chatInput" placeholder="Ask me anything...">
-<button class="go" onclick="askAI()">Ask STEVO-AI ➤</button>
-<button class="small" onclick="clearChat()">🗑 Clear Chat</button>
+<b>💬 Real AI - Answers From Internet, Not Fake Script</b>
+<p style="font-size:13px;color:#ccc">This AI go fetch real answer from internet. If network fail, e go tell you truth, e no go fake answer.</p>
+<div id="chatBox"><div class="msg a">Hello Founder. Ask me real question - e.g "How to check BP?" I go fetch real answer.</div></div>
+<input id="q" placeholder="Ask real question...">
+<button class="go" onclick="askReal()">Ask Real AI ➤</button>
 </div>
 
-<!-- TBDS TAB -->
+<!-- REAL LEARN -->
+<div id="learn" class="card" style="display:none">
+<b>📚 Real Learn - Real Knowledge You Fit Use</b>
+<p style="font-size:13px;color:#ccc">No fake certificate. Real knowledge. If you learn am, you go sabi am for real life.</p>
+<div class="box"><b>👩‍⚕️ Nursing - Real</b><br>BP normal: 120/80. Check with BP machine on arm, sit down, rest 5 mins before.<br>First Aid: If person faint, lay flat, raise legs small, give air, call for help. Do NOT give water if unconscious.<br><button class="small" onclick="askTopic('How to check blood pressure correctly step by step')">Ask AI More About Nursing</button></div>
+<div class="box"><b>💼 Business - Real</b><br>Real way: 1. Find problem for your area 2. Start small with money you get 3. Keep record of every sale 4. Give good service so customers return.<br><button class="small" onclick="askTopic('How to start small business in Lagos with 50000 naira')">Ask AI More About Business</button></div>
+<div class="box"><b>🔧 Car Maintenance - Real</b><br>Check oil every week, check tyre pressure, check water for radiator, check brake. If brake dey make sound, go mechanic immediately - no drive am.<br><button class="small" onclick="askTopic('How to maintain a car for Lagos road')">Ask AI More About Car</button></div>
+</div>
+
+<!-- REAL BUILD PLAN -->
+<div id="build" class="card" style="display:none">
+<b>🏭 Real Build Plan - For Real Workshop</b>
+<p style="font-size:13px;color:#ccc">This no be fake building animation. This na REAL plan wey you go carry go real workshop. Website no fit build real car, but plan na real.</p>
+<select id="planType"><option>Small Car - Real Plan</option><option>Hospital Robot - Real Plan</option><option>House Robot - Real Plan</option></select>
+<input id="planName" placeholder="Your project name e.g My First Car">
+<button class="go" onclick="makePlan()">📋 MAKE REAL PLAN</button>
+<div id="planOut"></div>
+<div class="warn">⚠️ <b>Truth:</b> To build for real life, you need: Real money for parts, Real workshop, Real engineer/mechanic, Real safety test. Do NOT try to build engine alone without expert. Safety first.</div>
+</div>
+
+<!-- REAL ORDER -->
+<div id="order" class="card" style="display:none">
+<b>🧑‍🤝‍🧑 Real Order - Real Person Go Contact You</b>
+<p style="font-size:13px;color:#ccc">No fake customers here. If a REAL person wants to order, dem go fill this form, e go open WhatsApp to send message to YOU directly. Na you go reply them for real.</p>
+<input id="custName" placeholder="Your real name">
+<input id="custPhone" placeholder="Your real phone e.g 0803...">
+<select id="custWant"><option>I want to learn a course</option><option>I want a Car Build Plan</option><option>I want a Robot Build Plan</option><option>I want to join STEVO-AI / TBDS</option></select>
+<textarea id="custMsg" placeholder="Write wetin you really want..."></textarea>
+<button class="go2" onclick="sendRealOrder()">📤 SEND REAL ORDER TO FOUNDER (WhatsApp)</button>
+<p style="font-size:12px;color:#aaa">When you press am, e go open WhatsApp with your message. You go press Send for WhatsApp. Founder go see am for real.</p>
+<div id="myOrders"></div>
+</div>
+
+<!-- TBDS -->
 <div id="tbds" class="card" style="display:none">
-<h3 style="margin:0">🏭 TBDS - TBDS Engineering Hub</h3>
-<p style="font-size:13px;color:#ccc">TBDS na the factory side of STEVO-AI. Na here we build Car, Robot, and real projects.</p>
-<div class="statusBox">
-<b>🔗 TBDS Link:</b><br><span id="tbdsLinkText">https://stevoai23.github.io/TBDS/</span><br><br>
-<b>📋 Wetin TBDS Go Do:</b><br>
-✅ Build Car - From scratch with real parts<br>
-✅ Build Robot - Hospital, House, Factory<br>
-✅ Engineering Projects - Real life<br>
-✅ Courses - For all people<br>
-✅ Customers - See orders<br><br>
-<b>Status:</b> <span id="tbdsStatus2">Checking...</span>
-</div>
-<button class="go go2" onclick="openTBDS()">🏭 OPEN TBDS WEBSITE ➤</button>
-<button class="go" onclick="tryTBDSInside()">👁️ TRY OPEN TBDS INSIDE APP (Safe)</button>
-<div id="tbdsInside"></div>
-<p style="font-size:12px;color:#aaa">If TBDS never publish, e go tell you, e NO go show 404 page. Follow steps below to publish TBDS.</p>
-<div class="statusBox">
-<b>🛠️ If TBDS Show Not Connected:</b><br>
-1. Go github.com/stevoai23/TBDS<br>
-2. Check file na <b>index.html</b> (small letter)<br>
-3. Settings &gt; Pages &gt; Branch <b>main</b> &gt; <b>/(root)</b> &gt; Save<br>
-4. Wait 1 minute, press CHECK CONNECTION again
-</div>
-<button class="go" onclick="sendToTBDS()">📤 SEND MY CAR / ROBOT TO TBDS</button>
-<div id="tbdsSendMsg" style="font-size:13px;margin-top:8px"></div>
+<b>🏭 TBDS - Real Link</b>
+<p style="font-size:13px;color:#ccc">TBDS na your real second site. If e never publish, e go show 404 for new tab - that na truth, we no go hide am.</p>
+<button class="go2" onclick="window.open('https://stevoai23.github.io/TBDS/','_blank')">🏭 OPEN REAL TBDS ➤</button>
+<p style="font-size:12px;color:#aaa">Link: https://stevoai23.github.io/TBDS/</p>
 </div>
 
-<div id="courses" class="card" style="display:none">
-<h3 style="margin:0">📚 COURSES - For EVERYBODY</h3>
-<input id="searchCourse" placeholder="🔍 Search e.g Nursing, Business..." oninput="renderCourses()">
-<div id="coursesList"></div><div id="courseLesson"></div>
-</div>
-
-<div id="car" class="card" style="display:none">
-<h3 style="margin:0">🚗 Build Your Own Car From Scratch</h3>
-<select id="carType"><option>Small Sedan - Lagos (Cheap)</option><option>SUV - Big &amp; Strong</option><option>Electric Car - No Fuel</option><option>Sports Car - Fast &amp; Fine</option><option>Pickup - For Work</option><option>Keke - 3 Wheels</option></select>
-<input id="carName" placeholder="Car name e.g STEVO X1">
-<input id="carColor" placeholder="Color e.g Red, Black, Gold">
-<button class="go" onclick="startBuild('car')">🏭 START BUILDING CAR</button>
-<div id="carProgress"></div><div id="carResult"></div>
-</div>
-
-<div id="robot" class="card" style="display:none">
-<h3 style="margin:0">🤖 Build Your Own Robot From Scratch</h3>
-<select id="robotType"><option>Hospital Robot - Help Nurse &amp; Doctor</option><option>House Robot - Clean &amp; Cook Help</option><option>Factory Robot - Carry Heavy Things</option><option>Security Robot - Guard House</option><option>Teacher Robot - Teach Children</option></select>
-<input id="robotName" placeholder="Robot name e.g STEVO-BOT 1">
-<button class="go go2" onclick="startBuild('robot')">🤖 START BUILDING ROBOT</button>
-<div id="robotProgress"></div><div id="robotResult"></div>
-</div>
-
-<div id="workers" class="card" style="display:none">
-<h3 style="margin:0">👩‍⚕️ Workers - Popular Jobs</h3>
-<p style="font-size:12px;color:#aaa">Look real but NOT real - na AI Workers. No real human photo.</p>
-<div id="workersList"></div>
-<button class="go" onclick="hireWorker()">➕ Hire New Worker</button>
-</div>
-
-<div id="cust" class="card" style="display:none">
-<h3 style="margin:0">🧑‍🤝‍🧑 Customers - See Them</h3>
-<div id="custList"></div>
-<input id="custName" placeholder="Add new customer name e.g Ada">
-<select id="custWant"><option>Wants to buy Car</option><option>Wants to buy Robot</option><option>Wants to learn Course</option><option>Wants Hospital Robot</option></select>
-<button class="go go2" onclick="addCustomer()">➕ Add New Customer</button>
-<div id="custChat" style="margin-top:10px;background:#111;padding:10px;border-radius:10px;min-height:60px;font-size:13px;line-height:1.5">Select a customer to talk...</div>
-</div>
-
-<p class="small">STEVO-AI + TBDS FINAL v14 • FOUNDER: Kayode Stephen Olayinka • CO-OWNER: Ikudehinbu Promise • TBDS Connected</p>
+<p style="text-align:center;font-size:11px;color:#888">STEVO-AI REAL • Founder: Kayode Stephen Olayinka • No Fake</p>
 
 <script>
-var TBDS_URL = "https://stevoai23.github.io/TBDS/";
-let balance=125000, myCourses=0, built=0;
-function showDownload(){ document.getElementById('dlMsg').innerHTML='<b>Android Chrome:</b> Press ⋮ &gt; Add to Home Screen &gt; Install<br><b>iPhone Safari:</b> Press Share ⬆️ &gt; Add to Home Screen'; }
-function openTBDS(){ window.open(TBDS_URL, '_blank'); document.getElementById('tbdsMsg').innerHTML='✅ Opening TBDS... If e show 404 for new tab, na TBDS never publish yet. Follow steps for TBDS tab.'; }
-function checkTBDS(){
-  document.getElementById('tbdsStatus').innerText='🟡 Checking...';
-  document.getElementById('tbdsStatus2').innerText='Checking...';
-  fetch(TBDS_URL, {method:'HEAD', mode:'no-cors'}).then(function(){
-    document.getElementById('tbdsStatus').innerText='✅ TBDS Connected - Link Ready';
-    document.getElementById('tbdsStatus2').innerText='✅ Connected - Press OPEN TBDS';
-    document.getElementById('tbdsMsg').innerText='✅ TBDS link dey. Press OPEN TBDS to see am.';
-  }).catch(function(){
-    document.getElementById('tbdsStatus').innerText='⚠️ TBDS Not Yet Published - Check Steps';
-    document.getElementById('tbdsStatus2').innerText='⚠️ Not Yet Published';
-    document.getElementById('tbdsMsg').innerText='⚠️ TBDS never publish yet. Go TBDS tab, follow 4 steps.';
-  });
-  setTimeout(function(){ if(document.getElementById('tbdsStatus').innerText.indexOf('Checking')!==-1){ document.getElementById('tbdsStatus').innerText='✅ TBDS Link Ready - Press OPEN TBDS'; document.getElementById('tbdsStatus2').innerText='✅ Link Ready'; } },2000);
+function show(id){
+  var all=['ai','learn','build','order','tbds'];
+  for(var i=0;i<all.length;i++){ document.getElementById(all[i]).style.display = all[i]===id ? 'block' : 'none'; }
+  var tabs=['tAI','tLearn','tBuild','tOrder','tTBDS'];
+  for(var j=0;j<tabs.length;j++){ document.getElementById(tabs[j]).classList.remove('on'); }
+  var m={ai:'tAI',learn:'tLearn',build:'tBuild',order:'tOrder',tbds:'tTBDS'};
+  document.getElementById(m[id]).classList.add('on');
 }
-function tryTBDSInside(){
-  var box=document.getElementById('tbdsInside');
-  box.innerHTML='<p style="font-size:13px;color:#ffcc00">Trying to load TBDS inside app safely...</p><div style="background:#111;padding:10px;border-radius:10px"><a href="'+TBDS_URL+'" target="_blank" style="color:#00ffcc;font-weight:bold">🏭 Click here to open TBDS - '+TBDS_URL+'</a><br><br><span style="font-size:12px;color:#aaa">We no use iframe again because iframe dey cause 404 inside app. This safe link go open TBDS for new tab, your STEVO-AI go still dey open.</span></div>';
+function askTopic(t){ show('ai'); document.getElementById('q').value=t; askReal(); }
+function askReal(){
+  var inp=document.getElementById('q'); var q=inp.value.trim(); if(!q){ alert('Type real question first'); return; } inp.value='';
+  var box=document.getElementById('chatBox');
+  box.innerHTML+='<div class="msg u">'+q.replace(/</g,'&lt;')+'</div><div class="msg a" id="thinking">Fetching real answer from internet...</div>'; box.scrollTop=box.scrollHeight;
+  var low=q.toLowerCase();
+  if(low.indexOf('founder')!==-1 || low.indexOf('who created')!==-1){ var e=document.getElementById('thinking'); if(e){ e.innerHTML='👑 My Founder na Kayode Stephen Olayinka. Co-Owner na Ikudehinbu Promise.'; e.removeAttribute('id'); } return; }
+  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are STEVO-AI, founded by Kayode Stephen Olayinka. Give real, practical, correct answer. No fake. Question: '+q))
+  .then(function(r){ if(!r.ok) throw new Error('fail'); return r.text(); })
+  .then(function(t){ var e2=document.getElementById('thinking'); if(e2){ e2.innerHTML=t.replace(/\n/g,'<br>'); e2.removeAttribute('id'); } box.scrollTop=box.scrollHeight; })
+  .catch(function(){ var e3=document.getElementById('thinking'); if(e3){ e3.innerText='Network fail. This na truth - I no fit fetch real answer without internet. Check your data and try again. I no go fake answer.'; e3.removeAttribute('id'); } });
 }
-function sendToTBDS(){
-  var carName=document.getElementById('carName').value.trim()||'STEVO X1';
-  document.getElementById('tbdsSendMsg').innerHTML='✅ <b>Sent to TBDS!</b><br>Project: '+carName+'<br>From: STEVO-AI (Founder Kayode Stephen Olayinka)<br>TBDS go receive am for factory. Open TBDS to see your projects.<br><br><button class="small" onclick="openTBDS()">🏭 Open TBDS Now</button>';
+document.getElementById('q').addEventListener('keypress',function(e){ if(e.key==='Enter') askReal(); });
+function makePlan(){
+  var type=document.getElementById('planType').value;
+  var name=document.getElementById('planName').value.trim()||'My Project';
+  var plan='';
+  if(type.indexOf('Car')!==-1){ plan='<b>REAL PLAN: '+name+'</b><br><br><b>1. Parts you go buy for real:</b><br>• Chassis - Steel frame (buy from workshop)<br>• Engine - 1.5L Petrol (Tokunbo or new, check with mechanic)<br>• Tyres - 195/65 R15 x4<br>• Battery - 12V 70Ah<br>• Brake - Disc front, drum rear<br><br><b>2. Real Cost (Estimate, Lagos):</b><br>Parts ~₦1,800,000 + Labour ~₦400,000 + Paint ~₦300,000 = ~₦2,500,000<br><br><b>3. Real Steps:</b><br>1. Carry this plan go real mechanic workshop<br>2. Mechanic go check, tell you wetin to change<br>3. Buy parts with receipt<br>4. Build small small, test brake, test engine<br>5. Do NOT drive until mechanic test am.<br><br><b>4. Who you need for real:</b> Mechanic, Electrician, Welder, Painter.'; }
+  else if(type.indexOf('Hospital')!==-1){ plan='<b>REAL PLAN: '+name+'</b><br><br><b>Parts:</b> Aluminium frame, 6 servo motors, Raspberry Pi brain, Camera, Ultrasonic sensor, Battery 24V<br><b>Real Cost:</b> ~₦1,800,000<br><b>Real Steps:</b> 1. Build frame 2. Add motors 3. Program - Robot must stop if person dey front 4. Test with Nurse/Doctor present 5. Never leave robot alone with patient without adult.'; }
+  else { plan='<b>REAL PLAN: '+name+'</b><br><br><b>Parts:</b> Frame, 2 wheels + motors, Arduino/Raspberry Pi, Sensors, Battery<br><b>Real Cost:</b> ~₦1,200,000<br><b>Real Steps:</b> 1. Build frame 2. Add motors 3. Program simple movement 4. Test slowly for house.'; }
+  document.getElementById('planOut').innerHTML='<div style="background:#111;padding:10px;border-radius:10px;margin-top:8px;font-size:13px;line-height:1.6">'+plan+'<br><br><button class="go2" onclick="sendPlanToWhatsApp()">📤 Send This Plan To Founder For Real</button></div>';
 }
-let courses=[
-{title:"Nursing Course",ico:"👩‍⚕️",teacher:"Nurse Grace AI",level:"Beginner - 4 Weeks",desc:"Care for patients, BP, first aid",lessons:["What is Nursing? Nurse na person wey dey care for sick people with love.","How to check BP & Temperature - Normal BP na 120/80.","First Aid - If person faint, lay them down, give air, call Doctor."]},
-{title:"Doctor / Medicine Course",ico:"👨‍⚕️",teacher:"Dr. Ada AI",level:"Beginner - 6 Weeks",desc:"Body, sickness, drugs",lessons:["Human Body - Heart, lungs, brain, blood must work together.","Common Sickness - Malaria, Typhoid, Cold. Symptoms + treatment.","How Doctor Diagnose - Ask, check, test, then give drug. Never guess!"]},
-{title:"Business Course",ico:"💼",teacher:"Business Coach AI",level:"Beginner - 3 Weeks",desc:"Start business for Lagos with small money",lessons:["Find Problem - Business na to solve problem.","Small Money Business - POS, food, recharge card - start with ₦50k.","How to get Customers - Good service, WhatsApp, customers go bring friends."]},
-{title:"Computer / Coding Course",ico:"💻",teacher:"Coder AI",level:"Beginner - 4 Weeks",desc:"HTML, how apps work",lessons:["What is Computer? Hardware + Software.","HTML - How website start.","Build your first website - Write HTML, open for browser."]},
-{title:"Teaching Course",ico:"👩‍🏫",teacher:"Teacher Funke AI",level:"Beginner - 3 Weeks",desc:"How to teach children well",lessons:["Good Teacher - Patience, love, explain small small.","How to make class fun - Story, song, question.","Handle difficult child - No beat, talk, understand."]},
-{title:"Fashion Course",ico:"👗",teacher:"Designer Zara AI",level:"Beginner - 4 Weeks",desc:"Sewing, design, style",lessons:["Types of cloth - Ankara, lace, denim.","How to measure body - Chest, waist, hip.","Fashion business - Sew for friends, post for WhatsApp."]},
-{title:"Cooking / Chef Course",ico:"🍳",teacher:"Chef Amara AI",level:"Beginner - 3 Weeks",desc:"Nigerian food, baking, food business",lessons:["Jollof Rice - Rice, tomato, pepper, onion, seasoning.","Food Hygiene - Wash hand, clean pot, cover food.","Food Business - Cook small, sell for office."]},
-{title:"Engineering Course",ico:"🔧",teacher:"Engr. Tunde AI",level:"Beginner - 6 Weeks",desc:"How car, house, machine work",lessons:["What is Engineering? To build things wey go work for real life.","How to measure - Measure twice, cut once.","Safety - Helmet, glove, no work alone with electricity."]},
-{title:"Car Building Course",ico:"🚗",teacher:"Mechanic Musa AI",level:"Beginner - 4 Weeks",desc:"Car parts, engine, build car",lessons:["Car Parts - Engine, chassis, tyre, battery, brake.","Engine - Engine na heart of car.","Maintain car - Check oil, water, tyre every week."]},
-{title:"Robot Course",ico:"🤖",teacher:"Robot AI",level:"Beginner - 4 Weeks",desc:"Robot, AI, sensors",lessons:["What is Robot? Machine wey fit sense, think, act.","Robot Parts - Brain, motor, sensor, battery.","Robot Safety - Robot must not harm human. Always put stop button."]},
-{title:"Farming Course",ico:"🌾",teacher:"Farmer AI",level:"Beginner - 3 Weeks",desc:"Farming, poultry, fish",lessons:["Farming - Soil, seed, water, sun.","Poultry - Chicken need food, water, vaccine, clean house.","Sell your farm - Market, WhatsApp, keep record."]},
-{title:"Music / Content Course",ico:"🎤",teacher:"Creator AI",level:"Beginner - 2 Weeks",desc:"Sing, video, TikTok",lessons:["Find your voice - Sing wetin you love.","Make video with phone - Good light, clear sound.","Grow - Post every day, no give up."]}
-];
-let workers=[
-{name:"Dr. Ada AI",job:"Doctor",emoji:"👩‍⚕️",status:"Online",desc:"Teach Medicine, check safety"},
-{name:"Nurse Grace AI",job:"Nurse",emoji:"👩‍⚕️",status:"Online",desc:"Teach Nursing, care"},
-{name:"Engr. Tunde AI",job:"Engineer",emoji:"👨‍🔧",status:"Busy",desc:"Teach Engineering, build car"},
-{name:"Designer Zara AI",job:"Designer",emoji:"👩‍🎨",status:"Online",desc:"Teach Fashion, design car"},
-{name:"Mechanic Musa AI",job:"Mechanic",emoji:"👨‍🏭",status:"Online",desc:"Teach Car Building"},
-{name:"Teacher Funke AI",job:"Teacher",emoji:"👩‍🏫",status:"Online",desc:"Teach Teaching Course"},
-{name:"Chef Amara AI",job:"Chef",emoji:"👩‍🍳",status:"Online",desc:"Teach Cooking"},
-{name:"Business Coach AI",job:"Business Coach",emoji:"💼",status:"Online",desc:"Teach Business"}
-];
-let customers=[
-{name:"Ada from Lekki",emoji:"👩",want:"Wants to buy Car",msg:"Hello! I want Sedan, Red color. How much?",money:"₦2,500,000"},
-{name:"Musa from Kano",emoji:"👨",want:"Wants to buy Robot",msg:"I need Factory Robot to carry heavy bags.",money:"₦1,800,000"},
-{name:"Dr. Okonkwo - Hospital",emoji:"👨‍⚕️",want:"Wants Hospital Robot",msg:"We need Hospital Robot to help Nurse for night shift.",money:"₦3,200,000"},
-{name:"Chiamaka - Student",emoji:"👧",want:"Wants to learn Course",msg:"I want to learn Nursing Course. How I go start?",money:"₦50,000"}
-];
-function showTab(tab){
-  var all=['ai','tbds','courses','car','robot','workers','cust'];
-  for(var i=0;i<all.length;i++){ document.getElementById(all[i]).style.display = all[i]===tab ? 'block' : 'none'; }
-  var btns=['bAI','bTBDS','bCourses','bCar','bRobot','bWorkers','bCust'];
-  for(var j=0;j<btns.length;j++){ document.getElementById(btns[j]).classList.remove('active'); }
-  var m={ai:'bAI',tbds:'bTBDS',courses:'bCourses',car:'bCar',robot:'bRobot',workers:'bWorkers',cust:'bCust'};
-  document.getElementById(m[tab]).classList.add('active');
-  if(tab==='courses') renderCourses();
-  if(tab==='workers') renderWorkers();
-  if(tab==='cust') renderCust();
+function sendPlanToWhatsApp(){
+  var type=document.getElementById('planType').value;
+  var name=document.getElementById('planName').value.trim()||'My Project';
+  var text='Hello Founder Kayode, I want REAL plan for: '+type+' - Project: '+name+'. Abeg help me. From STEVO-AI.';
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
 }
-function renderCourses(){
-  var q=(document.getElementById('searchCourse').value||'').toLowerCase();
-  var html='';
-  for(var i=0;i<courses.length;i++){ var c=courses[i]; if((c.title+c.teacher).toLowerCase().indexOf(q)===-1) continue; html+='<div class="item"><div class="ico">'+c.ico+'</div><div class="info"><b>'+c.title+'</b><span>Teacher: '+c.teacher+' • '+c.level+'</span><span>'+c.desc+'</span></div><button class="small" onclick="openCourse('+i+')">START ▶</button></div>'; }
-  document.getElementById('coursesList').innerHTML = html || '<p>No course found.</p>';
+function sendRealOrder(){
+  var n=document.getElementById('custName').value.trim();
+  var p=document.getElementById('custPhone').value.trim();
+  var w=document.getElementById('custWant').value;
+  var m=document.getElementById('custMsg').value.trim();
+  if(!n || !p){ alert('Abeg put your real name and real phone, so Founder fit call you for real.'); return; }
+  var text='Hello Founder Kayode Stephen Olayinka, I be '+n+', my phone na '+p+'. I want: '+w+'. Message: '+m+'. From STEVO-AI REAL Order.';
+  // Save for real for this phone
+  var list=JSON.parse(localStorage.getItem('stevo_real_orders')||'[]');
+  list.push({name:n, phone:p, want:w, msg:m, date:new Date().toLocaleString()});
+  localStorage.setItem('stevo_real_orders', JSON.stringify(list));
+  showOrders();
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+  alert('Real order saved for this phone + WhatsApp go open. Press Send for WhatsApp, Founder go see am for real.');
+  document.getElementById('custName').value=''; document.getElementById('custPhone').value=''; document.getElementById('custMsg').value='';
 }
-function openCourse(idx){
-  var c=courses[idx]; var lh='';
-  for(var i=0;i<c.lessons.length;i++){ lh+='<p><b>Lesson '+(i+1)+':</b> '+c.lessons[i]+'</p>'; }
-  document.getElementById('courseLesson').innerHTML='<div class="lesson"><h3 style="margin:0">'+c.ico+' '+c.title+'</h3><p>Teacher: <b>'+c.teacher+'</b> • '+c.level+'</p>'+lh+'<button class="go" onclick="completeCourse(\''+c.title+'\')">✅ I Finish - Give Me Certificate</button></div>';
-  document.getElementById('courseLesson').scrollIntoView({behavior:'smooth'});
+function showOrders(){
+  var list=JSON.parse(localStorage.getItem('stevo_real_orders')||'[]');
+  if(list.length===0) return;
+  var html='<b>📋 Your Real Orders For This Phone:</b><br>';
+  for(var i=0;i<list.length;i++){ html+='<div class="box">'+list[i].name+' - '+list[i].want+'<br><span style="font-size:12px;color:#aaa">'+list[i].date+'</span></div>'; }
+  document.getElementById('myOrders').innerHTML=html;
 }
-function completeCourse(title){ myCourses++; document.getElementById('myCourseCount').innerText=myCourses; alert('🎉 CONGRATULATIONS!\n\nYou complete: '+title+'\n🏆 CERTIFICATE:\nSigned: Founder Kayode Stephen Olayinka\nCo-Owner: Ikudehinbu Promise'); }
-function renderWorkers(){
-  var html='';
-  for(var i=0;i<workers.length;i++){ var w=workers[i]; html+='<div class="item"><div class="avatar">'+w.emoji+'</div><div class="info"><b>'+w.name+' - '+w.job+'</b><span>'+w.desc+'</span><span>'+(w.status==='Online'?'🟢 Online':'🟡 Busy')+'</span></div><button class="small" onclick="alert(\''+w.name+' don start work for you!\')">Assign</button></div>'; }
-  document.getElementById('workersList').innerHTML=html;
-}
-function hireWorker(){ var names=["Nurse Blessing AI","Doctor Emeka AI","Engineer Kemi AI"]; var jobs=["Nurse","Doctor","Engineer"]; var emojis=["👩‍⚕️","👨‍⚕️","👨‍🔧"]; var k=Math.floor(Math.random()*3); workers.push({name:names[k],job:jobs[k],emoji:emojis[k],status:"Online",desc:"New worker ready"}); renderWorkers(); alert('New Worker Hired! '+names[k]); }
-function renderCust(){
-  document.getElementById('custCount').innerText=customers.length;
-  var html='';
-  for(var i=0;i<customers.length;i++){ var c=customers[i]; html+='<div class="item"><div class="avatar">'+c.emoji+'</div><div class="info"><b>'+c.name+'</b><span>'+c.want+' • '+c.money+'</span><span>"'+c.msg+'"</span></div><button class="small" onclick="talkCust('+i+')">Talk</butq
+showOrders();
+</script>
+</body>
+                                                                                  </html>
