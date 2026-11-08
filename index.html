@@ -11,12 +11,11 @@ h1{text-align:center;color:#00ffcc;margin:5px 0;font-size:24px}
 p.sub{text-align:center;color:#aaa;font-size:12px;margin:0}
 .owners{text-align:center;background:linear-gradient(135deg,#1c1c2e,#2a1a00);padding:14px;border-radius:14px;margin:10px 0;font-size:13px;line-height:1.7;border:1px solid #ffcc00}
 .owners b{color:#00ffcc}.owners b.pink{color:#ffcc00}.owners b.gold{color:#ffd700;font-size:15px}
-.founder-pic{width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid #ffcc00;margin:8px auto;display:block}
 .tabs{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
 .tabs button{flex:1;padding:11px 5px;border:none;border-radius:12px;background:#222;color:white;font-weight:bold;cursor:pointer;font-size:13px;min-width:70px}
 .tabs button.active{background:#00ffcc;color:black}
 .card{background:#1c1c2e;padding:14px;border-radius:16px;margin-bottom:14px}
-input,textarea,select{width:100%;padding:12px;border-radius:10px;border:none;margin:7px 0;background:#2a2a3f;color:white;font-size:15px}
+input,select{width:100%;padding:12px;border-radius:10px;border:none;margin:7px 0;background:#2a2a3f;color:white;font-size:15px}
 button.go{width:100%;padding:13px;border:none;border-radius:12px;background:#00ffcc;font-weight:bold;font-size:15px;cursor:pointer;color:black;margin-top:5px}
 button.smallbtn{padding:6px 10px;border:none;border-radius:8px;background:#333;color:#00ffcc;font-size:12px;cursor:pointer;margin:3px 2px}
 button.danger{background:#ff4444;color:white}
@@ -25,19 +24,16 @@ button.danger{background:#ff4444;color:white}
 .user{background:#00ffcc;color:black;margin-left:auto}
 .ai{background:#2a2a3f}
 img.result{width:100%;border-radius:12px;margin-top:10px;background:#222;min-height:200px}
-img.founder-chat{width:100%;max-width:280px;border-radius:14px;border:2px solid #ffcc00;margin:8px 0;display:block}
 .small{font-size:11px;color:#888;text-align:center;margin-top:10px}
-iframe{width:100%;height:520px;border:none;border-radius:12px;background:white}
 .badge{display:inline-block;background:#ffcc00;color:black;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:bold}
 .lock{border:2px dashed #ffcc00;padding:12px;border-radius:12px;text-align:center}
 </style>
 </head>
 <body>
-<h1>🤖 STEVO-AI v7</h1>
-<p class="sub">Real AI • Memory ON • Pictures FIXED • TBDS Connected</p>
+<h1>🤖 STEVO-AI v8</h1>
+<p class="sub">Real AI • Memory ON • No 404 • Fast</p>
 
 <div class="owners">
-<img src="founder.jpg" class="founder-pic" alt="Founder Kayode Stephen Olayinka" onerror="this.style.display='none'">
 👑 <b class="gold">FOUNDER:</b> <b class="gold">Kayode Stephen Olayinka</b><br>
 ⭐ <b>OWNER:</b> Stevo (Kayode Stephen Olayinka)<br>
 🤝 <b class="pink">CO-OWNER:</b> Ikudehinbu Promise<br>
@@ -50,8 +46,7 @@ iframe{width:100%;height:520px;border:none;border-radius:12px;background:white}
 <h3 style="color:#ffcc00">👑 Welcome Co-Owner Ikudehinbu Promise!</h3>
 <p style="font-size:13px">Founder Kayode Stephen Olayinka don give you Co-Owner power.</p>
 <button class="go" style="background:#ffcc00" onclick="clearMemory()">🗑 Clear All Memory</button>
-<button class="go" style="background:white;margin-top:7px" onclick="changeName()">✏️ Change AI Name / Greeting</button>
-<button class="go" style="background:white;margin-top:7px" onclick="alert('Co-Owner Mode ON - Founder: Kayode Stephen Olayinka, Co-Owner: Ikudehinbu Promise')">⚙️ Co-Owner Powers: ON</button>
+<button class="go" style="background:white;margin-top:7px" onclick="changeName()">✏️ Change AI Name</button>
 <p id="aiNameShow" class="small"></p>
 </div>
 
@@ -66,12 +61,12 @@ iframe{width:100%;height:520px;border:none;border-radius:12px;background:white}
 <div id="chatBox"></div>
 <input id="chatInput" placeholder="Ask me... e.g Who created you?">
 <button class="go" onclick="askAI()">Ask STEVO-AI ➤</button>
-<p class="small">Try ask: "Who created you?" - E go show Founder picture!</p>
+<p class="small">Memory ON - Press ✏️ to edit your question</p>
 </div>
 
 <div id="img" class="card" style="display:none">
-<h3>🎨 Generate REAL Picture - FIXED</h3>
-<input id="imgPrompt" placeholder="e.g A cute cat, a lion with crown, a house design">
+<h3>🎨 Generate REAL Picture</h3>
+<input id="imgPrompt" placeholder="e.g A cute cat, a lion with crown">
 <select id="imgStyle">
 <option value="realistic, 4k, detailed">Realistic Style</option>
 <option value="cartoon, colorful, cute">Cartoon Style</option>
@@ -96,19 +91,21 @@ iframe{width:100%;height:520px;border:none;border-radius:12px;background:white}
 
 <div id="tbds" class="card" style="display:none">
 <h3>🏗️ T.B.D.S Engineering Hub</h3>
-<p style="font-size:13px;color:#ccc">Founded by Kayode Stephen Olayinka • Co-Owner Ikudehinbu Promise • Connected Inside STEVO-AI</p>
-<a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="display:block;padding:13px;background:#ffcc00;color:black;border-radius:12px;font-weight:bold;text-decoration:none;text-align:center;margin-bottom:10px">Open TBDS in Full Screen ➤</a>
-<iframe src="https://t-b-d-s-engineering-hub.ai.studio" title="TBDS Engineering Hub"></iframe>
+<p style="font-size:13px;color:#ccc">Founded by Kayode Stephen Olayinka • Co-Owner Ikudehinbu Promise</p>
+<p style="font-size:13px;background:#2a2a3f;padding:10px;border-radius:10px">TBDS na your Engineering Hub inside STEVO-AI. Press button below to open am for new tab - no more 404 inside app.</p>
+<a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="display:block;padding:13px;background:#ffcc00;color:black;border-radius:12px;font-weight:bold;text-decoration:none;text-align:center">Open TBDS in Full Screen ➤</a>
+<button class="go" style="background:white;margin-top:8px" onclick="quick('Tell me about TBDS Engineering Hub founded by Kayode Stephen Olayinka')">ℹ️ Ask STEVO-AI About TBDS</button>
+<div id="tbdsResult" style="margin-top:10px;white-space:pre-wrap;font-size:14px;line-height:1.5"></div>
 </div>
 
 <div class="card lock" id="loginBox">
-<b>🔐 Co-Owner Area</b><br><span style="font-size:12px;color:#aaa">Promise, enter your secret code to unlock Co-Owner powers</span><br>
+<b>🔐 Co-Owner Area</b><br><span style="font-size:12px;color:#aaa">Promise, enter your secret code</span><br>
 <input id="secretInput" type="password" placeholder="Enter Co-Owner Secret Code">
 <button class="go" style="background:#ffcc00" onclick="checkCode()">Unlock as Ikudehinbu Promise 🔓</button>
 <p id="loginMsg" style="font-size:12px;color:#ff8888"></p>
 </div>
 
-<p class="small">STEVO-AI v7 • FOUNDER: Kayode Stephen Olayinka • CO-OWNER: Ikudehinbu Promise • TBDS Connected</p>
+<p class="small">STEVO-AI v8 • FOUNDER: Kayode Stephen Olayinka • CO-OWNER: Ikudehinbu Promise • NO 404</p>
 
 <script>
 const CO_OWNER_CODE = "tbds-brother-2026";
@@ -131,20 +128,20 @@ function checkCode(){
   if(v === CO_OWNER_CODE){
     role = 'Co-Owner'; localStorage.setItem('stevo_role', role);
     document.getElementById('loginMsg').style.color='#00ffcc';
-    document.getElementById('loginMsg').innerText='Welcome back Co-Owner Ikudehinbu Promise! 👑 Power unlocked!';
+    document.getElementById('loginMsg').innerText='Welcome back Co-Owner Ikudehinbu Promise! 👑';
     updateRoleUI(); render();
-  } else { document.getElementById('loginMsg').innerText='Wrong code! Only Ikudehinbu Promise know this code.'; }
+  } else { document.getElementById('loginMsg').innerText='Wrong code!'; }
 }
 function logout(){ role='Guest'; localStorage.setItem('stevo_role', role); updateRoleUI(); render(); }
 function changeName(){
-  if(role!=='Co-Owner'){ alert('Only Co-Owner fit do this. Login first.'); return; }
-  let n = prompt('New AI name / greeting:', aiName);
-  if(n){ aiName=n; localStorage.setItem('stevo_ainame', aiName); updateRoleUI(); render(); alert('Done Co-Owner! AI name changed to '+aiName); }
+  if(role!=='Co-Owner'){ alert('Only Co-Owner fit do this.'); return; }
+  let n = prompt('New AI name:', aiName);
+  if(n){ aiName=n; localStorage.setItem('stevo_ainame', aiName); updateRoleUI(); render(); }
 }
-function clearMemory(){ if(confirm('Co-Owner, you sure say you want clear all memory?')){ history=[]; save(); render(); } }
+function clearMemory(){ if(confirm('Clear all memory?')){ history=[]; save(); render(); } }
 function render(){
   if(history.length===0){
-    box.innerHTML = `<div class="msg ai"><img src="founder.jpg" class="founder-chat" onerror="this.style.display='none'">Hello! I be ${aiName}. Founded by ${FOUNDER_NAME}. Co-Owner na ${CO_OWNER_NAME}. Ask me "Who created you?" to see Founder picture!</div>`;
+    box.innerHTML = `<div class="msg ai">Hello! I be ${aiName}. Founded by ${FOUNDER_NAME}. Co-Owner na ${CO_OWNER_NAME}. Ask me anything!</div>`;
     return;
   }
   box.innerHTML = history.map((m,i)=>{
@@ -157,9 +154,10 @@ function show(tab){
   ['chat','img','tools','tbds'].forEach(t=>{ document.getElementById(t).style.display = t===tab?'block':'none'; });
   ['tChat','tImg','tTools','tTbds'].forEach(id=>{ document.getElementById(id).classList.remove('active'); });
   let map={chat:'tChat',img:'tImg',tools:'tTools',tbds:'tTbds'}; document.getElementById(map[tab]).classList.add('active');
+  if(tab==='tbds'){ document.getElementById('tbdsResult').innerText=''; }
 }
 function delMsg(i){ history.splice(i,1); save(); render(); }
-function copyMsg(i){ navigator.clipboard.writeText(history[i].text.replace(/<br>/g,'\n')); alert('Copied!'); }
+function copyMsg(i){ navigator.clipboard.writeText(history[i].text.replace(/<br>/g,'\n').replace(/<[^>]*>/g,'')); alert('Copied!'); }
 function editMsg(i){
   let newQ = prompt('Edit your question:', history[i].text);
   if(!newQ) return;
@@ -176,14 +174,13 @@ async function askAIWith(q){
   history.push({role:'ai', text:'STEVO-AI dey think...'});
   save(); render();
   let low = q.toLowerCase();
-  // SPECIAL: If person ask who created / founder / owner - show picture!
-  if((low.includes('who') || low.includes('founder') || low.includes('created') || low.includes('owner') || low.includes('build') || low.includes('make you')) && (low.includes('you') || low.includes('stevo') || low.includes('founder') || low.includes('owner') || low.includes('created'))){
-    history[history.length-1].text = `<img src="founder.jpg" class="founder-chat" onerror="this.style.display='none'">👑 <b>My Founder na Kayode Stephen Olayinka!</b><br><br>Na him build me - STEVO-AI. Him be the Founder and Owner. My Co-Owner na Ikudehinbu Promise.<br><br>Na real person, na real picture you dey see so. No fake!`;
+  if((low.includes('who') || low.includes('founder') || low.includes('created') || low.includes('owner') || low.includes('build')) && (low.includes('you') || low.includes('stevo') || low.includes('founder') || low.includes('owner') || low.includes('created'))){
+    history[history.length-1].text = `👑 <b>My Founder na Kayode Stephen Olayinka!</b><br><br>Na him build me - STEVO-AI. Him be the Founder and Owner. My Co-Owner na Ikudehinbu Promise.`;
     save(); render(); return;
   }
   try{
     let memoryText = history.slice(-6).map(m=>m.role+': '+m.text.replace(/<br>/g,' ').replace(/<[^>]*>/g,'')).join('\n');
-    let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(`You are ${aiName}, founded by ${FOUNDER_NAME} and co-owned by ${CO_OWNER_NAME} in Nigeria. You remember past chat. Past chat:\n${memoryText}\nNow answer: ${q}`));
+    let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(`You are ${aiName}, founded by ${FOUNDER_NAME} and co-owned by ${CO_OWNER_NAME} in Nigeria. Past chat:\n${memoryText}\nNow answer: ${q}`));
     let text=await res.text();
     history[history.length-1].text = text.replace(/\n/g,'<br>');
   }catch(e){ history[history.length-1].text='Sorry, network wahala. Try again.'; }
@@ -204,21 +201,21 @@ function genImage(){
   let url2 = `https://image.pollinations.ai/prompt/${encodeURIComponent(cleanP)}?seed=${seed}&width=1024&height=1024&nologo=true`;
   let url3 = `https://image.pollinations.ai/prompt/${encodeURIComponent(cleanP)}?model=turbo&seed=${seed}&width=1024&height=1024&nologo=true`;
   document.getElementById('imgResult').innerHTML = `
-    <p id="imgLoading" style="color:#ffcc00">⏳ Generating your real picture... wait 15 sec...</p>
-    <img class="result" id="myPic" src="${url1}" onerror="tryNextImg(this)" onload="document.getElementById('imgLoading').innerText='✅ Done! Your real picture don ready 👇';">
+    <p id="imgLoading" style="color:#ffcc00">⏳ Generating... wait 15 sec...</p>
+    <img class="result" id="myPic" src="${url1}" onerror="tryNextImg(this)" onload="document.getElementById('imgLoading').innerText='✅ Done! 👇';">
     <br><button class="go" onclick="genImage()" style="background:white;margin-top:8px">🔄 Generate Another One</button>
-    <br><a id="dlLink" href="${url1}" target="_blank" style="color:#00ffcc;display:block;text-align:center;margin-top:8px">⬇ Download / Open Picture Full Screen</a>`;
+    <br><a id="dlLink" href="${url1}" target="_blank" style="color:#00ffcc;display:block;text-align:center;margin-top:8px">⬇ Download / Open Picture</a>`;
   window._imgUrls = [url1, url2, url3];
   window._imgIndex = 0;
 }
 function tryNextImg(img){
   window._imgIndex++;
   if(window._imgIndex < window._imgUrls.length){
-    document.getElementById('imgLoading').innerText = 'First server busy, trying server ' + (window._imgIndex+1) + '... wait small...';
+    document.getElementById('imgLoading').innerText = 'First server busy, trying server ' + (window._imgIndex+1) + '...';
     img.src = window._imgUrls[window._imgIndex];
     document.getElementById('dlLink').href = window._imgUrls[window._imgIndex];
   } else {
-    document.getElementById('imgLoading').innerText = 'Network slow. Press Generate Another One or try simple word like "cat".';
+    document.getElementById('imgLoading').innerText = 'Network slow. Press Generate Another One or try "cat".';
   }
 }
 document.getElementById('chatInput').addEventListener('keypress',function(e){if(e.key==='Enter') askAI();});
