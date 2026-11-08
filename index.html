@@ -3,144 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO-AI - By Kayode Stephen Olayinka</title>
+<title>STEVO-AI v5 - Founded by Kayode Stephen Olayinka</title>
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#0f0f1a;color:#fff}
-header{background:#1a1a2e;padding:12px;text-align:center}
-header h1{margin:0;font-size:22px} header h1 span{color:#00ff88}
-.banner{background:#00ff88;color:#000;padding:8px;text-align:center;font-weight:bold;font-size:14px}
-.partner{background:#ffaa00;color:#000;padding:10px;text-align:center;font-weight:bold;font-size:14px}
-.partner a{color:#000;text-decoration:none;background:#fff;padding:6px 12px;border-radius:20px;display:inline-block;margin-top:4px}
-.joinBtn{background:#222;color:#777;border:1px solid #333;padding:8px 14px;border-radius:20px;cursor:pointer;margin:8px;font-size:12px}
-.tabs{display:flex;gap:8px;padding:10px;justify-content:center;flex-wrap:wrap}
-.tabs button{flex:1;padding:12px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:#2a2a45;color:#fff;min-width:90px}
-.tabs button.active{background:#00ff88;color:#000}
-#chat{padding:10px;max-width:700px;margin:auto;height:42vh;overflow-y:auto}
-.msg{padding:10px;border-radius:12px;margin:8px 0;max-width:88%;line-height:1.5;font-size:15px;white-space:pre-wrap}
-.user{background:#00ff88;color:#000;margin-left:auto}
-.ai{background:#2a2a45}
-.msg img{max-width:100%;border-radius:10px;margin-top:6px}
-.inputBox{display:flex;gap:6px;padding:10px;max-width:700px;margin:auto;align-items:center}
-input[type=text]{flex:1;padding:13px;border-radius:12px;border:none;outline:none}
-.send{background:#00ff88;border:none;padding:13px 14px;border-radius:12px;font-weight:bold;cursor:pointer}
-.picBtn{background:#ffaa00;border:none;padding:13px;border-radius:12px;font-weight:bold;cursor:pointer;font-size:18px}
-.quick{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:0 10px}
-.quick button{background:#333;padding:8px 12px;border-radius:20px;border:1px solid #555;color:#fff;cursor:pointer;font-size:13px}
-#result{padding:15px;text-align:center;max-width:700px;margin:auto}
-#result img{max-width:100%;border-radius:12px}
-#result iframe{width:100%;height:420px;border:none;border-radius:12px;background:#fff}
-.loading{color:#00ff88}
-#previewBox{display:none;text-align:center;padding:5px}
-#previewBox img{max-width:180px;border-radius:12px;border:2px solid #00ff88}
-.editBtns{display:none;gap:6px;flex-wrap:wrap;justify-content:center;padding:5px}
-.editBtns button{background:#ff00aa;color:#fff;border:none;padding:9px 12px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:13px}
-#joinForm{display:none;background:#1a1a2e;padding:15px;max-width:400px;margin:10px auto;border-radius:15px;border:2px solid #ff00aa;text-align:center}
-#joinForm input{width:100%;padding:12px;border-radius:10px;border:none;margin:6px 0;outline:none}
-#joinForm button{width:100%;padding:12px;border:none;border-radius:10px;background:#00ff88;font-weight:bold;cursor:pointer;margin-top:6px}
-#coBadge{display:none;background:#ff00aa;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-top:5px}
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#0f0f1a;color:white;padding:12px;padding-bottom:40px}
+h1{text-align:center;color:#00ffcc;margin:5px 0;font-size:24px}
+p.sub{text-align:center;color:#aaa;font-size:12px;margin:0}
+.owners{text-align:center;background:linear-gradient(135deg,#1c1c2e,#2a1a00);padding:12px;border-radius:14px;margin:10px 0;font-size:13px;line-height:1.7;border:1px solid #ffcc00}
+.owners b{color:#00ffcc}.owners b.pink{color:#ffcc00}.owners b.gold{color:#ffd700;font-size:14px}
+.tabs{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.tabs button{flex:1;padding:11px 5px;border:none;border-radius:12px;background:#222;color:white;font-weight:bold;cursor:pointer;font-size:13px;min-width:70px}
+.tabs button.active{background:#00ffcc;color:black}
+.card{background:#1c1c2e;padding:14px;border-radius:16px;margin-bottom:14px}
+input,textarea,select{width:100%;padding:12px;border-radius:10px;border:none;margin:7px 0;background:#2a2a3f;color:white;font-size:15px}
+button.go{width:100%;padding:13px;border:none;border-radius:12px;background:#00ffcc;font-weight:bold;font-size:15px;cursor:pointer;color:black;margin-top:5px}
+button.smallbtn{padding:6px 10px;border:none;border-radius:8px;background:#333;color:#00ffcc;font-size:12px;cursor:pointer;margin:3px 2px}
+button.danger{background:#ff4444;color:white}
+#chatBox{height:300px;overflow-y:auto;background:#111;padding:10px;border-radius:12px;margin-bottom:8px}
+.msg{padding:9px 10px;border-radius:10px;margin:7px 0;max-width:95%;line-height:1.45;font-size:14px;white-space:pre-wrap}
+.user{background:#00ffcc;color:black;margin-left:auto}
+.ai{background:#2a2a3f}
+img.result{width:100%;border-radius:12px;margin-top:10px}
+.small{font-size:11px;color:#888;text-align:center;margin-top:10px}
+iframe{width:100%;height:520px;border:none;border-radius:12px;background:white}
+.badge{display:inline-block;background:#ffcc00;color:black;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:bold}
+.lock{border:2px dashed #ffcc00;padding:12px;border-radius:12px;text-align:center}
 </style>
 </head>
 <body>
-<header><h1>STEVO-<span>AI</span> 🔥</h1><p style="margin:2px;font-size:13px;opacity:.8">Created by Kayode Stephen Olayinka</p><div id="coBadge">⭐ CO-DEVELOPER - TBDS</div><br><button class="joinBtn" onclick="toggleJoin()">🔒 Team Access</button></header>
-<div class="banner">🎉 FREE THIS NOVEMBER! Chat + Send Picture + Edit Picture + Any Question!</div>
-<div class="partner">🤝 PARTNER APP: T.B.D.S Engineering Hub - Build Robots & Learn Arduino<br><a href="https://engineering-hub.ai.studio" target="_blank">🤖 Open T.B.D.S Hub →</a></div>
-<div id="joinForm">
-<h3 style="margin:0">🔒 Team Access - Private</h3>
-<p style="font-size:13px;opacity:.8">Only invited team member can enter</p>
-<input type="text" id="devName" placeholder="Your Full Name">
-<input type="text" id="refCode" placeholder="Secret Code">
-<button onclick="checkCode()">Unlock 🔓</button>
-<p id="joinMsg" style="font-size:14px;font-weight:bold"></p>
-<button style="background:#333;color:#fff" onclick="toggleJoin()">Close</button>
+<h1>🤖 STEVO-AI v5</h1>
+<p class="sub">Real AI • Memory ON • TBDS Connected</p>
+
+<div class="owners">
+👑 <b class="gold">FOUNDER:</b> <b class="gold">Kayode Stephen Olayinka</b><br>
+⭐ <b>OWNER:</b> Stevo (Kayode Stephen Olayinka)<br>
+🤝 <b class="pink">CO-OWNER:</b> Ikudehinbu Promise<br>
+<span id="whoAreYou" class="badge">You are: Guest</span><br>
+<button class="smallbtn" onclick="unlockCoOwner()">🔐 Co-Owner Login</button>
+<button class="smallbtn danger" onclick="logout()">Logout</button>
 </div>
+
+<div id="coOwnerPanel" class="card" style="display:none;border:2px solid #ffcc00">
+<h3 style="color:#ffcc00">👑 Welcome Co-Owner Ikudehinbu Promise!</h3>
+<p style="font-size:13px">Founder: Kayode Stephen Olayinka don give you Co-Owner power. You fit:</p>
+<button class="go" style="background:#ffcc00" onclick="clearMemory()">🗑 Clear All Memory</button>
+<button class="go" style="background:white;margin-top:7px" onclick="changeName()">✏️ Change AI Name / Greeting</button>
+<button class="go" style="background:white;margin-top:7px" onclick="alert('Co-Owner Mode ON - Founder: Kayode Stephen Olayinka, Co-Owner: Ikudehinbu Promise. You and Founder get same power.')">⚙️ Co-Owner Powers: ON</button>
+<p id="aiNameShow" class="small"></p>
+</div>
+
 <div class="tabs">
-<button id="btnChat" class="active" onclick="switchTab('chat')">💬 Chat</button>
-<button id="btnPic" onclick="switchTab('pic')">🎨 Create Pic</button>
-<button id="btnEdit" onclick="switchTab('edit')">🖼️ Edit My Pic</button>
-<button id="btnGame" onclick="switchTab('game')">🎮 Game</button>
+<button id="tChat" class="active" onclick="show('chat')">💬 Chat</button>
+<button id="tImg" onclick="show('img')">🎨 Pictures</button>
+<button id="tTools" onclick="show('tools')">🛠️ Tools</button>
+<button id="tTbds" onclick="show('tbds')" style="background:#ffcc00;color:black">🏗️ TBDS</button>
 </div>
-<div id="chat"></div>
-<div id="previewBox"><img id="previewImg"><p style="font-size:13px;color:#00ff88">Picture ready! Choose edit below.</p></div>
-<div class="editBtns" id="editBtns">
-<button onclick="editMyPic('Make this picture fantabulous, super beautiful, high quality, professional, bright colors')">✨ Make Fantabulous</button>
-<button onclick="editMyPic('Turn this person into a superhero in Lagos, cinematic, cool')">🦸 Superhero</button>
-<button onclick="editMyPic('Turn this into cartoon style, 3D Pixar style, cute')">🎨 Cartoon</button>
-<button onclick="editMyPic('Make this picture look rich, luxury background, suit, expensive, professional photo')">💰 Rich / Luxury</button>
-<button onclick="editMyPic('Change background to beautiful Lagos beach at sunset')">🏖️ Lagos Beach</button>
-<button onclick="editMyPic('Make this picture look like a GTA game cover, bold, stylish')">🎮 GTA Style</button>
+
+<div id="chat" class="card">
+<div id="chatBox"></div>
+<input id="chatInput" placeholder="Ask STEVO-AI anything...">
+<button class="go" onclick="askAI()">Ask STEVO-AI ➤</button>
+<p class="small">Memory ON - I no go forget. Press ✏️ to edit your question.</p>
 </div>
-<div class="quick">
-<button onclick="quickAsk('Who created you?')">Who created you?</button>
-<button onclick="quickAsk('Give me a business idea for Lagos')">Business Idea</button>
-<button onclick="quickAsk('Tell me about T.B.D.S Engineering Hub')">What is T.B.D.S?</button>
-<button onclick="quickGame()">🔥 GTA LAGOS</button>
-<button onclick="clearMemory()">🗑️ Clear</button>
+
+<div id="img" class="card" style="display:none">
+<h3>🎨 Generate REAL Picture</h3>
+<input id="imgPrompt" placeholder="e.g A lion wearing crown, realistic, in Lagos">
+<select id="imgStyle">
+<option value="realistic, 4k, detailed">Realistic Style</option>
+<option value="cartoon, colorful, cute">Cartoon Style</option>
+<option value="anime style">Anime Style</option>
+<option value="3d render, pixar style">3D Pixar Style</option>
+<option value="engineering blueprint, technical drawing">Engineering / Blueprint</option>
+</select>
+<button class="go" onclick="genImage()">Generate Picture ✨</button>
+<div id="imgResult"></div>
 </div>
-<div class="inputBox">
-<label class="picBtn" for="fileInput">📷</label>
-<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleImage(this)">
-<input type="text" id="userInput" placeholder="Ask ANY question..." onkeypress="if(event.key==='Enter')sendMsg()">
-<button class="send" onclick="sendMsg()">Send ➤</button>
-</div>
-<div id="result"></div>
-<script>
-let mode='chat';
-let memory=JSON.parse(localStorage.getItem('stevo_memory')||'[]');
-let uploadedImage='';
-let chatBox=document.getElementById('chat');
-let resultBox=document.getElementById('result');
-function saveMemory(){localStorage.setItem('stevo_memory',JSON.stringify(memory.slice(-20)));}
-function toggleJoin(){let f=document.getElementById('joinForm');f.style.display=f.style.display==='block'?'none':'block';}
-function checkCode(){
-  let name=document.getElementById('devName').value.trim();
-  let code=document.getElementById('refCode').value.trim().toLowerCase();
-  let msg=document.getElementById('joinMsg');
-  if(!name){msg.style.color='#ffaa00';msg.innerText='Abeg enter your name first';return;}
-  if(code==='tbds-brother-2026'){
-    localStorage.setItem('stevo_co_dev',name);
-    document.getElementById('coBadge').style.display='inline-block';
-    document.getElementById('coBadge').innerText='⭐ CO-DEVELOPER - '+name.toUpperCase()+' (TBDS)';
-    msg.style.color='#00ff88';
-    msg.innerText='Welcome '+name+'! 🎉 You are now the ONLY Co-Developer! Secret code accepted.';
-    addMsg('Hello, I am '+name+'. I used the secret code and I am now the Co-Developer!','user');
-    addMsg('Welcome Co-Developer '+name+'! 🔥 You are the only person with secret access. STEVO-AI by Kayode Stephen Olayinka + T.B.D.S Engineering Hub = Team!','ai');
-    setTimeout(()=>{toggleJoin();},2000);
-  } else {
-    msg.style.color='red';
-    msg.innerText='Access Denied! Wrong secret code.';
-  }
-}
-if(localStorage.getItem('stevo_co_dev')){
-  let n=localStorage.getItem('stevo_co_dev');
-  document.getElementById('coBadge').style.display='inline-block';
-  document.getElementById('coBadge').innerText='⭐ CO-DEVELOPER - '+n.toUpperCase()+' (TBDS)';
-}
-function showMemory(){chatBox.innerHTML='';if(memory.length===0)addMsg("Hello Boss! I am STEVO-AI by Kayode Stephen Olayinka.\n\nMy partner app is T.B.D.S Engineering Hub - for robots & Arduino. Check the yellow banner above!","ai");memory.forEach(m=>{if(m.img){addMsgWithImg(m.text,m.img,m.who);}else addMsg(m.text,m.who);});}
-function addMsg(text,who){let d=document.createElement('div');d.className='msg '+who;d.innerText=text;chatBox.appendChild(d);chatBox.scrollTop=chatBox.scrollHeight;}
-function addMsgWithImg(text,img,who){let d=document.createElement('div');d.className='msg '+who;d.innerText=text;let im=document.createElement('img');im.src=img;d.appendChild(im);chatBox.appendChild(d);chatBox.scrollTop=chatBox.scrollHeight;}
-function switchTab(m){mode=m;document.getElementById('btnChat').className=m==='chat'?'active':'';document.getElementById('btnPic').className=m==='pic'?'active':'';document.getElementById('btnEdit').className=m==='edit'?'active':'';document.getElementById('btnGame').className=m==='game'?'active':'';if(m==='edit'){document.getElementById('previewBox').style.display='block';document.getElementById('editBtns').style.display='flex';}else{document.getElementById('previewBox').style.display='none';document.getElementById('editBtns').style.display='none';}resultBox.innerHTML='';}
-function quickAsk(t){document.getElementById('userInput').value=t;sendMsg();}
-function quickGame(){switchTab('game');document.getElementById('userInput').value='GTA Lagos game, drive danfo bus, pick passengers, avoid police, collect naira, top view city, with score and health';sendMsg();}
-function clearMemory(){memory=[];saveMemory();showMemory();}
-function handleImage(input){let file=input.files[0];if(!file)return;let reader=new FileReader();reader.onload=function(e){uploadedImage=e.target.result;document.getElementById('previewImg').src=uploadedImage;document.getElementById('previewBox').style.display='block';document.getElementById('editBtns').style.display='flex';switchTab('edit');addMsgWithImg('I sent a picture. Edit am for me.',uploadedImage,'user');addMsg("I see your picture! 🔥 Choose one edit button below.",'ai');memory.push({text:'User sent picture',who:'user',img:uploadedImage});saveMemory();};reader.readAsDataURL(file);}
-function editMyPic(prompt){if(!uploadedImage){addMsg("Send picture first! Press 📷 button.",'ai');return;}document.getElementById('userInput').value=prompt;sendMsg();}
-async function getAIAnswer(prompt){try{let r=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));if(r.ok){let t=await r.text();if(t&&!t.includes('404')&&t.length>2)return t;}}catch(e){}return null;}
-async function sendMsg(){
-let inp=document.getElementById('userInput');let text=inp.value.trim();if(!text&&!uploadedImage)return;if(text){addMsg(text,'user');memory.push({text,who:'user'});saveMemory();}inp.value='';
-if(mode==='pic'){resultBox.innerHTML='<p class="loading">🎨 Creating picture...</p>';let clean=text.replace(/[^a-zA-Z0-9 ]/g,' ');let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(clean+' , high quality, detailed, beautiful')+'?width=512&height=512&seed='+Date.now();resultBox.innerHTML='<img src="'+url+'"><br><p>Your picture: '+text+'</p>';return;}
-if(mode==='edit'||(mode==='chat'&&uploadedImage&&text.toLowerCase().includes('edit'))){if(!uploadedImage){addMsg("Send picture first with 📷 button.",'ai');return;}resultBox.innerHTML='<p class="loading">✨ Editing your picture fantabulous...</p>';let editPrompt=text+' , keep same person face, same pose, super beautiful, high quality, professional, fantabulous';let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(editPrompt)+'?width=512&height=640&seed='+Date.now();resultBox.innerHTML='<p>Original:</p><img src="'+uploadedImage+'" style="max-width:220px"><p>Edited Fantabulous ✨:</p><img src="'+url+'"><br><p>Edit: '+text+'</p>';addMsg("Done! I don edit am fantabulous! 🔥 Check below.",'ai');return;}
-if(mode==='game'){resultBox.innerHTML='<p class="loading">🎮 Building your game...</p>';try{let prompt='Create a complete playable HTML game in one file. Game idea: '+text+'. Use canvas, arrow keys and touch buttons, score, health, game over and restart. Make it fun, colorful, mobile friendly. Return ONLY HTML code.';let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));let code=await res.text();code=code.replace(/```html|```/g,'');let blob=new Blob([code],{type:'text/html'});let url=URL.createObjectURL(blob);resultBox.innerHTML='<iframe src="'+url+'"></iframe><br><p>Game: '+text+'</p>';}catch(e){resultBox.innerHTML='<p>Game failed, try again.</p>';}return;}
-let lower=text.toLowerCase();
-if(lower.includes('who created')||lower.includes('who built')||lower.includes('who made')||lower.includes('your creator')||lower.includes('your owner')||lower.includes('who is stevo')){let fixed='My creator is Kayode Stephen Olayinka. He built me in Lagos, Nigeria. He is my owner and my boss.';addMsg(fixed,'ai');memory.push({text:fixed,who:'ai'});saveMemory();return;}
-if(lower.includes('t.b.d.s')||lower.includes('tbds')||lower.includes('engineering hub')||lower.includes('brother')){let fixed='T.B.D.S Engineering Hub is my partner app! It is for Autonomous Robotics, Arduino, Simulation Lab, Robot Designer. It was built by my brother. Check it here: https://engineering-hub.ai.studio - And STEVO-AI was built by Kayode Stephen Olayinka. Together we are a team!';addMsg(fixed,'ai');memory.push({text:fixed,who:'ai'});saveMemory();return;}
-let typing=document.createElement('div');typing.className='msg ai';typing.innerText='STEVO-AI is typing...';chatBox.appendChild(typing);
-let history=memory.slice(-4).map(m=>(m.who==='user'?'User: ':'AI: ')+m.text.slice(0,100)).join('\n');
-let fullPrompt='You are STEVO-AI by Kayode Stephen Olayinka. Partner app is T.B.D.S Engineering Hub for robotics. You answer ANY question, any topic. Be helpful, friendly, clear. Chat:\n'+history+'\nUser: '+text.slice(0,300)+'\nAI:';
-let answer=await getAIAnswer(fullPrompt);typing.remove();
-if(!answer){answer='Sorry boss, network slow. Ask am again in short form.';}
-addMsg(answer,'ai');memory.push({text:answer,who:'ai'});saveMemory();
-}
-showMemory();
-</script>
-</body>
-                                              </html>
+
+<div id="tools" class="card" style
