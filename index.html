@@ -20,92 +20,127 @@ input,select,textarea{width:100%;padding:11px;border-radius:10px;border:none;bac
 .go{width:100%;background:#00ffcc;color:#000}
 .go2{width:100%;background:#ffcc00;color:#000}
 .go3{width:100%;background:#ff00aa;color:#fff}
+.goEng{width:100%;background:#ff6600;color:#fff}
 .small{background:#333;color:#00ffcc;padding:7px 10px;font-size:12px;margin:2px}
+.smallEng{background:#333;color:#ffaa00;padding:7px 10px;font-size:12px;margin:2px}
 .box{background:#2a2a3f;padding:10px;border-radius:10px;margin:7px 0}
-#chatBox{height:180px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
-.msg{padding:8px;border-radius:8px;margin:5px 0;font-size:14px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.chat{height:280px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
+.msg{padding:9px;border-radius:9px;margin:5px 0;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
 .u{background:#00ffcc;color:#000;margin-left:20px}
 .a{background:#2a2a3f}
+.aEng{background:#331a00;border:1px solid #ff6600}
 img.pic{width:100%;border-radius:12px;margin-top:8px}
 </style>
 </head>
 <body>
 <h1>🤖 STEVO-AI</h1>
 
-<div class="tbds"><b>🏭 TBDS CONNECTED ✅</b><br><span style="font-size:12px">https://t-b-d-s-engineering-hub.ai.studio</span><br><button onclick="openTBDS()">🏭 OPEN TBDS ➤</button></div>
+<div class="tbds"><b>🏭 TBDS CONNECTED - IMPORTANT</b><br><span style="font-size:12px">https://t-b-d-s-engineering-hub.ai.studio</span><br><button onclick="openTBDS()">🏭 OPEN TBDS</button></div>
 
-<div class="top">👑 FOUNDER: <b style="color:#ffd700">Kayode Stephen Olayinka</b><br>🤝 CO-OWNER: Ikudehinbu Promise<br><span class="coins">🪙 <span id="coins">5000</span> STEVO Coins</span> | 🚗 Garage: <span id="garageCount">0</span><br><button class="small" onclick="dailyBonus()">🎁 Daily +500</button></div>
+<div class="top">👑 FOUNDER: <b style="color:#ffd700">Kayode Stephen Olayinka</b><br>🤝 CO-OWNER: Ikudehinbu Promise<br><span class="coins">🪙 <span id="coins">5000</span> STEVO Coins</span> | Garage: <span id="garageCount">0</span> Cars<br><button class="small" onclick="dailyBonus()">Daily Bonus +500</button></div>
 
 <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
-<button class="tab on" id="tAI" onclick="showTab('ai')">💬 AI</button>
-<button class="tab" id="tPic" onclick="showTab('pic')">🎨 Picture</button>
-<button class="tab" id="tCourse" onclick="showTab('course')">📚 Courses</button>
-<button class="tab" id="tCar" onclick="showTab('car')">🚗 Build Car</button>
-<button class="tab" id="tGarage" onclick="showTab('garage')">🏠 Garage</button>
-<button class="tab" id="tTBDS" onclick="showTab('tbds')">🏭 TBDS</button>
+<button class="tab on" id="tAI" onclick="showTab('ai')">Normal AI</button>
+<button class="tab" id="tEng" onclick="showTab('eng')">Engineer AI</button>
+<button class="tab" id="tPic" onclick="showTab('pic')">Picture</button>
+<button class="tab" id="tCourse" onclick="showTab('course')">Courses</button>
+<button class="tab" id="tCar" onclick="showTab('car')">Build Car</button>
+<button class="tab" id="tGarage" onclick="showTab('garage')">My Garage</button>
+<button class="tab" id="tTBDS" onclick="showTab('tbds')">TBDS</button>
 </div>
 
-<!-- AI -->
+<!-- 1. NORMAL AI -->
 <div id="ai" class="card show">
-<b>💬 Fast AI - Instant Answer</b>
-<div id="chatBox"><div class="msg a">Hello! Ask me Nursing, Business, Car, Robot. I answer now.</div></div>
-<input id="q" placeholder="Ask... e.g Teach me Nursing">
-<button class="go" onclick="fastAsk()">⚡ Ask</button>
+<b>Normal AI - Ask Anything</b>
+<p style="font-size:12px;color:#aaa">This AI speaks all languages. Ask in English, Yoruba, Hausa, Igbo, French, Spanish, Arabic, or any language. It will answer in your language.</p>
+<div style="display:flex;gap:5px;flex-wrap:wrap">
+<button class="small" onclick="setLang('English')">English</button>
+<button class="small" onclick="setLang('Yoruba')">Yoruba</button>
+<button class="small" onclick="setLang('Hausa')">Hausa</button>
+<button class="small" onclick="setLang('Igbo')">Igbo</button>
+<button class="small" onclick="setLang('French')">French</button>
+<button class="small" onclick="setLang('Spanish')">Spanish</button>
+<button class="small" onclick="setLang('Arabic')">Arabic</button>
+</div>
+<p style="font-size:12px">Selected Language: <b id="langShow" style="color:#00ffcc">Auto - Use My Language</b></p>
+<div id="chatBox" class="chat"><div class="msg a">Hello Founder. I am your Normal AI. Ask me anything in any language. What would you like to know today?</div></div>
+<input id="q" placeholder="Ask anything in any language...">
+<button class="go" onclick="askNormalAI()">Ask Normal AI</button>
+<button class="go" style="background:#ff00aa;color:#fff;margin-top:6px" onclick="surpriseMe()">Surprise Me</button>
+<div id="surpriseBox"></div>
+</div>
+
+<!-- 2. ENGINEER AI -->
+<div id="eng" class="card">
+<b>Engineer AI - Answers With Proof</b>
+<p style="font-size:12px;color:#ffaa00">For engineering only. It gives: Given, Formula, Calculation, Proof, Answer, Safety. It also speaks all languages.</p>
+<div id="engBox" class="chat"><div class="msg aEng">Hello. I am Engineer AI. Ask me any engineering question - car engine, building, electricity, robot, bridge. I will answer with proof.</div></div>
+<input id="eq" placeholder="Ask engineering... e.g How to calculate load for a beam?">
+<div>
+<button class="smallEng" onclick="setEng('How does a car engine work? Explain with proof')">Car Engine</button>
+<button class="smallEng" onclick="setEng('How to calculate load for a beam? Give formula and example')">Beam Load</button>
+<button class="smallEng" onclick="setEng('How to wire a house safely? Give proof and safety')">House Wiring</button>
+<button class="smallEng" onclick="setEng('How to build a robot arm? Parts and calculation')">Robot Arm</button>
+<button class="smallEng" onclick="setEng('How to calculate horsepower of an engine?')">Horsepower</button>
+</div>
+<button class="goEng" onclick="askEngAI()">Ask Engineer AI - With Proof</button>
 </div>
 
 <!-- PICTURE -->
 <div id="pic" class="card">
-<b>🎨 Any Picture You Ask For</b>
-<textarea id="picPrompt" rows="2" placeholder="Type ANYTHING... e.g A lion wearing Agbada, My dream house"></textarea>
+<b>Generate Any Picture</b>
+<textarea id="picPrompt" rows="2" placeholder="Type anything... e.g A lion wearing Agbada, My dream house"></textarea>
 <select id="picStyle">
-<option value="realistic, high quality, professional photo">📸 Real Photo</option>
-<option value="cartoon, colorful, 3D pixar style">🎬 Cartoon / 3D</option>
-<option value="anime, beautiful">✨ Anime</option>
-<option value="cinematic, movie poster">🎥 Movie Poster</option>
-<option value="logo, clean, minimal">🏷️ Logo</option>
+<option value="realistic, high quality, professional photo">Real Photo</option>
+<option value="cartoon, colorful, 3D pixar style">Cartoon / 3D</option>
+<option value="anime, beautiful">Anime</option>
+<option value="cinematic, movie poster">Movie Poster</option>
+<option value="logo, clean, minimal">Logo</option>
 </select>
-<button class="go3" onclick="genPic()">🎨 GENERATE PICTURE (-50 Coins)</button>
-<div id="picOut"><p style="font-size:12px;color:#aaa">Picture go show here.</p></div>
-<button class="small" onclick="downloadPic()">⬇️ Save Picture</button>
+<button class="go3" onclick="genPic()">Generate Picture (-50 Coins)</button>
+<button class="go" style="background:#ff00aa;color:#fff;margin-top:6px" onclick="surprisePic()">Surprise Picture</button>
+<div id="picOut"><p style="font-size:12px;color:#aaa">Your picture will appear here.</p></div>
+<button class="small" onclick="downloadPic()">Save Picture</button>
 </div>
 
 <!-- COURSES -->
 <div id="course" class="card">
-<b>📚 Courses - Full Inside App - Finish = +200 Coins</b>
-<div class="box"><b>👩‍⚕️ Nursing</b><br><button class="small" onclick="openCourse('nursing')">START ▶</button></div>
-<div class="box"><b>👨‍⚕️ Doctor</b><br><button class="small" onclick="openCourse('doctor')">START ▶</button></div>
-<div class="box"><b>💼 Business</b><br><button class="small" onclick="openCourse('business')">START ▶</button></div>
-<div class="box"><b>💻 Coding</b><br><button class="small" onclick="openCourse('coding')">START ▶</button></div>
-<div class="box"><b>🍳 Cooking</b><br><button class="small" onclick="openCourse('cooking')">START ▶</button></div>
+<b>Courses - Nursing and More</b>
+<div class="box"><b>Nursing Course</b><br><button class="small" onclick="openCourse('nursing')">Start Nursing</button></div>
+<div class="box"><b>Doctor Course</b><br><button class="small" onclick="openCourse('doctor')">Start Doctor</button></div>
+<div class="box"><b>Business Course</b><br><button class="small" onclick="openCourse('business')">Start Business</button></div>
+<div class="box"><b>Coding Course</b><br><button class="small" onclick="openCourse('coding')">Start Coding</button></div>
+<div class="box"><b>Cooking Course</b><br><button class="small" onclick="openCourse('cooking')">Start Cooking</button></div>
 <div id="lessonBox"></div>
 </div>
 
-<!-- CAR - SIMPLE & CORRECT -->
+<!-- CAR -->
 <div id="car" class="card">
-<b>🏭 Build Car Inside App - Real Steps Inside App</b>
-<p style="font-size:13px;color:#ccc">Pick step by step. No be outside car. Na inside app.</p>
+<b>Build Car Inside The App</b>
 <input id="carName" placeholder="Car name e.g STEVO X1">
-<div class="box" style="text-align:center;font-size:50px"><span id="carEmoji">🚗</span><br><span id="carInfo" style="font-size:13px">Step 1: Pick Chassis</span><br><span style="font-size:12px;color:#ffcc00" id="carProgress">Progress: 0 / 5</span></div>
+<div class="box" style="text-align:center;font-size:50px"><span id="carEmoji">🚗</span><br><span id="carInfo" style="font-size:13px">Step 1: Choose Chassis</span><br><span style="font-size:12px;color:#ffcc00" id="carProgress">Progress: 0 / 5</span></div>
 <div id="carOptions"></div>
-<button class="go" id="carNextBtn" onclick="carNext()">Next Step ➤</button>
+<button class="go" id="carNextBtn" onclick="carNext()">Next Step</button>
 <div id="carDone"></div>
 </div>
 
 <!-- GARAGE -->
 <div id="garage" class="card">
-<b>🏠 My Garage - Cars You Built Inside App</b>
+<b>My Garage</b>
 <div id="garageList"><p style="font-size:12px;color:#aaa">No car yet. Build one.</p></div>
 </div>
 
 <!-- TBDS -->
 <div id="tbds" class="card">
-<b>🏭 TBDS - Real Link</b><br><br>
+<b>TBDS - Important - Real Link</b><br><br>
 <b style="color:#00ffcc">https://t-b-d-s-engineering-hub.ai.studio</b><br><br>
-<button class="go2" onclick="openTBDS()">🏭 OPEN TBDS ➤</button>
-<p style="font-size:12px;color:#aaa">TBDS go open for new tab. That na correct way because Google no allow iframe.</p>
+<button class="go2" onclick="openTBDS()">OPEN TBDS</button>
+<p style="font-size:12px;color:#aaa">TBDS is your factory side. STEVO-AI is the learning and AI side. Normal AI and TBDS are the two most important parts.</p>
+<button class="go" onclick="sendToTBDS()">Send My Project To TBDS</button>
+<div id="tbdsMsg"></div>
 </div>
 
-<p style="text-align:center;font-size:11px;color:#888">STEVO-AI • Founder: Kayode Stephen Olayinka</p>
+<p style="text-align:center;font-size:11px;color:#888">STEVO-AI • Founder: Kayode Stephen Olayinka • Normal AI + Engineer AI + TBDS</p>
 
 <script>
 var TBDS_URL = "https://t-b-d-s-engineering-hub.ai.studio";
@@ -114,6 +149,9 @@ var garage = JSON.parse(localStorage.getItem('stevo_garage') || '[]');
 var carStep = 0;
 var carData = { name: '', chassis: '', engine: '', wheels: '', color: '', interior: '' };
 var lastPic = '';
+var chatHistory = [];
+var engHistory = [];
+var selectedLang = 'Auto';
 
 function refreshCoins() {
   document.getElementById('coins').innerText = coins;
@@ -121,152 +159,141 @@ function refreshCoins() {
   localStorage.setItem('stevo_coins', coins);
   localStorage.setItem('stevo_garage', JSON.stringify(garage));
 }
-function dailyBonus() { coins += 500; refreshCoins(); alert('🎁 +500 Coins! Balance: ' + coins); }
+function dailyBonus() { coins += 500; refreshCoins(); alert('Daily Bonus +500 Coins. Balance: ' + coins); }
 function showTab(id) {
-  var all = ['ai','pic','course','car','garage','tbds'];
-  for (var i = 0; i < all.length; i++) {
-    document.getElementById(all[i]).classList.remove('show');
-  }
+  var all = ['ai','eng','pic','course','car','garage','tbds'];
+  for (var i = 0; i < all.length; i++) { document.getElementById(all[i]).classList.remove('show'); }
   document.getElementById(id).classList.add('show');
-  var tabs = ['tAI','tPic','tCourse','tCar','tGarage','tTBDS'];
+  var tabs = ['tAI','tEng','tPic','tCourse','tCar','tGarage','tTBDS'];
   for (var j = 0; j < tabs.length; j++) { document.getElementById(tabs[j]).classList.remove('on'); }
-  var map = { ai:'tAI', pic:'tPic', course:'tCourse', car:'tCar', garage:'tGarage', tbds:'tTBDS' };
+  var map = { ai:'tAI', eng:'tEng', pic:'tPic', course:'tCourse', car:'tCar', garage:'tGarage', tbds:'tTBDS' };
   document.getElementById(map[id]).classList.add('on');
   if (id === 'garage') renderGarage();
   if (id === 'car') renderCarStep();
 }
 function openTBDS() { window.open(TBDS_URL, '_blank'); }
-function fastAsk() {
+function sendToTBDS() {
+  var msg = 'Hello TBDS. From STEVO-AI Founder Kayode Stephen Olayinka. I built: ' + (garage.length>0 ? garage[0] : 'STEVO X1') + '. Please check my Garage.';
+  document.getElementById('tbdsMsg').innerHTML = '<div class="box">Ready: ' + msg + '<br><button class="small" onclick="openTBDS()">Open TBDS Now</button></div>';
+}
+function setLang(l) { selectedLang = l; document.getElementById('langShow').innerText = l; }
+
+// NORMAL AI - SPEAKS ALL LANGUAGES
+function askNormalAI() {
   var inp = document.getElementById('q');
   var q = inp.value.trim();
-  if (!q) { alert('Type question first'); return; }
+  if (!q) { alert('Please type your question first'); return; }
   inp.value = '';
   var box = document.getElementById('chatBox');
   box.innerHTML += '<div class="msg u">' + q.replace(/</g,'&lt;') + '</div>';
-  var low = q.toLowerCase();
-  var ans = '';
-  if (low.indexOf('founder') !== -1) ans = '👑 My Founder na Kayode Stephen Olayinka! Co-Owner na Ikudehinbu Promise.';
-  else if (low.indexOf('nurs') !== -1) ans = '👩‍⚕️ NURSING: Nurse dey care for sick people. BP normal 120/80. Temp 36.5-37.5. First Aid: If person faint, lay flat, give air, call Doctor.';
-  else if (low.indexOf('business') !== -1) ans = '💼 BUSINESS: Find problem, start small, keep record, good service bring customers.';
-  else if (low.indexOf('car') !== -1) ans = '🚗 CAR: Go Build Car tab, pick parts step by step, test drive inside app!';
-  else if (low.indexOf('robot') !== -1) ans = '🤖 ROBOT: Robot sense, think, act. Must not harm human. Put STOP button.';
-  else if (low.indexOf('tbds') !== -1) ans = '🏭 TBDS link: ' + TBDS_URL;
-  else if (low.indexOf('coin') !== -1) ans = '🪙 You get ' + coins + ' Coins. Finish course +200, Daily +500.';
-  else if (low.indexOf('hello') !== -1 || low.indexOf('hi') !== -1) ans = 'Hello Founder! Ask me Nursing, Business, Car, Robot.';
-  else ans = 'I hear you: "' + q + '". Ask me Nursing, Business, Car, Robot. Or go Picture tab to draw ANY picture.';
-  box.innerHTML += '<div class="msg a">' + ans + '</div>';
+  var id = 'ans' + Date.now();
+  box.innerHTML += '<div class="msg a" id="' + id + '">Thinking...</div>';
   box.scrollTop = box.scrollHeight;
+  var low = q.toLowerCase();
+  if (low.indexOf('founder') !== -1 || low.indexOf('who created you') !== -1 || low.indexOf('who are you') !== -1) {
+    document.getElementById(id).innerText = 'My Founder is Kayode Stephen Olayinka. Co-Owner is Ikudehinbu Promise. I am your Normal AI inside STEVO-AI.';
+    coins += 10; refreshCoins(); return;
+  }
+  chatHistory.push('User: ' + q);
+  var langInstruction = selectedLang === 'Auto' ? 'Detect the language the user used and answer in that same language.' : 'Answer in ' + selectedLang + ' language.';
+  var prompt = 'You are STEVO-AI, a friendly normal AI assistant like Meta AI, founded by Kayode Stephen Olayinka. ' + langInstruction + ' Answer in clear, good English if the user uses English, or in the user language if they use another language. Be helpful and explain well. Do not use pidgin unless the user asks for pidgin. Chat:\n' + chatHistory.slice(-6).join('\n') + '\nAnswer well:';
+  fetch('https://text.pollinations.ai/' + encodeURIComponent(prompt), { signal: AbortSignal.timeout(15000) })
+  .then(function(r){ return r.text(); })
+  .then(function(t){
+    var el = document.getElementById(id);
+    if (el) { el.innerHTML = (t && t.length>5 ? t.replace(/\n/g,'<br>') : 'Sorry, please try again. Check your data.'); chatHistory.push('AI: ' + t); box.scrollTop = box.scrollHeight; }
+  })
+  .catch(function(){ var el2 = document.getElementById(id); if(el2) el2.innerText = 'Network is slow. Please check your data and try again. I will not give a fake answer.'; });
   coins += 10; refreshCoins();
 }
-document.getElementById('q').addEventListener('keypress', function(e){ if(e.key==='Enter') fastAsk(); });
+document.getElementById('q').addEventListener('keypress', function(e){ if(e.key==='Enter') askNormalAI(); });
+
+// ENGINEER AI - WITH PROOF, ALL LANGUAGES
+function setEng(t) { document.getElementById('eq').value = t; }
+function askEngAI() {
+  var inp = document.getElementById('eq');
+  var q = inp.value.trim();
+  if (!q) { alert('Please type your engineering question first'); return; }
+  inp.value = '';
+  var box = document.getElementById('engBox');
+  box.innerHTML += '<div class="msg u">' + q.replace(/</g,'&lt;') + '</div>';
+  var id = 'eng' + Date.now();
+  box.innerHTML += '<div class="msg aEng" id="' + id + '">Engineer is calculating with proof... please wait...</div>';
+  box.scrollTop = box.scrollHeight;
+  engHistory.push('User: ' + q);
+  var langInstruction2 = selectedLang === 'Auto' ? 'Detect the user language and answer in that same language.' : 'Answer in ' + selectedLang + '.';
+  var prompt = 'You are STEVO Engineer AI, a senior engineer (Mechanical + Electrical + Civil). ' + langInstruction2 + ' Answer EVERY engineering question with PROOF in this exact format:\n\n1. What Is The Problem?\n2. Given\n3. Formula\n4. Calculation / Proof (show step by step with numbers)\n5. Answer\n6. Safety / Real Life Tip\n\nUse clear, good language. Give a real example with numbers. Previous chat:\n' + engHistory.slice(-4).join('\n') + '\nQuestion: ' + q;
+  fetch('https://text.pollinations.ai/' + encodeURIComponent(prompt), { signal: AbortSignal.timeout(20000) })
+  .then(function(r){ return r.text(); })
+  .then(function(t){
+    var el = document.getElementById(id);
+    if (el) { el.innerHTML = (t && t.length>5 ? '<b>Engineer AI - With Proof:</b><br><br>' + t.replace(/\n/g,'<br>') : 'Sorry, please try again.'); engHistory.push('AI: ' + t); box.scrollTop = box.scrollHeight; }
+  })
+  .catch(function(){ var el2 = document.getElementById(id); if(el2) el2.innerText = 'Network is slow for Engineer AI. Please check your data and try again. Example: How does a car engine work?'; });
+  coins += 10; refreshCoins();
+}
+document.getElementById('eq').addEventListener('keypress', function(e){ if(e.key==='Enter') askEngAI(); });
+
+function surpriseMe() {
+  var surprises = [
+    'Surprise Idea: Create a Car of the Day. Every day, the app will show one new car design. People will return every day to see the new car.',
+    'Surprise Fact: At 120 km/h, you travel 33 meters every second. That is why brakes must be strong.',
+    'Surprise Business: In Lagos, people pay to charge phones when there is no power. A solar charging station built with TBDS can earn money every day.',
+    'Surprise Car: Your next car should be a Gold Electric SUV with a Solar Roof. It will charge itself in Lagos sun. Name it STEVO SUN-X.',
+    'Surprise Story: A boy in Lagos built an app on his phone. People laughed. Five years later, his app became the biggest in Africa. That boy is you.',
+    'Surprise Engineer: You can build a robot that follows you like a dog and carries your bag. It needs only 2 motors, 1 sensor, and 1 battery. Ask Engineer AI: How to build a follow-me robot?'
+  ];
+  var pick = surprises[Math.floor(Math.random() * surprises.length)];
+  var box = document.getElementById('surpriseBox');
+  if (box) { box.innerHTML = '<div class="box" style="border:2px solid #ff00aa"><b>Surprise:</b><br><br>' + pick + '<br><br><button class="small" onclick="surpriseMe()">Surprise Me Again</button></div>'; }
+}
+
 function genPic() {
   var p = document.getElementById('picPrompt').value.trim();
-  if (!p) { alert('Type ANYTHING you want make e draw first'); return; }
-  if (coins < 50) { alert('You need 50 Coins. You get ' + coins + '. Finish course to earn.'); return; }
+  if (!p) { alert('Please type what you want to draw first'); return; }
+  if (coins < 50) { alert('You need 50 Coins. You have ' + coins); return; }
   coins -= 50; refreshCoins();
   var style = document.getElementById('picStyle').value;
   var out = document.getElementById('picOut');
-  out.innerHTML = '<p>🎨 Drawing "' + p + '" ... wait small</p>';
+  out.innerHTML = '<p>Drawing "' + p + '" ...</p>';
   lastPic = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(p + ', ' + style) + '?width=1024&height=1024&seed=' + Math.floor(Math.random()*1000000) + '&nologo=true';
   var img = new Image();
-  img.onload = function(){ out.innerHTML = '<img class="pic" src="' + lastPic + '"><p>✅ Ready! Coins left: ' + coins + '</p>'; };
-  img.onerror = function(){ out.innerHTML = '<p>Network slow, press GENERATE again.</p>'; };
+  img.onload = function(){ out.innerHTML = '<img class="pic" src="' + lastPic + '"><p>Ready. Coins left: ' + coins + '</p>'; };
+  img.onerror = function(){ out.innerHTML = '<p>Network is slow. Please press Generate again.</p>'; };
   img.src = lastPic;
 }
-function downloadPic() { if(!lastPic){ alert('Generate picture first'); return; } window.open(lastPic,'_blank'); }
+function downloadPic() { if(!lastPic){ alert('Please generate a picture first'); return; } window.open(lastPic,'_blank'); }
+function surprisePic() {
+  var prompts = [
+    'A Nigerian billionaire engineer standing beside his gold flying car in Lagos, sunset, cinematic',
+    'A lion wearing Agbada and sunglasses at a Lagos party',
+    'A futuristic house in Lekki with swimming pool and solar panels',
+    'A cute robot serving Jollof rice in a restaurant',
+    'A superhero boy from Lagos flying over Third Mainland Bridge',
+    'A beautiful queen with gold crown and braids, royal palace'
+  ];
+  var p = prompts[Math.floor(Math.random() * prompts.length)];
+  document.getElementById('picPrompt').value = p;
+  showTab('pic');
+  genPic();
+}
+
 function openCourse(type) {
   var lessons = {
-    nursing: '👩‍⚕️ NURSING<br><br>Lesson 1: Nurse dey care for sick people with love.<br>Lesson 2: BP - Sit down, rest 5 mins, cuff for arm. Normal 120/80. Temp normal 36.5-37.5.<br>Lesson 3: First Aid - If person faint, lay flat, raise legs, give air, call Doctor. If wound, press cloth, cover.',
-    doctor: '👨‍⚕️ DOCTOR<br><br>Lesson 1: Heart pump blood, lungs breathe, brain control.<br>Lesson 2: Malaria - fever, headache. Test before drug.<br>Lesson 3: Doctor steps - Ask, check, test, give drug. Never guess!',
-    business: '💼 BUSINESS<br><br>Lesson 1: Find problem for your area.<br>Lesson 2: Start small - POS, food, recharge.<br>Lesson 3: Keep record of every sale.<br>Lesson 4: Good service bring customers.',
-    coding: '💻 CODING<br><br>Lesson 1: Hardware = touch, Software = programs.<br>Lesson 2: HTML: &lt;h1&gt;Hello&lt;/h1&gt; show big Hello.<br>Lesson 3: App = HTML + CSS + JS.',
-    cooking: '🍳 COOKING<br><br>Lesson 1: Jollof - Rice, tomato, pepper, onion. Fry tomato well.<br>Lesson 2: Hygiene - Wash hand, wash pot, cover food.'
+    nursing: 'Nursing Course<br><br>Lesson 1: A nurse cares for sick people with love.<br>Lesson 2: Blood Pressure - Sit down, rest 5 minutes, cuff on arm. Normal is 120/80. Temperature normal is 36.5 to 37.5.<br>Lesson 3: First Aid - If a person faints, lay them flat, give air, call a Doctor.',
+    doctor: 'Doctor Course<br><br>Lesson 1: The heart pumps blood, the lungs breathe air, the brain controls the body.<br>Lesson 2: Malaria - fever, headache. Test before giving medicine.<br>Lesson 3: Ask, check, test, give medicine.',
+    business: 'Business Course<br><br>Lesson 1: Find a problem in your area.<br>Lesson 2: Start small.<br>Lesson 3: Keep a record of every sale.<br>Lesson 4: Good service brings customers.',
+    coding: 'Coding Course<br><br>Lesson 1: Hardware is what you can touch, Software is programs.<br>Lesson 2: HTML: &lt;h1&gt;Hello&lt;/h1&gt; shows a big Hello.<br>Lesson 3: An App = HTML + CSS + JS.',
+    cooking: 'Cooking Course<br><br>Lesson 1: Jollof Rice - Rice, tomato, pepper, onion. Fry tomato well.<br>Lesson 2: Hygiene - Wash hands, wash pots, cover food.'
   };
-  document.getElementById('lessonBox').innerHTML = '<div class="box">' + lessons[type] + '<br><br><button class="go" onclick="finishCourse()">✅ I Finish - +200 Coins</button></div>';
+  document.getElementById('lessonBox').innerHTML = '<div class="box">' + lessons[type] + '<br><br><button class="go" onclick="finishCourse()">I Finished - +200 Coins</button></div>';
 }
-function finishCourse() { coins += 200; refreshCoins(); alert('🎉 +200 Coins! Balance: ' + coins); }
+function finishCourse() { coins += 200; refreshCoins(); alert('Well done. +200 Coins. Balance: ' + coins); }
+
 function renderCarStep() {
   var opts = document.getElementById('carOptions');
   var info = document.getElementById('carInfo');
   var prog = document.getElementById('carProgress');
   prog.innerText = 'Progress: ' + carStep + ' / 5';
-  if (carStep === 0) {
-    info.innerText = 'Step 1: Pick Chassis';
-    opts.innerHTML = '<button class="small" onclick="pickCar(\'chassis\',\'Sedan Chassis\')">🚗 Sedan</button> <button class="small" onclick="pickCar(\'chassis\',\'SUV Chassis\')">🚙 SUV</button> <button class="small" onclick="pickCar(\'chassis\',\'Sports Chassis\')">🏎️ Sports</button><p style="font-size:12px;color:#aaa">Pick one, then press Next</p>';
-  } else if (carStep === 1) {
-    info.innerText = 'Step 2: Pick Engine - Chassis: ' + carData.chassis;
-    opts.innerHTML = '<button class="small" onclick="pickCar(\'engine\',\'1.5L Petrol\')">⚙️ 1.5L Petrol</button> <button class="small" onclick="pickCar(\'engine\',\'2.0L Turbo\')">🔥 2.0L Turbo</button> <button class="small" onclick="pickCar(\'engine\',\'Electric Motor\')">🔋 Electric</button>';
-  } else if (carStep === 2) {
-    info.innerText = 'Step 3: Pick Wheels - Engine: ' + carData.engine;
-    opts.innerHTML = '<button class="small" onclick="pickCar(\'wheels\',\'Normal Tyres\')">🛞 Normal</button> <button class="small" onclick="pickCar(\'wheels\',\'Sport Tyres\')">🛞 Sport</button> <button class="small" onclick="pickCar(\'wheels\',\'Off-Road Tyres\')">🛞 Off-Road</button>';
-  } else if (carStep === 3) {
-    info.innerText = 'Step 4: Pick Color';
-    opts.innerHTML = '<button class="small" style="background:red" onclick="pickCar(\'color\',\'Red\')">🔴 Red</button> <button class="small" style="background:#000;border:1px solid #fff" onclick="pickCar(\'color\',\'Black\')">⚫ Black</button> <button class="small" style="background:gold;color:#000" onclick="pickCar(\'color\',\'Gold\')">🟡 Gold</button> <button class="small" style="background:blue" onclick="pickCar(\'color\',\'Blue\')">🔵 Blue</button>';
-  } else if (carStep === 4) {
-    info.innerText = 'Step 5: Pick Interior - Color: ' + carData.color;
-    opts.innerHTML = '<button class="small" onclick="pickCar(\'interior\',\'Leather + AC\')">💺 Leather + AC</button> <button class="small" onclick="pickCar(\'interior\',\'Fabric + Radio\')">💺 Fabric + Radio</button> <button class="small" onclick="pickCar(\'interior\',\'Luxury\')">✨ Luxury</button>';
-  }
-  document.getElementById('carNextBtn').style.display = carStep < 5 ? 'block' : 'none';
-}
-function pickCar(key, val) {
-  carData[key] = val;
-  if (key === 'chassis') { document.getElementById('carEmoji').innerText = val.indexOf('SUV')!==-1 ? '🚙' : val.indexOf('Sports')!==-1 ? '🏎️' : '🚗'; }
-  document.getElementById('carInfo').innerText = 'Picked: ' + val + ' ✅ Now press Next';
-}
-function carNext() {
-  var need = ['chassis','engine','wheels','color','interior'][carStep];
-  if (!carData[need]) { alert('Pick one first! Press one button above.'); return; }
-  carStep++;
-  if (carStep < 5) { renderCarStep(); return; }
-  // Finished
-  var name = document.getElementById('carName').value.trim() || 'STEVO X1';
-  carData.name = name;
-  if (coins < 500) { alert('You need 500 Coins to finish car. You get ' + coins + '. Finish course to earn.'); carStep = 4; renderCarStep(); return; }
-  coins -= 500; refreshCoins();
-  document.getElementById('carInfo').innerText = '✅ ' + name + ' READY!';
-  document.getElementById('carProgress').innerText = 'Progress: 5 / 5 - DONE';
-  document.getElementById('carOptions').innerHTML = '<p>Chassis: ' + carData.chassis + '<br>Engine: ' + carData.engine + '<br>Wheels: ' + carData.wheels + '<br>Color: ' + carData.color + '<br>Interior: ' + carData.interior + '</p>';
-  document.getElementById('carNextBtn').style.display = 'none';
-  document.getElementById('carDone').innerHTML = '<button class="go2" onclick="saveCar()">🏠 SAVE TO GARAGE</button><br><br><button class="go" onclick="testDrive()">🚗 TEST DRIVE INSIDE APP</button><p id="driveMsg" style="font-size:13px"></p>';
-}
-function testDrive() {
-  var speed = 0;
-  var msg = document.getElementById('driveMsg');
-  var iv = setInterval(function(){
-    speed += 20; if (speed > 120) speed = 120;
-    msg.innerText = '🚗 Driving... Speed: ' + speed + ' km/h';
-    if (speed >= 120) { clearInterval(iv); msg.innerText = '✅ Test Drive Passed! Speed 120 km/h. Car dey work inside app!'; }
-  }, 300);
-}
-function saveCar() {
-  var name = carData.name || 'STEVO X1';
-  garage.push(name + ' | ' + carData.chassis + ' | ' + carData.engine + ' | ' + carData.wheels + ' | ' + carData.color + ' | ' + carData.interior);
-  refreshCoins();
-  alert('✅ ' + name + ' saved to Garage!');
-  carStep = 0; carData = { name:'', chassis:'', engine:'', wheels:'', color:'', interior:'' };
-  document.getElementById('carName').value = '';
-  document.getElementById('carEmoji').innerText = '🚗';
-  document.getElementById('carDone').innerHTML = '';
-  renderCarStep();
-  showTab('garage');
-}
-function renderGarage() {
-  var list = document.getElementById('garageList');
-  if (garage.length === 0) { list.innerHTML = '<p style="font-size:12px;color:#aaa">No car yet. Build one.</p>'; return; }
-  var h = '';
-  for (var i = 0; i < garage.length; i++) {
-    h += '<div class="box"><b>' + garage[i] + '</b><br><button class="small" onclick="sellCar(' + i + ')">💰 Sell +800 Coins</button></div>';
-  }
-  list.innerHTML = h;
-}
-function sellCar(i) {
-  garage.splice(i, 1);
-  coins += 800; refreshCoins();
-  renderGarage();
-  alert('💰 Sold! +800 Coins. Balance: ' + coins);
-}
-refreshCoins();
-renderCarStep();
-</script>
-</body>
-  </html>
+  if (carStep === 0) { info.innerText = 'Step 1: Choose Chassis'; opts.innerHTML = '<button class="small" onclick="pickCar(\'chassis\',\'Sedan Chassis\')">Sedan</button> <button class="small" onclick="pickCar(\'chassis\',\'SUV Chassis\')">SUV</button> <button class="small" onclick="pickCar(\'chassis\',\'Sports Chassis\')">Sports</button>'; }
+  else if (carStep === 1) { info.innerText = 'Step 2: Choose Engine - ' + carData.chassis; opts.innerHTML = '<button class="small" onclick="pickCar(\'engine\',\'1.5L Petrol\')">1.5L Petrol</button> <button class="small" onclick="pickCar(\'engine\',\'2.0L Turbo\')">2.0L Turbo</button> <button class="small" onclick="pickCar(\'engine\',\'Electri
