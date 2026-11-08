@@ -11,10 +11,11 @@ header h1{margin:0;font-size:22px} header h1 span{color:#00ff88}
 .banner{background:#00ff88;color:#000;padding:8px;text-align:center;font-weight:bold;font-size:14px}
 .partner{background:#ffaa00;color:#000;padding:10px;text-align:center;font-weight:bold;font-size:14px}
 .partner a{color:#000;text-decoration:none;background:#fff;padding:6px 12px;border-radius:20px;display:inline-block;margin-top:4px}
+.joinBtn{background:#222;color:#777;border:1px solid #333;padding:8px 14px;border-radius:20px;cursor:pointer;margin:8px;font-size:12px}
 .tabs{display:flex;gap:8px;padding:10px;justify-content:center;flex-wrap:wrap}
 .tabs button{flex:1;padding:12px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:#2a2a45;color:#fff;min-width:90px}
 .tabs button.active{background:#00ff88;color:#000}
-#chat{padding:10px;max-width:700px;margin:auto;height:48vh;overflow-y:auto}
+#chat{padding:10px;max-width:700px;margin:auto;height:42vh;overflow-y:auto}
 .msg{padding:10px;border-radius:12px;margin:8px 0;max-width:88%;line-height:1.5;font-size:15px;white-space:pre-wrap}
 .user{background:#00ff88;color:#000;margin-left:auto}
 .ai{background:#2a2a45}
@@ -33,12 +34,25 @@ input[type=text]{flex:1;padding:13px;border-radius:12px;border:none;outline:none
 #previewBox img{max-width:180px;border-radius:12px;border:2px solid #00ff88}
 .editBtns{display:none;gap:6px;flex-wrap:wrap;justify-content:center;padding:5px}
 .editBtns button{background:#ff00aa;color:#fff;border:none;padding:9px 12px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:13px}
+#joinForm{display:none;background:#1a1a2e;padding:15px;max-width:400px;margin:10px auto;border-radius:15px;border:2px solid #ff00aa;text-align:center}
+#joinForm input{width:100%;padding:12px;border-radius:10px;border:none;margin:6px 0;outline:none}
+#joinForm button{width:100%;padding:12px;border:none;border-radius:10px;background:#00ff88;font-weight:bold;cursor:pointer;margin-top:6px}
+#coBadge{display:none;background:#ff00aa;padding:6px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-top:5px}
 </style>
 </head>
 <body>
-<header><h1>STEVO-<span>AI</span> 🔥</h1><p style="margin:2px;font-size:13px;opacity:.8">Created by Kayode Stephen Olayinka</p></header>
+<header><h1>STEVO-<span>AI</span> 🔥</h1><p style="margin:2px;font-size:13px;opacity:.8">Created by Kayode Stephen Olayinka</p><div id="coBadge">⭐ CO-DEVELOPER - TBDS</div><br><button class="joinBtn" onclick="toggleJoin()">🔒 Team Access</button></header>
 <div class="banner">🎉 FREE THIS NOVEMBER! Chat + Send Picture + Edit Picture + Any Question!</div>
 <div class="partner">🤝 PARTNER APP: T.B.D.S Engineering Hub - Build Robots & Learn Arduino<br><a href="https://engineering-hub.ai.studio" target="_blank">🤖 Open T.B.D.S Hub →</a></div>
+<div id="joinForm">
+<h3 style="margin:0">🔒 Team Access - Private</h3>
+<p style="font-size:13px;opacity:.8">Only invited team member can enter</p>
+<input type="text" id="devName" placeholder="Your Full Name">
+<input type="text" id="refCode" placeholder="Secret Code">
+<button onclick="checkCode()">Unlock 🔓</button>
+<p id="joinMsg" style="font-size:14px;font-weight:bold"></p>
+<button style="background:#333;color:#fff" onclick="toggleJoin()">Close</button>
+</div>
 <div class="tabs">
 <button id="btnChat" class="active" onclick="switchTab('chat')">💬 Chat</button>
 <button id="btnPic" onclick="switchTab('pic')">🎨 Create Pic</button>
@@ -76,7 +90,32 @@ let uploadedImage='';
 let chatBox=document.getElementById('chat');
 let resultBox=document.getElementById('result');
 function saveMemory(){localStorage.setItem('stevo_memory',JSON.stringify(memory.slice(-20)));}
-function showMemory(){chatBox.innerHTML='';if(memory.length===0)addMsg("Hello Boss! I am STEVO-AI by Kayode Stephen Olayinka.\n\nMy partner app is T.B.D.S Engineering Hub - for robots & Arduino. Check the yellow banner above!\n\nYou can:\n1. Ask me ANY question\n2. Send picture with 📷, I go edit am fantabulous\n3. Create picture, Play GTA Lagos","ai");memory.forEach(m=>{if(m.img){addMsgWithImg(m.text,m.img,m.who);}else addMsg(m.text,m.who);});}
+function toggleJoin(){let f=document.getElementById('joinForm');f.style.display=f.style.display==='block'?'none':'block';}
+function checkCode(){
+  let name=document.getElementById('devName').value.trim();
+  let code=document.getElementById('refCode').value.trim().toLowerCase();
+  let msg=document.getElementById('joinMsg');
+  if(!name){msg.style.color='#ffaa00';msg.innerText='Abeg enter your name first';return;}
+  if(code==='tbds-brother-2026'){
+    localStorage.setItem('stevo_co_dev',name);
+    document.getElementById('coBadge').style.display='inline-block';
+    document.getElementById('coBadge').innerText='⭐ CO-DEVELOPER - '+name.toUpperCase()+' (TBDS)';
+    msg.style.color='#00ff88';
+    msg.innerText='Welcome '+name+'! 🎉 You are now the ONLY Co-Developer! Secret code accepted.';
+    addMsg('Hello, I am '+name+'. I used the secret code and I am now the Co-Developer!','user');
+    addMsg('Welcome Co-Developer '+name+'! 🔥 You are the only person with secret access. STEVO-AI by Kayode Stephen Olayinka + T.B.D.S Engineering Hub = Team!','ai');
+    setTimeout(()=>{toggleJoin();},2000);
+  } else {
+    msg.style.color='red';
+    msg.innerText='Access Denied! Wrong secret code.';
+  }
+}
+if(localStorage.getItem('stevo_co_dev')){
+  let n=localStorage.getItem('stevo_co_dev');
+  document.getElementById('coBadge').style.display='inline-block';
+  document.getElementById('coBadge').innerText='⭐ CO-DEVELOPER - '+n.toUpperCase()+' (TBDS)';
+}
+function showMemory(){chatBox.innerHTML='';if(memory.length===0)addMsg("Hello Boss! I am STEVO-AI by Kayode Stephen Olayinka.\n\nMy partner app is T.B.D.S Engineering Hub - for robots & Arduino. Check the yellow banner above!","ai");memory.forEach(m=>{if(m.img){addMsgWithImg(m.text,m.img,m.who);}else addMsg(m.text,m.who);});}
 function addMsg(text,who){let d=document.createElement('div');d.className='msg '+who;d.innerText=text;chatBox.appendChild(d);chatBox.scrollTop=chatBox.scrollHeight;}
 function addMsgWithImg(text,img,who){let d=document.createElement('div');d.className='msg '+who;d.innerText=text;let im=document.createElement('img');im.src=img;d.appendChild(im);chatBox.appendChild(d);chatBox.scrollTop=chatBox.scrollHeight;}
 function switchTab(m){mode=m;document.getElementById('btnChat').className=m==='chat'?'active':'';document.getElementById('btnPic').className=m==='pic'?'active':'';document.getElementById('btnEdit').className=m==='edit'?'active':'';document.getElementById('btnGame').className=m==='game'?'active':'';if(m==='edit'){document.getElementById('previewBox').style.display='block';document.getElementById('editBtns').style.display='flex';}else{document.getElementById('previewBox').style.display='none';document.getElementById('editBtns').style.display='none';}resultBox.innerHTML='';}
@@ -104,4 +143,4 @@ addMsg(answer,'ai');memory.push({text:answer,who:'ai'});saveMemory();
 showMemory();
 </script>
 </body>
-                                          </html>
+                                              </html>
