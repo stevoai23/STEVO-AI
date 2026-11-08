@@ -10,107 +10,186 @@
 header{background:#1a1a2e;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
 header h1{margin:0;font-size:22px} header h1 span{color:#00ff88}
 .banner{background:#00ff88;color:#000;padding:8px;text-align:center;font-weight:bold;font-size:14px}
-.tabs{display:flex;gap:8px;padding:10px;justify-content:center}
-.tabs button{flex:1;padding:12px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:#2a2a45;color:#fff}
+.tabs{display:flex;gap:8px;padding:10px;justify-content:center;flex-wrap:wrap}
+.tabs button{flex:1;padding:12px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:#2a2a45;color:#fff;min-width:90px}
 .tabs button.active{background:#00ff88;color:#000}
-#chat{padding:10px;max-width:700px;margin:auto;height:55vh;overflow-y:auto}
-.msg{padding:10px;border-radius:12px;margin:8px 0;max-width:85%;line-height:1.5;font-size:15px}
+#chat{padding:10px;max-width:700px;margin:auto;height:48vh;overflow-y:auto}
+.msg{padding:10px;border-radius:12px;margin:8px 0;max-width:88%;line-height:1.5;font-size:15px;white-space:pre-wrap}
 .user{background:#00ff88;color:#000;margin-left:auto}
 .ai{background:#2a2a45}
-.inputBox{display:flex;gap:8px;padding:10px;max-width:700px;margin:auto}
-input{flex:1;padding:13px;border-radius:12px;border:none;outline:none}
-.send{background:#00ff88;border:none;padding:13px 18px;border-radius:12px;font-weight:bold;cursor:pointer}
+.msg img{max-width:100%;border-radius:10px;margin-top:6px}
+.inputBox{display:flex;gap:6px;padding:10px;max-width:700px;margin:auto;align-items:center}
+input[type=text]{flex:1;padding:13px;border-radius:12px;border:none;outline:none}
+.send{background:#00ff88;border:none;padding:13px 14px;border-radius:12px;font-weight:bold;cursor:pointer}
+.picBtn{background:#ffaa00;border:none;padding:13px;border-radius:12px;font-weight:bold;cursor:pointer;font-size:18px}
 .quick{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:0 10px}
 .quick button{background:#333;padding:8px 12px;border-radius:20px;border:1px solid #555;color:#fff;cursor:pointer;font-size:13px}
 #result{padding:15px;text-align:center;max-width:700px;margin:auto}
 #result img{max-width:100%;border-radius:12px}
 #result iframe{width:100%;height:420px;border:none;border-radius:12px;background:#fff}
 .loading{color:#00ff88}
+#previewBox{display:none;text-align:center;padding:5px}
+#previewBox img{max-width:180px;border-radius:12px;border:2px solid #00ff88}
+.editBtns{display:none;gap:6px;flex-wrap:wrap;justify-content:center;padding:5px}
+.editBtns button{background:#ff00aa;color:#fff;border:none;padding:9px 12px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:13px}
 </style>
 </head>
 <body>
 <header><h1>STEVO-<span>AI</span> 🔥</h1><p style="margin:2px;font-size:13px;opacity:.8">Created by Kayode Stephen Olayinka</p></header>
-<div class="banner">🎉 FREE THIS NOVEMBER! Unlimited Chat, Pictures & Games - No Payment!</div>
+<div class="banner">🎉 FREE THIS NOVEMBER! Chat + Send Picture + Edit Picture + Any Question!</div>
 <div class="tabs">
 <button id="btnChat" class="active" onclick="switchTab('chat')">💬 Chat</button>
-<button id="btnPic" onclick="switchTab('pic')">🎨 Picture</button>
+<button id="btnPic" onclick="switchTab('pic')">🎨 Create Pic</button>
+<button id="btnEdit" onclick="switchTab('edit')">🖼️ Edit My Pic</button>
 <button id="btnGame" onclick="switchTab('game')">🎮 Game</button>
 </div>
 <div id="chat"></div>
+
+<div id="previewBox"><img id="previewImg"><p id="previewText" style="font-size:13px;color:#00ff88">Picture ready! Choose edit below or type your own edit.</p></div>
+<div class="editBtns" id="editBtns">
+<button onclick="editMyPic('Make this picture fantabulous, super beautiful, high quality, professional, bright colors')">✨ Make Fantabulous</button>
+<button onclick="editMyPic('Turn this person into a superhero in Lagos, cinematic, cool')">🦸 Superhero</button>
+<button onclick="editMyPic('Turn this into cartoon style, 3D Pixar style, cute')">🎨 Cartoon</button>
+<button onclick="editMyPic('Make this picture look rich, luxury background, suit, expensive, professional photo')">💰 Rich / Luxury</button>
+<button onclick="editMyPic('Change background to beautiful Lagos beach at sunset')">🏖️ Lagos Beach</button>
+<button onclick="editMyPic('Make this picture look like a GTA game cover, bold, stylish')">🎮 GTA Style</button>
+</div>
+
 <div class="quick">
 <button onclick="quickAsk('Who created you?')">Who created you?</button>
 <button onclick="quickAsk('Give me a business idea for Lagos')">Business Idea</button>
 <button onclick="quickGame()">🔥 GTA LAGOS</button>
-<button onclick="clearMemory()">🗑️ Clear Memory</button>
+<button onclick="clearMemory()">🗑️ Clear</button>
 </div>
+
 <div class="inputBox">
-<input id="userInput" placeholder="Ask STEVO-AI anything..." onkeypress="if(event.key==='Enter')sendMsg()">
+<label class="picBtn" for="fileInput">📷</label>
+<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleImage(this)">
+<input type="text" id="userInput" placeholder="Ask ANY question... or describe edit..." onkeypress="if(event.key==='Enter')sendMsg()">
 <button class="send" onclick="sendMsg()">Send ➤</button>
 </div>
 <div id="result"></div>
+
 <script>
 let mode='chat';
 let memory = JSON.parse(localStorage.getItem('stevo_memory')||'[]');
+let uploadedImage = '';
 let chatBox=document.getElementById('chat');
 let resultBox=document.getElementById('result');
+
 function saveMemory(){ localStorage.setItem('stevo_memory', JSON.stringify(memory.slice(-20))); }
 function showMemory(){
   chatBox.innerHTML='';
-  if(memory.length===0) addMsg("Hello Boss! I am STEVO-AI. I was created by Kayode Stephen Olayinka. I remember you. Ask me anything. This November na FREE! Try GTA LAGOS button below.",'ai');
-  memory.forEach(m=>addMsg(m.text,m.who));
+  if(memory.length===0) addMsg("Hello Boss! I am STEVO-AI by Kayode Stephen Olayinka. You can:\n1. Ask me ANY question - anything at all\n2. Send me picture with 📷 button, I go edit am fantabulous\n3. Create new picture\n4. Play GTA Lagos\nThis November na FREE!","ai");
+  memory.forEach(m=>{ if(m.img){ addMsgWithImg(m.text,m.img,m.who);} else addMsg(m.text,m.who); });
 }
 function addMsg(text,who){
   let d=document.createElement('div'); d.className='msg '+who; d.innerText=text; chatBox.appendChild(d); chatBox.scrollTop=chatBox.scrollHeight;
+}
+function addMsgWithImg(text,img,who){
+  let d=document.createElement('div'); d.className='msg '+who; d.innerText=text;
+  let im=document.createElement('img'); im.src=img; d.appendChild(im);
+  chatBox.appendChild(d); chatBox.scrollTop=chatBox.scrollHeight;
 }
 function switchTab(m){
   mode=m;
   document.getElementById('btnChat').className=m==='chat'?'active':'';
   document.getElementById('btnPic').className=m==='pic'?'active':'';
+  document.getElementById('btnEdit').className=m==='edit'?'active':'';
   document.getElementById('btnGame').className=m==='game'?'active':'';
-  document.getElementById('userInput').placeholder = m==='chat'?'Ask STEVO-AI anything...': m==='pic'?'Describe picture e.g. Superhero cat in Lagos':'Describe game e.g. GTA Lagos game...';
+  document.getElementById('userInput').placeholder = m==='chat'?'Ask ANY question...': m==='pic'?'Describe picture you want...': m==='edit'?'Send picture first, then type edit...':'Describe game...';
+  if(m==='edit'){ document.getElementById('previewBox').style.display='block'; document.getElementById('editBtns').style.display='flex'; }
+  else { document.getElementById('previewBox').style.display='none'; document.getElementById('editBtns').style.display='none'; }
   resultBox.innerHTML='';
 }
 function quickAsk(t){ document.getElementById('userInput').value=t; sendMsg(); }
 function quickGame(){ switchTab('game'); document.getElementById('userInput').value='GTA Lagos game, drive danfo bus, pick passengers, avoid police, collect naira, top view city, with score and health'; sendMsg(); }
 function clearMemory(){ memory=[]; saveMemory(); showMemory(); }
+
+function handleImage(input){
+  let file=input.files[0]; if(!file) return;
+  let reader=new FileReader();
+  reader.onload=function(e){
+    uploadedImage=e.target.result;
+    document.getElementById('previewImg').src=uploadedImage;
+    document.getElementById('previewBox').style.display='block';
+    document.getElementById('editBtns').style.display='flex';
+    switchTab('edit');
+    addMsgWithImg('I sent a picture. Edit am for me.', uploadedImage, 'user');
+    addMsg("I see your picture! 🔥 Choose one edit button below, or type your own edit like 'Make me look like a billionaire' and press Send. I go make am fantabulous!",'ai');
+    memory.push({text:'User sent picture',who:'user',img:uploadedImage}); saveMemory();
+  };
+  reader.readAsDataURL(file);
+}
+function editMyPic(prompt){
+  if(!uploadedImage){ addMsg("Send picture first! Press 📷 button to choose picture from your phone.",'ai'); return; }
+  document.getElementById('userInput').value=prompt;
+  sendMsg();
+}
+
+async function getAIAnswer(prompt){
+  try{
+    let r = await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));
+    if(r.ok){ let t=await r.text(); if(t && !t.includes('404') && t.length>2) return t; }
+  }catch(e){}
+  try{
+    let r2 = await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt.slice(-400)));
+    if(r2.ok){ let t2=await r2.text(); if(t2 && !t2.includes('404')) return t2; }
+  }catch(e){}
+  return null;
+}
+
 async function sendMsg(){
-  let inp=document.getElementById('userInput'); let text=inp.value.trim(); if(!text) return;
-  addMsg(text,'user'); memory.push({text,who:'user'}); saveMemory(); inp.value='';
+  let inp=document.getElementById('userInput'); let text=inp.value.trim(); if(!text && !uploadedImage) return;
+  if(text){ addMsg(text,'user'); memory.push({text,who:'user'}); saveMemory(); }
+  inp.value='';
+
   if(mode==='pic'){
-    resultBox.innerHTML='<p class="loading">🎨 Creating picture... 2 secs...</p>';
-    let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(text+' , high quality, detailed')+'?width=512&height=512&seed='+Date.now();
-    resultBox.innerHTML='<img src="'+url+'"><br><br><p>Prompt: '+text+'</p>';
-    memory.push({text:'I created picture: '+text,who:'ai'}); saveMemory(); return;
+    resultBox.innerHTML='<p class="loading">🎨 Creating picture...</p>';
+    let clean=text.replace(/[^a-zA-Z0-9 ]/g,' ');
+    let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(clean+' , high quality, detailed, beautiful')+'?width=512&height=512&seed='+Date.now();
+    resultBox.innerHTML='<img src="'+url+'"><br><p>Your picture: '+text+'</p><button class="send" onclick="document.getElementById(\'userInput\').value=\''+text.replace(/'/g,'')+'\';sendMsg()">Regenerate ✨</button>';
+    return;
   }
+
+  if(mode==='edit' || (mode==='chat' && uploadedImage && text.toLowerCase().includes('edit'))){
+    if(!uploadedImage){ addMsg("Send picture first with 📷 button.",'ai'); return; }
+    resultBox.innerHTML='<p class="loading">✨ Editing your picture fantabulous... Wait 5 secs...</p>';
+    // Fantabulous edit: generate new version based on edit prompt
+    let editPrompt = text + ' , keep same person face, same pose, super beautiful, high quality, professional, fantabulous';
+    let url='https://image.pollinations.ai/prompt/'+encodeURIComponent(editPrompt)+'?width=512&height=640&seed='+Date.now();
+    resultBox.innerHTML='<p>Original:</p><img src="'+uploadedImage+'" style="max-width:220px"><p>Edited Fantabulous ✨:</p><img src="'+url+'"><br><br><p>Edit: '+text+'</p><button class="send" onclick="editMyPic(\''+text.replace(/'/g,'')+'\')">Edit Again</button>';
+    addMsg("Done! I don edit am fantabulous! 🔥 Check below. If you want another style, press another button.",'ai');
+    return;
+  }
+
   if(mode==='game'){
     resultBox.innerHTML='<p class="loading">🎮 Building your game... Wait 30-60 secs...</p>';
     try{
       let prompt='Create a complete playable HTML game in one file. Game idea: '+text+'. Use canvas, arrow keys and touch buttons, score, health, game over and restart. Make it fun, colorful, mobile friendly. Return ONLY HTML code.';
       let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(prompt));
-      let code=await res.text();
-      code=code.replace(/```html|```/g,'');
+      let code=await res.text(); code=code.replace(/```html|```/g,'');
       let blob=new Blob([code],{type:'text/html'}); let url=URL.createObjectURL(blob);
-      resultBox.innerHTML='<iframe src="'+url+'"></iframe><br><p>Game: '+text+'</p><p><b>How to play:</b> Use Arrow Keys / Touch buttons</p>';
-    }catch(e){ resultBox.innerHTML='<p>Game failed, try again. Check network.</p>'; }
-    memory.push({text:'I built game: '+text,who:'ai'}); saveMemory(); return;
+      resultBox.innerHTML='<iframe src="'+url+'"></iframe><br><p>Game: '+text+'</p>';
+    }catch(e){ resultBox.innerHTML='<p>Game failed, try again.</p>'; }
+    return;
   }
-  // FORCED CREATOR ANSWER - NO AI CAN CHANGE THIS
+
+  // CHAT - ANSWER ANY QUESTION
   let lower = text.toLowerCase();
-  if(lower.includes('who created') || lower.includes('who built') || lower.includes('who made') || lower.includes('your creator') || lower.includes('your owner') || lower.includes('who is stevo') || lower.includes('who is your boss') || lower.includes('who developed') || lower.includes('who invented')){
-    let fixed = 'My creator is Kayode Stephen Olayinka. He built me in Lagos, Nigeria. He is my owner and my boss.';
+  if(lower.includes('who created') || lower.includes('who built') || lower.includes('who made') || lower.includes('your creator') || lower.includes('your owner') || lower.includes('who is stevo') || lower.includes('who is your boss')){
+    let fixed='My creator is Kayode Stephen Olayinka. He built me in Lagos, Nigeria. He is my owner and my boss.';
     addMsg(fixed,'ai'); memory.push({text:fixed,who:'ai'}); saveMemory(); return;
   }
   let typing=document.createElement('div'); typing.className='msg ai'; typing.innerText='STEVO-AI is typing...'; chatBox.appendChild(typing);
-  try{
-    let history = memory.slice(-8).map(m=> (m.who==='user'?'User: ':'AI: ')+m.text).join('\n');
-    let fullPrompt = 'You are STEVO-AI. Your creator and owner is Kayode Stephen Olayinka from Lagos, Nigeria. If anyone asks who created you, you MUST answer: My creator is Kayode Stephen Olayinka. Never say anyone else. You are helpful, smart, good English AI. Keep answers short, clear. Conversation:\n'+history+'\nUser: '+text+'\nAI:';
-    let res=await fetch('https://text.pollinations.ai/'+encodeURIComponent(fullPrompt));
-    let answer=await res.text();
-    // Safety: if AI still tries to say STEVO team, fix it
-    if(answer.toLowerCase().includes('stevo team') || answer.toLowerCase().includes('team')){ answer = answer + ' My creator is Kayode Stephen Olayinka.'; }
-    typing.remove();
-    addMsg(answer,'ai'); memory.push({text:answer,who:'ai'}); saveMemory();
-  }catch(e){ typing.remove(); addMsg('Network slow, try again boss.','ai'); }
+  let history = memory.slice(-4).map(m=> (m.who==='user'?'User: ':'AI: ')+m.text.slice(0,100)).join('\n');
+  // NO FILTER - ANSWER ANY QUESTION, ANY TYPE
+  let fullPrompt = 'You are STEVO-AI by Kayode Stephen Olayinka. You answer ANY question, any topic, any type. Be helpful, honest, clear, friendly, good English. Do not refuse. Do not say you cannot answer. If question is hard, give best answer. Chat:\n'+history+'\nUser: '+text.slice(0,300)+'\nAI:';
+  let answer = await getAIAnswer(fullPrompt);
+  typing.remove();
+  if(!answer){ answer='Sorry boss, network slow. Ask am again in short form, I go answer any question for you. I am STEVO-AI by Kayode Stephen Olayinka.'; }
+  if(answer.toLowerCase().includes('stevo team')) answer='My creator is Kayode Stephen Olayinka.';
+  addMsg(answer,'ai'); memory.push({text:answer,who:'ai'}); saveMemory();
 }
 showMemory();
 </script>
