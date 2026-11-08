@@ -1,78 +1,117 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STEVO-AI</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00ff88">
 <style>
-body{background:#000;color:#fff;font-family:sans-serif;margin:0;padding:15px}
-h1{text-align:center} h1 span{color:#00ff88}
-p{text-align:center;color:#aaa;font-size:13px}
-#chat{display:flex;flex-direction:column;gap:10px;margin-bottom:80px}
-.msg{padding:12px 15px;border-radius:15px;max-width:85%;line-height:1.5}
-.ai{background:#222;align-self:flex-start}
-.me{background:#00ff88;color:#000;align-self:flex-end}
-#box{position:fixed;bottom:0;left:0;right:0;background:#000;padding:10px;display:flex;gap:8px}
-input{flex:1;padding:12px;border-radius:20px;border:none;background:#222;color:#fff;outline:none}
-button{background:#00ff88;border:none;padding:12px 20px;border-radius:20px;font-weight:bold}
+body{background:#000;color:#fff;font-family:Arial;padding:10px;margin:0}
+#chat{height:55vh;overflow-y:auto;padding:10px;border:1px solid #333;border-radius:12px;background:#111}
+.msg{margin:8px 0;padding:10px;border-radius:12px;max-width:90%}
+.user{background:#00ff88;color:#000;margin-left:auto}
+.ai{background:#222}
+button{cursor:pointer}
+input{flex:1;padding:12px;border-radius:20px;border:none;outline:none}
 </style>
 </head>
 <body>
-<h1>STEVO-<span>AI</span></h1>
-<p>Online = Smart like Meta AI | Offline = Still go answer you</p>
-<div id="chat"><div class="msg ai">Hello! I be STEVO-AI. Ask me anything. If you get data I go use big brain, if not I go use offline brain.</div></div>
-<div id="box"><input id="input" placeholder="Type your message..."><button onclick="send()">Send</button></div>
+<h2 style="text-align:center">🤖 STEVO-AI <span style="font-size:12px;color:#00ff88">ONLINE + OFFLINE</span></h2>
+
+<div style="display:flex;gap:8px;justify-content:center;margin:8px;">
+<button onclick="setMode('chat')" style="padding:8px 12px;border-radius:20px;background:#222;color:white;border:1px solid #00ff88;">💬 Chat</button>
+<button onclick="setMode('image')" style="padding:8px 12px;border-radius:20px;background:#222;color:white;border:1px solid #ff00aa;">🎨 Picture</button>
+<button onclick="setMode('game')" style="padding:8px 12px;border-radius:20px;background:#222;color:white;border:1px solid #ffcc00;">🎮 Game</button>
+</div>
+
+<div id="chat"></div>
+<div style="display:flex;gap:5px;margin-top:10px">
+<input id="input" placeholder="Ask anything... or type game / picture idea">
+<button onclick="send()" style="padding:12px 18px;border-radius:20px;background:#00ff88;border:none;font-weight:bold">Send</button>
+</div>
+<p style="text-align:center;font-size:11px;color:#888">Mode: <span id="modeLabel">CHAT</span> | STEVO-AI waits 1 minute for online</p>
 
 <script>
+let mode = 'chat';
+function setMode(m){ mode=m; document.getElementById('modeLabel').innerText=m.toUpperCase(); alert("Mode: "+m.toUpperCase()+" - Now type wetin you want!"); }
+
+function addMsg(html, who){
+  let d=document.createElement('div');
+  d.className='msg '+who;
+  d.innerHTML=html;
+  document.getElementById('chat').appendChild(d);
+  document.getElementById('chat').scrollTop=99999;
+}
+
+// ONLINE BRAIN - 1 MINUTE WAIT + RETRY
+async function getOnlineReply(userText){
+  let models=["openai","mistral"];
+  for(let attempt=0; attempt<2; attempt++){
+    for(let m of models){
+      try{
+        let controller=new AbortController();
+        let timeout=setTimeout(()=>controller.abort(), 60000);
+        let res=await fetch("https://text.pollinations.ai/"+encodeURIComponent(userText)+"?model="+m, {signal:controller.signal});
+        clearTimeout(timeout);
+        if(res.ok){
+          let text=await res.text();
+          if(text && text.length>5) return text;
+        }
+      }catch(e){ console.log("retrying",m); }
+    }
+  }
+  return null;
+}
+
+function offlineReply(q){
+  q=q.toLowerCase();
+  if(q.includes("joke")) return "Why did the chicken cross the road? To reach STEVO-AI! 😂";
+  if(q.includes("who are you")) return "I am STEVO-AI, your smart Nigerian AI. I work online and offline!";
+  if(q.includes("money")||q.includes("rich")) return "Money tip: Save small small every day, no spend all your salary. Business wey dey work for Lagos now: food, data selling, thrift.";
+  if(q.includes("hello")||q.includes("hi")) return "Hello my guy! Wetin you want make I do? Chat, Picture or Game?";
+  if(q.includes("love")) return "Love na beautiful thing. Be kind, be honest, communicate.";
+  return "I dey [Offline Mode] now. My online brain need data. But I still dey here! Try: ask me joke, who are you, or money tip. Or turn ON data for full smart answer.";
+}
+
+async function handleSpecial(userText){
+  if(mode==='image'){
+    let url="https://image.pollinations.ai/prompt/"+encodeURIComponent(userText)+"?width=512&height=512&nologo=true&seed="+Date.now();
+    return `<img src="${url}" style="width:100%;border-radius:12px"><br><br>🎨 Your picture don ready!<br><a href="${url}" target="_blank" style="color:#00ff88">Click here to download / open full picture</a>`;
+  }
+  if(mode==='game'){
+    addMsg("🎮 I dey build your game... wait up to 1 minute, no press send again...", "ai");
+    let prompt="Create ONE complete playable HTML game in a single file. Use HTML CSS JS only. Make it fun, colourful, with score, with keyboard and touch controls for phone. Game idea: "+userText+". Return ONLY HTML code, no explanation, no markdown.";
+    let code=await getOnlineReply(prompt);
+    if(!code) return "Network slow. Game need online to build. Turn ON data and try again.";
+    code=code.replace(/```html/g,"").replace(/```/g,"");
+    let encoded=encodeURIComponent(code);
+    return `🎮 Your game don ready! Play am below:<br><br><iframe src="data:text/html;charset=utf-8,${encoded}" style="width:100%;height:450px;border:2px solid #ffcc00;border-radius:12px;background:white"></iframe><br><small>Tap inside game to play. Use touch / keyboard.</small>`;
+  }
+  return null;
+}
+
 async function send(){
-  let inp = document.getElementById('input');
-  let text = inp.value.trim();
+  let inp=document.getElementById('input');
+  let text=inp.value.trim();
   if(!text) return;
-  addMsg(text, 'me');
-  inp.value = '';
-  let thinking = addMsg("Thinking... 🤔", 'ai');
-  let ans = await getAnswer(text);
-  thinking.innerText = ans;
-  window.scrollTo(0, document.body.scrollHeight);
+  addMsg(text, 'user');
+  inp.value="";
+
+  let special=await handleSpecial(text);
+  if(special){ addMsg(special, 'ai'); return; }
+
+  addMsg("Thinking... (waiting up to 1 min for online)...", 'ai');
+  let reply=await getOnlineReply(text);
+  // remove thinking
+  let chat=document.getElementById('chat');
+  chat.removeChild(chat.lastChild);
+
+  if(reply){ addMsg(reply, 'ai'); }
+  else{ addMsg(offlineReply(text), 'ai'); }
 }
-function addMsg(t, cls){
-  let c = document.getElementById('chat');
-  let d = document.createElement('div');
-  d.className = 'msg ' + cls;
-  d.innerText = t;
-  c.appendChild(d);
-  window.scrollTo(0, document.body.scrollHeight);
-  return d;
-}
-function offlineReply(t){
-  let m = t.toLowerCase();
-  if(m.includes('hi') || m.includes('hello') || m.includes('hey')) return "Hello my guy! How you dey? Wetin I go do for you today?";
-  if(m.includes('how are you') || m.includes('how you dey') || m.includes('how far')) return "I dey fine, I dey strong! Na you, how your side? You chop?";
-  if(m.includes('who are you') || m.includes('your name')) return "I be STEVO-AI, your sharp guy assistant. Na Stevo build me for Lagos. I fit help you with questions, jokes, advice, maths, anything!";
-  if(m.includes('joke')) return "Why chicken cross road? To go charge phone for neighbour house because NEPA don take light! 😂 Want another one?";
-  if(m.includes('motivat') || m.includes('tired') || m.includes('sad')) return "My guy no give up o. Every big person start small. Small small e go pay. You go make am, just keep pushing. I believe you!";
-  if(m.includes('money') || m.includes('rich') || m.includes('business')) return "To make money: 1. Learn one skill like coding, design or selling. 2. Start small with wetin you get. 3. Post am for TikTok/WhatsApp everyday. Consistency na the secret! (Offline mode)";
-  if(m.includes('thank')) return "You are welcome my guy! Anytime you need me, I dey here.";
-  if(m.includes('bye')) return "Alright, take care o! Come back anytime. STEVO-AI dey for you.";
-  if(m.includes('+') || m.includes('-') || m.includes('*') || m.includes('/')){
-    try{ return "Answer na: " + eval(m.replace(/[^0-9+\-*/(). ]/g,'')); }catch(e){}
-  }
-  return "I dey offline now, so my small brain dey work. But I hear you. If you on your data, I go answer you like Meta AI. Try ask me for joke, money, or motivation.";
-}
-async function getAnswer(t){
-  // Try ONLINE big brain first
-  try{
-    let res = await fetch("https://text.pollinations.ai/" + encodeURIComponent("You are STEVO-AI, a friendly Nigerian assistant. Answer in simple English with small pidgin, like a smart friend. Question: " + t), {signal: AbortSignal.timeout(15000)});
-    if(!res.ok) throw new Error("fail");
-    let answer = await res.text();
-    if(answer && answer.length > 5) return answer;
-    throw new Error("empty");
-  }catch(e){
-    // If internet fail, use OFFLINE brain
-    return offlineReply(t) + "\n\n[Offline Mode - On your data for full smart answer]";
-  }
-}
-document.getElementById('input').addEventListener('keypress', function(e){ if(e.key==='Enter') send(); });
+document.getElementById('input').addEventListener('keypress', e=>{ if(e.key==='Enter') send(); });
+addMsg("Hello! I am STEVO-AI 🔥<br>💬 Chat = ask anything<br>🎨 Picture = type picture idea<br>🎮 Game = type game idea and play am!", 'ai');
 </script>
 </body>
-</html>
+ </html>
