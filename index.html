@@ -3,151 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO-AI REAL - Founder Kayode Stephen Olayinka</title>
+<title>STEVO-AI - Founder Kayode Stephen Olayinka</title>
 <style>
-body{margin:0;background:#0f0f1a;color:#fff;font-family:Arial;padding:12px}
+body{margin:0;background:#0f0f1a;color:#fff;font-family:Arial;padding:10px}
 h1{text-align:center;color:#00ffcc;margin:5px}
-.top{background:#1c1c2e;padding:12px;border-radius:12px;text-align:center;border:1px solid #ffcc00;line-height:1.7;font-size:13px}
+.top{background:#1c1c2e;padding:12px;border-radius:14px;text-align:center;border:2px solid #ffcc00;line-height:1.7}
+.coins{font-size:20px;color:#ffd700;font-weight:bold}
+.tbds{background:#ffcc00;color:#000;padding:11px;border-radius:12px;text-align:center;margin:10px 0}
+.tbds button{background:#000;color:#ffcc00;border:none;padding:10px 14px;border-radius:9px;font-weight:bold}
 button{border:none;border-radius:10px;padding:12px;font-weight:bold;cursor:pointer}
-.tab{background:#222;color:#fff;flex:1;padding:10px;font-size:12px}
+.tab{background:#222;color:#fff;flex:1;padding:10px;font-size:11px}
 .tab.on{background:#00ffcc;color:#000}
-.card{background:#1c1c2e;padding:12px;border-radius:12px;margin-top:10px}
-input,select,textarea{width:100%;padding:11px;border-radius:10px;border:none;background:#2a2a3f;color:#fff;margin:6px 0;font-size:14px}
+.card{background:#1c1c2e;padding:12px;border-radius:14px;margin-top:10px;display:none}
+.card.show{display:block}
+input,select,textarea{width:100%;padding:11px;border-radius:10px;border:none;background:#2a2a3f;color:#fff;margin:6px 0;font-size:14px;box-sizing:border-box}
 .go{width:100%;background:#00ffcc;color:#000}
 .go2{width:100%;background:#ffcc00;color:#000}
+.go3{width:100%;background:#ff00aa;color:#fff}
 .small{background:#333;color:#00ffcc;padding:7px 10px;font-size:12px;margin:2px}
-.box{background:#2a2a3f;padding:10px;border-radius:10px;margin:6px 0}
-#chatBox{height:220px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
-.msg{padding:8px;border-radius:8px;margin:5px 0;font-size:14px;line-height:1.4;white-space:pre-wrap}
-.u{background:#00ffcc;color:#000;margin-left:20px}.a{background:#2a2a3f}
-.warn{background:#2a1a00;border:1px solid #ffcc00;padding:10px;border-radius:10px;font-size:13px;line-height:1.6;margin-top:10px}
+.box{background:#2a2a3f;padding:10px;border-radius:10px;margin:7px 0}
+#chatBox{height:180px;overflow-y:auto;background:#111;padding:10px;border-radius:10px}
+.msg{padding:8px;border-radius:8px;margin:5px 0;font-size:14px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.u{background:#00ffcc;color:#000;margin-left:20px}
+.a{background:#2a2a3f}
+img.pic{width:100%;border-radius:12px;margin-top:8px}
 </style>
 </head>
 <body>
-<h1>🤖 STEVO-AI - REAL</h1>
-<div class="top">👑 FOUNDER: <b style="color:#ffd700">Kayode Stephen Olayinka</b><br>🤝 CO-OWNER: Ikudehinbu Promise<br><span style="font-size:12px;color:#aaa">No fake balance • No fake customers • Only real things</span></div>
+<h1>🤖 STEVO-AI</h1>
+
+<div class="tbds"><b>🏭 TBDS CONNECTED ✅</b><br><span style="font-size:12px">https://t-b-d-s-engineering-hub.ai.studio</span><br><button onclick="openTBDS()">🏭 OPEN TBDS ➤</button></div>
+
+<div class="top">👑 FOUNDER: <b style="color:#ffd700">Kayode Stephen Olayinka</b><br>🤝 CO-OWNER: Ikudehinbu Promise<br><span class="coins">🪙 <span id="coins">5000</span> STEVO Coins</span> | 🚗 Garage: <span id="garageCount">0</span><br><button class="small" onclick="dailyBonus()">🎁 Daily +500</button></div>
 
 <div style="display:flex;gap:5px;margin-top:10px;flex-wrap:wrap">
-<button class="tab on" id="tAI" onclick="show('ai')">💬 Real AI</button>
-<button class="tab" id="tLearn" onclick="show('learn')">📚 Real Learn</button>
-<button class="tab" id="tBuild" onclick="show('build')">🏭 Real Build Plan</button>
-<button class="tab" id="tOrder" onclick="show('order')">🧑‍🤝‍🧑 Real Order</button>
-<button class="tab" id="tTBDS" onclick="show('tbds')">🏭 TBDS</button>
+<button class="tab on" id="tAI" onclick="showTab('ai')">💬 AI</button>
+<button class="tab" id="tPic" onclick="showTab('pic')">🎨 Picture</button>
+<button class="tab" id="tCourse" onclick="showTab('course')">📚 Courses</button>
+<button class="tab" id="tCar" onclick="showTab('car')">🚗 Build Car</button>
+<button class="tab" id="tGarage" onclick="showTab('garage')">🏠 Garage</button>
+<button class="tab" id="tTBDS" onclick="showTab('tbds')">🏭 TBDS</button>
 </div>
 
-<!-- REAL AI -->
-<div id="ai" class="card">
-<b>💬 Real AI - Answers From Internet, Not Fake Script</b>
-<p style="font-size:13px;color:#ccc">This AI go fetch real answer from internet. If network fail, e go tell you truth, e no go fake answer.</p>
-<div id="chatBox"><div class="msg a">Hello Founder. Ask me real question - e.g "How to check BP?" I go fetch real answer.</div></div>
-<input id="q" placeholder="Ask real question...">
-<button class="go" onclick="askReal()">Ask Real AI ➤</button>
+<!-- AI -->
+<div id="ai" class="card show">
+<b>💬 Fast AI - Instant Answer</b>
+<div id="chatBox"><div class="msg a">Hello! Ask me Nursing, Business, Car, Robot. I answer now.</div></div>
+<input id="q" placeholder="Ask... e.g Teach me Nursing">
+<button class="go" onclick="fastAsk()">⚡ Ask</button>
 </div>
 
-<!-- REAL LEARN -->
-<div id="learn" class="card" style="display:none">
-<b>📚 Real Learn - Real Knowledge You Fit Use</b>
-<p style="font-size:13px;color:#ccc">No fake certificate. Real knowledge. If you learn am, you go sabi am for real life.</p>
-<div class="box"><b>👩‍⚕️ Nursing - Real</b><br>BP normal: 120/80. Check with BP machine on arm, sit down, rest 5 mins before.<br>First Aid: If person faint, lay flat, raise legs small, give air, call for help. Do NOT give water if unconscious.<br><button class="small" onclick="askTopic('How to check blood pressure correctly step by step')">Ask AI More About Nursing</button></div>
-<div class="box"><b>💼 Business - Real</b><br>Real way: 1. Find problem for your area 2. Start small with money you get 3. Keep record of every sale 4. Give good service so customers return.<br><button class="small" onclick="askTopic('How to start small business in Lagos with 50000 naira')">Ask AI More About Business</button></div>
-<div class="box"><b>🔧 Car Maintenance - Real</b><br>Check oil every week, check tyre pressure, check water for radiator, check brake. If brake dey make sound, go mechanic immediately - no drive am.<br><button class="small" onclick="askTopic('How to maintain a car for Lagos road')">Ask AI More About Car</button></div>
+<!-- PICTURE -->
+<div id="pic" class="card">
+<b>🎨 Any Picture You Ask For</b>
+<textarea id="picPrompt" rows="2" placeholder="Type ANYTHING... e.g A lion wearing Agbada, My dream house"></textarea>
+<select id="picStyle">
+<option value="realistic, high quality, professional photo">📸 Real Photo</option>
+<option value="cartoon, colorful, 3D pixar style">🎬 Cartoon / 3D</option>
+<option value="anime, beautiful">✨ Anime</option>
+<option value="cinematic, movie poster">🎥 Movie Poster</option>
+<option value="logo, clean, minimal">🏷️ Logo</option>
+</select>
+<button class="go3" onclick="genPic()">🎨 GENERATE PICTURE (-50 Coins)</button>
+<div id="picOut"><p style="font-size:12px;color:#aaa">Picture go show here.</p></div>
+<button class="small" onclick="downloadPic()">⬇️ Save Picture</button>
 </div>
 
-<!-- REAL BUILD PLAN -->
-<div id="build" class="card" style="display:none">
-<b>🏭 Real Build Plan - For Real Workshop</b>
-<p style="font-size:13px;color:#ccc">This no be fake building animation. This na REAL plan wey you go carry go real workshop. Website no fit build real car, but plan na real.</p>
-<select id="planType"><option>Small Car - Real Plan</option><option>Hospital Robot - Real Plan</option><option>House Robot - Real Plan</option></select>
-<input id="planName" placeholder="Your project name e.g My First Car">
-<button class="go" onclick="makePlan()">📋 MAKE REAL PLAN</button>
-<div id="planOut"></div>
-<div class="warn">⚠️ <b>Truth:</b> To build for real life, you need: Real money for parts, Real workshop, Real engineer/mechanic, Real safety test. Do NOT try to build engine alone without expert. Safety first.</div>
+<!-- COURSES -->
+<div id="course" class="card">
+<b>📚 Courses - Full Inside App - Finish = +200 Coins</b>
+<div class="box"><b>👩‍⚕️ Nursing</b><br><button class="small" onclick="openCourse('nursing')">START ▶</button></div>
+<div class="box"><b>👨‍⚕️ Doctor</b><br><button class="small" onclick="openCourse('doctor')">START ▶</button></div>
+<div class="box"><b>💼 Business</b><br><button class="small" onclick="openCourse('business')">START ▶</button></div>
+<div class="box"><b>💻 Coding</b><br><button class="small" onclick="openCourse('coding')">START ▶</button></div>
+<div class="box"><b>🍳 Cooking</b><br><button class="small" onclick="openCourse('cooking')">START ▶</button></div>
+<div id="lessonBox"></div>
 </div>
 
-<!-- REAL ORDER -->
-<div id="order" class="card" style="display:none">
-<b>🧑‍🤝‍🧑 Real Order - Real Person Go Contact You</b>
-<p style="font-size:13px;color:#ccc">No fake customers here. If a REAL person wants to order, dem go fill this form, e go open WhatsApp to send message to YOU directly. Na you go reply them for real.</p>
-<input id="custName" placeholder="Your real name">
-<input id="custPhone" placeholder="Your real phone e.g 0803...">
-<select id="custWant"><option>I want to learn a course</option><option>I want a Car Build Plan</option><option>I want a Robot Build Plan</option><option>I want to join STEVO-AI / TBDS</option></select>
-<textarea id="custMsg" placeholder="Write wetin you really want..."></textarea>
-<button class="go2" onclick="sendRealOrder()">📤 SEND REAL ORDER TO FOUNDER (WhatsApp)</button>
-<p style="font-size:12px;color:#aaa">When you press am, e go open WhatsApp with your message. You go press Send for WhatsApp. Founder go see am for real.</p>
-<div id="myOrders"></div>
+<!-- CAR - SIMPLE & CORRECT -->
+<div id="car" class="card">
+<b>🏭 Build Car Inside App - Real Steps Inside App</b>
+<p style="font-size:13px;color:#ccc">Pick step by step. No be outside car. Na inside app.</p>
+<input id="carName" placeholder="Car name e.g STEVO X1">
+<div class="box" style="text-align:center;font-size:50px"><span id="carEmoji">🚗</span><br><span id="carInfo" style="font-size:13px">Step 1: Pick Chassis</span><br><span style="font-size:12px;color:#ffcc00" id="carProgress">Progress: 0 / 5</span></div>
+<div id="carOptions"></div>
+<button class="go" id="carNextBtn" onclick="carNext()">Next Step ➤</button>
+<div id="carDone"></div>
+</div>
+
+<!-- GARAGE -->
+<div id="garage" class="card">
+<b>🏠 My Garage - Cars You Built Inside App</b>
+<div id="garageList"><p style="font-size:12px;color:#aaa">No car yet. Build one.</p></div>
 </div>
 
 <!-- TBDS -->
-<div id="tbds" class="card" style="display:none">
-<b>🏭 TBDS - Real Link</b>
-<p style="font-size:13px;color:#ccc">TBDS na your real second site. If e never publish, e go show 404 for new tab - that na truth, we no go hide am.</p>
-<button class="go2" onclick="window.open('https://stevoai23.github.io/TBDS/','_blank')">🏭 OPEN REAL TBDS ➤</button>
-<p style="font-size:12px;color:#aaa">Link: https://stevoai23.github.io/TBDS/</p>
+<div id="tbds" class="card">
+<b>🏭 TBDS - Real Link</b><br><br>
+<b style="color:#00ffcc">https://t-b-d-s-engineering-hub.ai.studio</b><br><br>
+<button class="go2" onclick="openTBDS()">🏭 OPEN TBDS ➤</button>
+<p style="font-size:12px;color:#aaa">TBDS go open for new tab. That na correct way because Google no allow iframe.</p>
 </div>
 
-<p style="text-align:center;font-size:11px;color:#888">STEVO-AI REAL • Founder: Kayode Stephen Olayinka • No Fake</p>
+<p style="text-align:center;font-size:11px;color:#888">STEVO-AI • Founder: Kayode Stephen Olayinka</p>
 
 <script>
-function show(id){
-  var all=['ai','learn','build','order','tbds'];
-  for(var i=0;i<all.length;i++){ document.getElementById(all[i]).style.display = all[i]===id ? 'block' : 'none'; }
-  var tabs=['tAI','tLearn','tBuild','tOrder','tTBDS'];
-  for(var j=0;j<tabs.length;j++){ document.getElementById(tabs[j]).classList.remove('on'); }
-  var m={ai:'tAI',learn:'tLearn',build:'tBuild',order:'tOrder',tbds:'tTBDS'};
-  document.getElementById(m[id]).classList.add('on');
+var TBDS_URL = "https://t-b-d-s-engineering-hub.ai.studio";
+var coins = parseInt(localStorage.getItem('stevo_coins') || '5000');
+var garage = JSON.parse(localStorage.getItem('stevo_garage') || '[]');
+var carStep = 0;
+var carData = { name: '', chassis: '', engine: '', wheels: '', color: '', interior: '' };
+var lastPic = '';
+
+function refreshCoins() {
+  document.getElementById('coins').innerText = coins;
+  document.getElementById('garageCount').innerText = garage.length;
+  localStorage.setItem('stevo_coins', coins);
+  localStorage.setItem('stevo_garage', JSON.stringify(garage));
 }
-function askTopic(t){ show('ai'); document.getElementById('q').value=t; askReal(); }
-function askReal(){
-  var inp=document.getElementById('q'); var q=inp.value.trim(); if(!q){ alert('Type real question first'); return; } inp.value='';
-  var box=document.getElementById('chatBox');
-  box.innerHTML+='<div class="msg u">'+q.replace(/</g,'&lt;')+'</div><div class="msg a" id="thinking">Fetching real answer from internet...</div>'; box.scrollTop=box.scrollHeight;
-  var low=q.toLowerCase();
-  if(low.indexOf('founder')!==-1 || low.indexOf('who created')!==-1){ var e=document.getElementById('thinking'); if(e){ e.innerHTML='👑 My Founder na Kayode Stephen Olayinka. Co-Owner na Ikudehinbu Promise.'; e.removeAttribute('id'); } return; }
-  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are STEVO-AI, founded by Kayode Stephen Olayinka. Give real, practical, correct answer. No fake. Question: '+q))
-  .then(function(r){ if(!r.ok) throw new Error('fail'); return r.text(); })
-  .then(function(t){ var e2=document.getElementById('thinking'); if(e2){ e2.innerHTML=t.replace(/\n/g,'<br>'); e2.removeAttribute('id'); } box.scrollTop=box.scrollHeight; })
-  .catch(function(){ var e3=document.getElementById('thinking'); if(e3){ e3.innerText='Network fail. This na truth - I no fit fetch real answer without internet. Check your data and try again. I no go fake answer.'; e3.removeAttribute('id'); } });
+function dailyBonus() { coins += 500; refreshCoins(); alert('🎁 +500 Coins! Balance: ' + coins); }
+function showTab(id) {
+  var all = ['ai','pic','course','car','garage','tbds'];
+  for (var i = 0; i < all.length; i++) {
+    document.getElementById(all[i]).classList.remove('show');
+  }
+  document.getElementById(id).classList.add('show');
+  var tabs = ['tAI','tPic','tCourse','tCar','tGarage','tTBDS'];
+  for (var j = 0; j < tabs.length; j++) { document.getElementById(tabs[j]).classList.remove('on'); }
+  var map = { ai:'tAI', pic:'tPic', course:'tCourse', car:'tCar', garage:'tGarage', tbds:'tTBDS' };
+  document.getElementById(map[id]).classList.add('on');
+  if (id === 'garage') renderGarage();
+  if (id === 'car') renderCarStep();
 }
-document.getElementById('q').addEventListener('keypress',function(e){ if(e.key==='Enter') askReal(); });
-function makePlan(){
-  var type=document.getElementById('planType').value;
-  var name=document.getElementById('planName').value.trim()||'My Project';
-  var plan='';
-  if(type.indexOf('Car')!==-1){ plan='<b>REAL PLAN: '+name+'</b><br><br><b>1. Parts you go buy for real:</b><br>• Chassis - Steel frame (buy from workshop)<br>• Engine - 1.5L Petrol (Tokunbo or new, check with mechanic)<br>• Tyres - 195/65 R15 x4<br>• Battery - 12V 70Ah<br>• Brake - Disc front, drum rear<br><br><b>2. Real Cost (Estimate, Lagos):</b><br>Parts ~₦1,800,000 + Labour ~₦400,000 + Paint ~₦300,000 = ~₦2,500,000<br><br><b>3. Real Steps:</b><br>1. Carry this plan go real mechanic workshop<br>2. Mechanic go check, tell you wetin to change<br>3. Buy parts with receipt<br>4. Build small small, test brake, test engine<br>5. Do NOT drive until mechanic test am.<br><br><b>4. Who you need for real:</b> Mechanic, Electrician, Welder, Painter.'; }
-  else if(type.indexOf('Hospital')!==-1){ plan='<b>REAL PLAN: '+name+'</b><br><br><b>Parts:</b> Aluminium frame, 6 servo motors, Raspberry Pi brain, Camera, Ultrasonic sensor, Battery 24V<br><b>Real Cost:</b> ~₦1,800,000<br><b>Real Steps:</b> 1. Build frame 2. Add motors 3. Program - Robot must stop if person dey front 4. Test with Nurse/Doctor present 5. Never leave robot alone with patient without adult.'; }
-  else { plan='<b>REAL PLAN: '+name+'</b><br><br><b>Parts:</b> Frame, 2 wheels + motors, Arduino/Raspberry Pi, Sensors, Battery<br><b>Real Cost:</b> ~₦1,200,000<br><b>Real Steps:</b> 1. Build frame 2. Add motors 3. Program simple movement 4. Test slowly for house.'; }
-  document.getElementById('planOut').innerHTML='<div style="background:#111;padding:10px;border-radius:10px;margin-top:8px;font-size:13px;line-height:1.6">'+plan+'<br><br><button class="go2" onclick="sendPlanToWhatsApp()">📤 Send This Plan To Founder For Real</button></div>';
+function openTBDS() { window.open(TBDS_URL, '_blank'); }
+function fastAsk() {
+  var inp = document.getElementById('q');
+  var q = inp.value.trim();
+  if (!q) { alert('Type question first'); return; }
+  inp.value = '';
+  var box = document.getElementById('chatBox');
+  box.innerHTML += '<div class="msg u">' + q.replace(/</g,'&lt;') + '</div>';
+  var low = q.toLowerCase();
+  var ans = '';
+  if (low.indexOf('founder') !== -1) ans = '👑 My Founder na Kayode Stephen Olayinka! Co-Owner na Ikudehinbu Promise.';
+  else if (low.indexOf('nurs') !== -1) ans = '👩‍⚕️ NURSING: Nurse dey care for sick people. BP normal 120/80. Temp 36.5-37.5. First Aid: If person faint, lay flat, give air, call Doctor.';
+  else if (low.indexOf('business') !== -1) ans = '💼 BUSINESS: Find problem, start small, keep record, good service bring customers.';
+  else if (low.indexOf('car') !== -1) ans = '🚗 CAR: Go Build Car tab, pick parts step by step, test drive inside app!';
+  else if (low.indexOf('robot') !== -1) ans = '🤖 ROBOT: Robot sense, think, act. Must not harm human. Put STOP button.';
+  else if (low.indexOf('tbds') !== -1) ans = '🏭 TBDS link: ' + TBDS_URL;
+  else if (low.indexOf('coin') !== -1) ans = '🪙 You get ' + coins + ' Coins. Finish course +200, Daily +500.';
+  else if (low.indexOf('hello') !== -1 || low.indexOf('hi') !== -1) ans = 'Hello Founder! Ask me Nursing, Business, Car, Robot.';
+  else ans = 'I hear you: "' + q + '". Ask me Nursing, Business, Car, Robot. Or go Picture tab to draw ANY picture.';
+  box.innerHTML += '<div class="msg a">' + ans + '</div>';
+  box.scrollTop = box.scrollHeight;
+  coins += 10; refreshCoins();
 }
-function sendPlanToWhatsApp(){
-  var type=document.getElementById('planType').value;
-  var name=document.getElementById('planName').value.trim()||'My Project';
-  var text='Hello Founder Kayode, I want REAL plan for: '+type+' - Project: '+name+'. Abeg help me. From STEVO-AI.';
-  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+document.getElementById('q').addEventListener('keypress', function(e){ if(e.key==='Enter') fastAsk(); });
+function genPic() {
+  var p = document.getElementById('picPrompt').value.trim();
+  if (!p) { alert('Type ANYTHING you want make e draw first'); return; }
+  if (coins < 50) { alert('You need 50 Coins. You get ' + coins + '. Finish course to earn.'); return; }
+  coins -= 50; refreshCoins();
+  var style = document.getElementById('picStyle').value;
+  var out = document.getElementById('picOut');
+  out.innerHTML = '<p>🎨 Drawing "' + p + '" ... wait small</p>';
+  lastPic = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(p + ', ' + style) + '?width=1024&height=1024&seed=' + Math.floor(Math.random()*1000000) + '&nologo=true';
+  var img = new Image();
+  img.onload = function(){ out.innerHTML = '<img class="pic" src="' + lastPic + '"><p>✅ Ready! Coins left: ' + coins + '</p>'; };
+  img.onerror = function(){ out.innerHTML = '<p>Network slow, press GENERATE again.</p>'; };
+  img.src = lastPic;
 }
-function sendRealOrder(){
-  var n=document.getElementById('custName').value.trim();
-  var p=document.getElementById('custPhone').value.trim();
-  var w=document.getElementById('custWant').value;
-  var m=document.getElementById('custMsg').value.trim();
-  if(!n || !p){ alert('Abeg put your real name and real phone, so Founder fit call you for real.'); return; }
-  var text='Hello Founder Kayode Stephen Olayinka, I be '+n+', my phone na '+p+'. I want: '+w+'. Message: '+m+'. From STEVO-AI REAL Order.';
-  // Save for real for this phone
-  var list=JSON.parse(localStorage.getItem('stevo_real_orders')||'[]');
-  list.push({name:n, phone:p, want:w, msg:m, date:new Date().toLocaleString()});
-  localStorage.setItem('stevo_real_orders', JSON.stringify(list));
-  showOrders();
-  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
-  alert('Real order saved for this phone + WhatsApp go open. Press Send for WhatsApp, Founder go see am for real.');
-  document.getElementById('custName').value=''; document.getElementById('custPhone').value=''; document.getElementById('custMsg').value='';
+function downloadPic() { if(!lastPic){ alert('Generate picture first'); return; } window.open(lastPic,'_blank'); }
+function openCourse(type) {
+  var lessons = {
+    nursing: '👩‍⚕️ NURSING<br><br>Lesson 1: Nurse dey care for sick people with love.<br>Lesson 2: BP - Sit down, rest 5 mins, cuff for arm. Normal 120/80. Temp normal 36.5-37.5.<br>Lesson 3: First Aid - If person faint, lay flat, raise legs, give air, call Doctor. If wound, press cloth, cover.',
+    doctor: '👨‍⚕️ DOCTOR<br><br>Lesson 1: Heart pump blood, lungs breathe, brain control.<br>Lesson 2: Malaria - fever, headache. Test before drug.<br>Lesson 3: Doctor steps - Ask, check, test, give drug. Never guess!',
+    business: '💼 BUSINESS<br><br>Lesson 1: Find problem for your area.<br>Lesson 2: Start small - POS, food, recharge.<br>Lesson 3: Keep record of every sale.<br>Lesson 4: Good service bring customers.',
+    coding: '💻 CODING<br><br>Lesson 1: Hardware = touch, Software = programs.<br>Lesson 2: HTML: &lt;h1&gt;Hello&lt;/h1&gt; show big Hello.<br>Lesson 3: App = HTML + CSS + JS.',
+    cooking: '🍳 COOKING<br><br>Lesson 1: Jollof - Rice, tomato, pepper, onion. Fry tomato well.<br>Lesson 2: Hygiene - Wash hand, wash pot, cover food.'
+  };
+  document.getElementById('lessonBox').innerHTML = '<div class="box">' + lessons[type] + '<br><br><button class="go" onclick="finishCourse()">✅ I Finish - +200 Coins</button></div>';
 }
-function showOrders(){
-  var list=JSON.parse(localStorage.getItem('stevo_real_orders')||'[]');
-  if(list.length===0) return;
-  var html='<b>📋 Your Real Orders For This Phone:</b><br>';
-  for(var i=0;i<list.length;i++){ html+='<div class="box">'+list[i].name+' - '+list[i].want+'<br><span style="font-size:12px;color:#aaa">'+list[i].date+'</span></div>'; }
-  document.getElementById('myOrders').innerHTML=html;
+function finishCourse() { coins += 200; refreshCoins(); alert('🎉 +200 Coins! Balance: ' + coins); }
+function renderCarStep() {
+  var opts = document.getElementById('carOptions');
+  var info = document.getElementById('carInfo');
+  var prog = document.getElementById('carProgress');
+  prog.innerText = 'Progress: ' + carStep + ' / 5';
+  if (carStep === 0) {
+    info.innerText = 'Step 1: Pick Chassis';
+    opts.innerHTML = '<button class="small" onclick="pickCar(\'chassis\',\'Sedan Chassis\')">🚗 Sedan</button> <button class="small" onclick="pickCar(\'chassis\',\'SUV Chassis\')">🚙 SUV</button> <button class="small" onclick="pickCar(\'chassis\',\'Sports Chassis\')">🏎️ Sports</button><p style="font-size:12px;color:#aaa">Pick one, then press Next</p>';
+  } else if (carStep === 1) {
+    info.innerText = 'Step 2: Pick Engine - Chassis: ' + carData.chassis;
+    opts.innerHTML = '<button class="small" onclick="pickCar(\'engine\',\'1.5L Petrol\')">⚙️ 1.5L Petrol</button> <button class="small" onclick="pickCar(\'engine\',\'2.0L Turbo\')">🔥 2.0L Turbo</button> <button class="small" onclick="pickCar(\'engine\',\'Electric Motor\')">🔋 Electric</button>';
+  } else if (carStep === 2) {
+    info.innerText = 'Step 3: Pick Wheels - Engine: ' + carData.engine;
+    opts.innerHTML = '<button class="small" onclick="pickCar(\'wheels\',\'Normal Tyres\')">🛞 Normal</button> <button class="small" onclick="pickCar(\'wheels\',\'Sport Tyres\')">🛞 Sport</button> <button class="small" onclick="pickCar(\'wheels\',\'Off-Road Tyres\')">🛞 Off-Road</button>';
+  } else if (carStep === 3) {
+    info.innerText = 'Step 4: Pick Color';
+    opts.innerHTML = '<button class="small" style="background:red" onclick="pickCar(\'color\',\'Red\')">🔴 Red</button> <button class="small" style="background:#000;border:1px solid #fff" onclick="pickCar(\'color\',\'Black\')">⚫ Black</button> <button class="small" style="background:gold;color:#000" onclick="pickCar(\'color\',\'Gold\')">🟡 Gold</button> <button class="small" style="background:blue" onclick="pickCar(\'color\',\'Blue\')">🔵 Blue</button>';
+  } else if (carStep === 4) {
+    info.innerText = 'Step 5: Pick Interior - Color: ' + carData.color;
+    opts.innerHTML = '<button class="small" onclick="pickCar(\'interior\',\'Leather + AC\')">💺 Leather + AC</button> <button class="small" onclick="pickCar(\'interior\',\'Fabric + Radio\')">💺 Fabric + Radio</button> <button class="small" onclick="pickCar(\'interior\',\'Luxury\')">✨ Luxury</button>';
+  }
+  document.getElementById('carNextBtn').style.display = carStep < 5 ? 'block' : 'none';
 }
-showOrders();
+function pickCar(key, val) {
+  carData[key] = val;
+  if (key === 'chassis') { document.getElementById('carEmoji').innerText = val.indexOf('SUV')!==-1 ? '🚙' : val.indexOf('Sports')!==-1 ? '🏎️' : '🚗'; }
+  document.getElementById('carInfo').innerText = 'Picked: ' + val + ' ✅ Now press Next';
+}
+function carNext() {
+  var need = ['chassis','engine','wheels','color','interior'][carStep];
+  if (!carData[need]) { alert('Pick one first! Press one button above.'); return; }
+  carStep++;
+  if (carStep < 5) { renderCarStep(); return; }
+  // Finished
+  var name = document.getElementById('carName').value.trim() || 'STEVO X1';
+  carData.name = name;
+  if (coins < 500) { alert('You need 500 Coins to finish car. You get ' + coins + '. Finish course to earn.'); carStep = 4; renderCarStep(); return; }
+  coins -= 500; refreshCoins();
+  document.getElementById('carInfo').innerText = '✅ ' + name + ' READY!';
+  document.getElementById('carProgress').innerText = 'Progress: 5 / 5 - DONE';
+  document.getElementById('carOptions').innerHTML = '<p>Chassis: ' + carData.chassis + '<br>Engine: ' + carData.engine + '<br>Wheels: ' + carData.wheels + '<br>Color: ' + carData.color + '<br>Interior: ' + carData.interior + '</p>';
+  document.getElementById('carNextBtn').style.display = 'none';
+  document.getElementById('carDone').innerHTML = '<button class="go2" onclick="saveCar()">🏠 SAVE TO GARAGE</button><br><br><button class="go" onclick="testDrive()">🚗 TEST DRIVE INSIDE APP</button><p id="driveMsg" style="font-size:13px"></p>';
+}
+function testDrive() {
+  var speed = 0;
+  var msg = document.getElementById('driveMsg');
+  var iv = setInterval(function(){
+    speed += 20; if (speed > 120) speed = 120;
+    msg.innerText = '🚗 Driving... Speed: ' + speed + ' km/h';
+    if (speed >= 120) { clearInterval(iv); msg.innerText = '✅ Test Drive Passed! Speed 120 km/h. Car dey work inside app!'; }
+  }, 300);
+}
+function saveCar() {
+  var name = carData.name || 'STEVO X1';
+  garage.push(name + ' | ' + carData.chassis + ' | ' + carData.engine + ' | ' + carData.wheels + ' | ' + carData.color + ' | ' + carData.interior);
+  refreshCoins();
+  alert('✅ ' + name + ' saved to Garage!');
+  carStep = 0; carData = { name:'', chassis:'', engine:'', wheels:'', color:'', interior:'' };
+  document.getElementById('carName').value = '';
+  document.getElementById('carEmoji').innerText = '🚗';
+  document.getElementById('carDone').innerHTML = '';
+  renderCarStep();
+  showTab('garage');
+}
+function renderGarage() {
+  var list = document.getElementById('garageList');
+  if (garage.length === 0) { list.innerHTML = '<p style="font-size:12px;color:#aaa">No car yet. Build one.</p>'; return; }
+  var h = '';
+  for (var i = 0; i < garage.length; i++) {
+    h += '<div class="box"><b>' + garage[i] + '</b><br><button class="small" onclick="sellCar(' + i + ')">💰 Sell +800 Coins</button></div>';
+  }
+  list.innerHTML = h;
+}
+function sellCar(i) {
+  garage.splice(i, 1);
+  coins += 800; refreshCoins();
+  renderGarage();
+  alert('💰 Sold! +800 Coins. Balance: ' + coins);
+}
+refreshCoins();
+renderCarStep();
 </script>
 </body>
-                                                                                  </html>
+  </html>
