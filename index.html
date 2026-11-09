@@ -16,18 +16,19 @@ a.btn b{color:#00ffcc}
 a.btn small{color:#aaa;font-weight:normal;font-size:12px}
 a.go{display:block;background:#00ffcc;color:#000;text-decoration:none;text-align:center;padding:15px;border-radius:14px;font-weight:bold;margin:8px 0}
 a.go2{display:block;background:#ff6600;color:#fff;text-decoration:none;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin:8px 0}
-a.goPic{display:block;background:linear-gradient(90deg,#00ffcc,#0099ff);color:#000;text-decoration:none;text-align:center;padding:15px;border-radius:14px;font-weight:bold;margin:8px 0}
 .page{display:none;background:#0f0f1f;padding:16px;border-radius:16px;margin-top:12px;border:1px solid #00ffcc33}
 .page:target{display:block}
 #home{display:block}
 .page:target ~ #home{display:none}
-.searchBox{background:#000428;border:2px solid #00ffcc;padding:10px;border-radius:14px;margin:10px 0}
+.searchBox{background:#000428;border:2px solid #00ffcc;padding:12px;border-radius:14px;margin:10px 0}
 .searchBox b{color:#00ffcc}
 input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:6px 0;font-size:15px}
-button, input[type=submit]{width:100%;padding:14px;border:none;border-radius:12px;background:#00ffcc;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
-.box{background:#1e1e40;padding:13px;border-radius:12px;margin:8px 0;line-height:1.6}
+button{width:100%;padding:14px;border:none;border-radius:12px;background:#00ffcc;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
+.smallBtn{background:#222244;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px;width:auto;display:inline-block;border:1px solid #00ffcc44}
+.box{background:#1e1e40;padding:13px;border-radius:12px;margin:8px 0;line-height:1.7;white-space:pre-wrap;word-break:break-word}
 .tbds{background:#ffcc00;color:#000;padding:12px;border-radius:14px;text-align:center;font-weight:bold}
 img{width:100%;border-radius:12px;margin-top:8px}
+.answer{min-height:40px}
 </style>
 </head>
 <body>
@@ -41,206 +42,233 @@ img{width:100%;border-radius:12px;margin-top:8px}
 <div class="main">
 <div class="tbds">🏭 TBDS CONNECTED<br><a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">OPEN TBDS ➤</a></div>
 
-<!-- ========== ASK TECH AI - WITH SEARCH BAR ========== -->
+<!-- ========== ASK TECH AI ========== -->
 <div id="ai" class="page">
 <a class="go2" href="#home">← Back To Home</a>
-<h2>🤖 Ask Tech AI - Search Anything</h2>
+<h2>🤖 Ask Tech AI - Search Inside App</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Ask Tech AI</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'ai')">
-<input name="q" id="s-ai" placeholder="Type any tech question... e.g How to build a robot?" required>
-<input type="submit" value="🔍 SEARCH - Ask Tech AI">
+<b>🔍 SEARCH BAR - Ask Tech AI - Answer stays here, NOT Google</b>
+<form onsubmit="return askInside('s-ai','ans-ai','ai');">
+<input id="s-ai" placeholder="Type any tech question... e.g How to build a robot?" required>
+<button type="submit">🔍 SEARCH - Answer Here Inside App</button>
 </form>
-<p style="font-size:11px;color:#aaa">Type, press SEARCH. It will open answer in new tab. Works even if one button fails.</p>
+<div style="margin-top:8px">
+<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','What is electric current? Explain AC and DC')">What Is Current?</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','Why is my phone not charging? How to fix it?')">Phone Not Charging</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','How to build a robot that uses current?')">Build Robot</button>
 </div>
-<div class="box"><b>Example:</b> Type "What is current?" and press Search.</div>
-<div class="box"><b>Hello!</b> I teach everything that uses current - phone, car, robot, solar, motor, TV, fridge, fan, charger.</div>
-<a class="go" href="#current">Go To Current ⚡</a>
-<a class="goPic" href="#pic">Go To Pictures 🎨</a>
+</div>
+<div id="ans-ai" class="answer box">Your answer will appear here, inside this app. No Google. No leaving.</div>
 </div>
 
-<!-- ========== PICTURES - WITH SEARCH BAR ========== -->
+<!-- ========== PICTURES ========== -->
 <div id="pic" class="page">
 <a class="go2" href="#home">← Back To Home</a>
-<h2>🎨 Pictures - Anytime, NO LIMIT, FREE</h2>
+<h2>🎨 Pictures - Anytime, NO LIMIT, FREE - Inside App</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Make Any Picture</b>
-<form action="https://image.pollinations.ai/prompt/" method="get" target="_blank" onsubmit="return doPic(this)">
-<input name="q" id="s-pic" placeholder="Type anything to draw... e.g A robot in Lagos" required>
+<b>🔍 SEARCH BAR - Make Any Picture - Picture stays here</b>
+<form onsubmit="return picInside();">
+<input id="s-pic" placeholder="Type anything to draw... e.g A robot in Lagos" required>
 <select id="picStyle"><option value="futuristic, neon, tech, high quality">⚡ Futuristic Tech</option><option value="realistic, professional photo">📸 Real Photo</option><option value="cartoon, colorful, 3D">🎬 Cartoon</option><option value="blueprint, technical diagram">📐 Blueprint</option></select>
-<input type="submit" value="🎨 SEARCH - MAKE PICTURE - FREE, NO LIMIT">
+<button type="submit">🎨 MAKE PICTURE - FREE, NO LIMIT - Inside App</button>
 </form>
-<p style="font-size:11px;color:#aaa">No coins. No limit. Make 1 or 100 pictures.</p>
+<div style="margin-top:8px">
+<button class="smallBtn" type="button" onclick="quickPicInside('A futuristic robot engineer in Lagos, neon, tech lab')">🤖 Robot</button>
+<button class="smallBtn" type="button" onclick="quickPicInside('A gold electric car with solar roof in Lagos, futuristic')">🚗 Electric Car</button>
+<button class="smallBtn" type="button" onclick="quickPicInside('A solar powered smart house in Lekki, futuristic, tech')">🏠 Solar House</button>
+<button class="smallBtn" type="button" onclick="quickPicInside('A circuit board with glowing blue lines, tech, macro')">🔌 Circuit</button>
 </div>
-<div class="box">Quick pictures - Press one:
-<br><br><a class="go" href="https://image.pollinations.ai/prompt/A%20futuristic%20robot%20engineer%20in%20Lagos%20neon%20tech%20lab?width=800&height=800&nologo=true" target="_blank">🤖 Robot Picture</a>
-<a class="go" href="https://image.pollinations.ai/prompt/A%20gold%20electric%20car%20with%20solar%20roof%20in%20Lagos%20futuristic?width=800&height=800&nologo=true" target="_blank">🚗 Electric Car Picture</a>
-<a class="go" href="https://image.pollinations.ai/prompt/A%20solar%20powered%20smart%20house%20in%20Lekki%20futuristic%20tech?width=800&height=800&nologo=true" target="_blank">🏠 Solar House Picture</a>
 </div>
+<div id="ans-pic" class="box">Your picture will appear here, inside this app. No Google. Make 1 or 100, no limit.</div>
 </div>
 
-<!-- ========== CURRENT - WITH SEARCH BAR ========== -->
+<!-- ========== CURRENT ========== -->
 <div id="current" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>⚡ EVERYTHING THAT USES CURRENT</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Search Anything That Uses Current</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'current')">
-<input name="q" id="s-current" placeholder="Type... e.g Why is my phone not charging? How does solar work?" required>
-<input type="submit" value="⚡ SEARCH - Learn About Current">
+<b>🔍 SEARCH BAR - Search Current - Answer stays here</b>
+<form onsubmit="return askInside('s-current','ans-current','current');">
+<input id="s-current" placeholder="Type... e.g Why is my phone not charging? How does solar work?" required>
+<button type="submit">⚡ SEARCH - Learn About Current Here</button>
 </form>
+<div style="margin-top:8px">
+<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','What is electric current? Explain voltage, current, resistance V=IR')">What Is Current?</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','How does solar panel work? How to connect panel, battery, inverter?')">Solar</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','How does a car use current? Battery, starter, alternator')">Car Current</button>
 </div>
+</div>
+<div id="ans-current" class="box">Your answer about current will appear here. No Google.</div>
 <div class="box"><b>What Is Current?</b><br>Current is electricity flowing, like water in a pipe. Voltage = pressure. Resistance = blockage. Formula: V = I x R</div>
-<div class="box"><b>Phone & Charger</b><br>Charger changes AC from NEPA to DC for phone battery. If phone is not charging: change cable, change charger, clean port, restart phone.</div>
-<div class="box"><b>Car</b><br>Battery gives current to starter motor. Alternator charges battery while engine runs.</div>
-<div class="box"><b>Solar</b><br>Panel takes light from sun and makes DC current. Inverter changes DC to AC for house.</div>
-<div class="box"><b>Fridge / Fan / TV</b><br>All use motor or screen that needs current to work. No current = no work.</div>
-<a class="go" href="#ai">Back To AI 🤖</a>
 </div>
 
-<!-- ========== BUILD - WITH SEARCH BAR ========== -->
+<!-- ========== BUILD ========== -->
 <div id="build" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>🔧 Build & Connect</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - How To Build Anything</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'build')">
-<input name="q" id="s-build" placeholder="Type... e.g How to build a robot? How to connect solar?" required>
-<input type="submit" value="🔧 SEARCH - How To Build It">
+<b>🔍 SEARCH BAR - How To Build - Answer stays here</b>
+<form onsubmit="return askInside('s-build','ans-build','build');">
+<input id="s-build" placeholder="Type... e.g How to build a robot? How to connect solar?" required>
+<button type="submit">🔧 SEARCH - How To Build It Here</button>
 </form>
+<div style="margin-top:8px">
+<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build a simple website and connect it to internet? Give steps and code')">Build Website</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build a robot and connect motor, sensor, battery? Give wiring and code')">Build Robot</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build solar system and connect panel, battery, inverter? Give steps and safety')">Build Solar</button>
 </div>
-<div class="box"><b>Build Website:</b> 1. Write HTML 2. Add CSS 3. Add JavaScript 4. Put online</div>
-<div class="box"><b>Build Robot:</b> 1. Motor + Battery + Sensor + Brain 2. Connect motor to battery 3. Connect sensor to brain 4. Test</div>
-<div class="box"><b>Build Solar:</b> 1. Solar panel 2. Battery 3. Inverter 4. Connect panel to battery, battery to inverter. Safety first.</div>
-<div class="box"><b>Build App:</b> 1. Find problem 2. Design on paper 3. Build with HTML + CSS + JS 4. Test 5. Share</div>
+</div>
+<div id="ans-build" class="box">Your build guide will appear here. No Google.</div>
 </div>
 
-<!-- ========== FIX - WITH SEARCH BAR ========== -->
+<!-- ========== FIX ========== -->
 <div id="fix" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>💻 Fix My Code / Fix My Device</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Fix Anything</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'fix')">
-<input name="q" id="s-fix" placeholder="Type problem... e.g My phone is not charging, My code is not working" required>
-<input type="submit" value="💻 SEARCH - Fix It Now">
+<b>🔍 SEARCH BAR - Fix Anything - Answer stays here</b>
+<form onsubmit="return askInside('s-fix','ans-fix','fix');">
+<input id="s-fix" placeholder="Type problem... e.g My phone is not charging, My code is not working" required>
+<button type="submit">💻 SEARCH - Fix It Here</button>
 </form>
 </div>
+<div id="ans-fix" class="box">Your fix will appear here. No Google.</div>
 <div class="box"><b>Phone Not Charging?</b> 1. Change cable 2. Change charger 3. Clean port gently 4. Restart phone</div>
-<div class="box"><b>Socket Sparks?</b> Stop using it. Call electrician. Do not touch with wet hand.</div>
-<div class="box"><b>Code Not Working?</b> Check: 1. Did you close all brackets? 2. Did you spell function name correctly? 3. Did you save file?</div>
 </div>
 
-<!-- ========== LEARN - WITH SEARCH BAR ========== -->
+<!-- ========== LEARN ========== -->
 <div id="learn" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>📚 Learn Tech - All Topics</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Learn Anything</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'learn')">
-<input name="q" id="s-learn" placeholder="Type... e.g Teach me AI, Teach me coding, Teach me internet" required>
-<input type="submit" value="📚 SEARCH - Teach Me">
+<b>🔍 SEARCH BAR - Learn Anything - Answer stays here</b>
+<form onsubmit="return askInside('s-learn','ans-learn','learn');">
+<input id="s-learn" placeholder="Type... e.g Teach me AI, Teach me coding" required>
+<button type="submit">📚 SEARCH - Teach Me Here</button>
 </form>
+<div style="margin-top:8px">
+<button class="smallBtn" type="button" onclick="setAndAsk('s-learn','ans-learn','learn','Teach me Artificial Intelligence like I am 12 years old, with joke and example')">What Is AI?</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-learn','ans-learn','learn','Teach me Coding - HTML, CSS, JavaScript with example')">Coding</button>
+<button class="smallBtn" type="button" onclick="setAndAsk('s-learn','ans-learn','learn','Teach me Electronics - resistor, capacitor, transistor')">Electronics</button>
 </div>
-<div class="box"><b>AI:</b> Computer that learns from examples. Show it 100 cats, it learns cat.</div>
-<div class="box"><b>Coding:</b> Giving instructions to computer. HTML builds, CSS beautifies, JavaScript makes it work.</div>
-<div class="box"><b>Internet:</b> Computers talking to each other around the world.</div>
-<div class="box"><b>Security:</b> Use strong password, do not share OTP, do not click strange link.</div>
-<div class="box"><b>Electronics:</b> Resistor controls current, Capacitor stores current, Transistor switches current.</div>
+</div>
+<div id="ans-learn" class="box">Your lesson will appear here. No Google.</div>
 </div>
 
-<!-- ========== IDEAS - WITH SEARCH BAR ========== -->
+<!-- ========== IDEAS ========== -->
 <div id="idea" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>💡 App & Business Ideas</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Find Business Idea</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'idea')">
-<input name="q" id="s-idea" placeholder="Type... e.g Give me app idea for students, for business" required>
-<input type="submit" value="💡 SEARCH - Give Me Idea">
+<b>🔍 SEARCH BAR - Find Idea - Answer stays here</b>
+<form onsubmit="return askInside('s-idea','ans-idea','idea');">
+<input id="s-idea" placeholder="Type... e.g Give me app idea for students" required>
+<button type="submit">💡 SEARCH - Give Me Idea Here</button>
 </form>
 </div>
-<div class="box"><b>For Students:</b> App that helps students pass JAMB with questions and answers.</div>
-<div class="box"><b>For Business:</b> App that helps shop owners sell on WhatsApp automatically.</div>
-<div class="box"><b>For Current:</b> Business that installs solar and repairs chargers and inverters.</div>
+<div id="ans-idea" class="box">Your idea will appear here. No Google.</div>
 </div>
 
-<!-- ========== JOKES - WITH SEARCH BAR ========== -->
+<!-- ========== JOKES ========== -->
 <div id="joke" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>😂 Tech Jokes & Fun</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Search For Joke</b>
-<form action="https://text.pollinations.ai/" method="get" target="_blank" onsubmit="return doSearch(this,'joke')">
-<input name="q" id="s-joke" placeholder="Type... e.g Tell me a funny tech joke about robot" required>
-<input type="submit" value="😂 SEARCH - Tell Me Joke">
+<b>🔍 SEARCH BAR - Search For Joke - Joke stays here</b>
+<form onsubmit="return askInside('s-joke','ans-joke','joke');">
+<input id="s-joke" placeholder="Type... e.g Tell me funny joke about robot" required>
+<button type="submit">😂 SEARCH - Tell Me Joke Here</button>
 </form>
 </div>
+<div id="ans-joke" class="box">Your joke will appear here. No Google.</div>
 <div class="box">Why do programmers prefer dark mode? Because light attracts bugs! And in Nigeria, light also attracts mosquitoes.</div>
-<div class="box">Why did the robot break up with his girlfriend? She said he had no feelings. He said: I have sensors, that is enough!</div>
-<div class="box">My code was working yesterday. Today it is not working. I did not touch anything. The code is like NEPA light - it goes when it wants.</div>
 </div>
 
-<!-- ========== TBDS - WITH SEARCH BAR ========== -->
+<!-- ========== TBDS ========== -->
 <div id="tbds" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>🏭 TBDS - Factory Side</h2>
 <div class="searchBox">
-<b>🔍 SEARCH BAR - Search TBDS / Factory</b>
-<form action="https://www.google.com/search" method="get" target="_blank">
-<input name="q" placeholder="Type... e.g How to build factory machine?" required>
-<input type="submit" value="🏭 SEARCH TBDS">
+<b>🔍 SEARCH BAR - Search TBDS / Factory - Answer stays here</b>
+<form onsubmit="return askInside('s-tbds','ans-tbds','tbds');">
+<input id="s-tbds" placeholder="Type... e.g How to build factory machine?" required>
+<button type="submit">🏭 SEARCH TBDS Here</button>
 </form>
 </div>
-<div class="box">TBDS is the factory side. STEVO TECH AI teaches you everything that uses current, then TBDS helps you build it for real.</div>
+<div id="ans-tbds" class="box">Your TBDS answer will appear here. No Google.</div>
 <a class="go" style="background:#ffcc00" href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank">OPEN TBDS</a>
 </div>
 
-<!-- HOME - MUST BE LAST -->
+<!-- HOME -->
 <div id="home" class="page" style="display:block">
-<p style="text-align:center;font-size:13px;color:#aaa">Every page now has a search bar. Tap one.</p>
-<a class="btn" href="#ai">🤖 <b>Ask Tech AI - Main</b><br><small>Search bar inside - Ask anything</small></a>
-<a class="btn" href="#pic" style="border:2px solid #00ffcc">🎨 <b>Pictures - NO LIMIT, FREE</b><br><small>Search bar inside - Make any picture</small></a>
+<p style="text-align:center;font-size:13px;color:#aaa">Every page has a search bar. Answer stays inside app. No Google.</p>
+<a class="btn" href="#ai">🤖 <b>Ask Tech AI - Main</b><br><small>Search bar inside - Answer here</small></a>
+<a class="btn" href="#pic" style="border:2px solid #00ffcc">🎨 <b>Pictures - NO LIMIT, FREE</b><br><small>Search bar inside - Picture here</small></a>
 <a class="btn" href="#current" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>Search bar inside - Phone, Car, Solar, Robot</small></a>
 <a class="btn" href="#build">🔧 <b>Build & Connect</b><br><small>Search bar inside - How to build anything</small></a>
 <a class="btn" href="#fix">💻 <b>Fix My Code / Fix My Device</b><br><small>Search bar inside - Fix anything</small></a>
 <a class="btn" href="#learn">📚 <b>Learn Tech - All Topics</b><br><small>Search bar inside - Learn anything</small></a>
 <a class="btn" href="#idea">💡 <b>App & Business Ideas</b><br><small>Search bar inside - Find idea</small></a>
-<a class="btn" href="#joke">😂 <b>Tech Jokes & Fun</b><br><small>Search bar inside - Search for joke</small></a>
+<a class="btn" href="#joke">😂 <b>Tech Jokes & Fun</b><br><small>Search bar inside - Joke here</small></a>
 <a class="btn" href="#tbds">🏭 <b>TBDS</b><br><small>Search bar inside - Factory side</small></a>
 </div>
 
 </div>
 
 <script>
-function doSearch(form, type){
-  try{
-    var input = form.querySelector('input[name="q"]');
-    var q = input.value.trim();
-    if(!q) return false;
-    var prompt = '';
-    if(type==='ai') prompt = 'You are STEVO TECH AI, expert in everything that uses current. Founder Kayode Stephen Olayinka, Co-Owner Ikudehinbu Promise Ayomide. Be funny, clear, give steps. Question: ' + q;
-    if(type==='current') prompt = 'You are STEVO TECH AI, teacher of everything that uses electric current. Explain: What is it, How current flows, How to connect safely, How to fix, Safety. Question: ' + q;
-    if(type==='build') prompt = 'You are STEVO TECH AI. Teach how to BUILD and CONNECT. Give: What you need, Steps, How to connect, Safety. Question: ' + q;
-    if(type==='fix') prompt = 'You are STEVO TECH AI, fixer. Fix this. Give: What is wrong, Fixed steps, Why it works. Problem: ' + q;
-    if(type==='learn') prompt = 'You are STEVO TECH AI, best teacher. Teach this with joke, simple English, Lagos example. Topic: ' + q;
-    if(type==='idea') prompt = 'You are STEVO TECH AI. Give app idea. Give Name, Problem, Who will use, Features, How to build, How to make money. Topic: ' + q;
-    if(type==='joke') prompt = 'You are STEVO TECH AI, funny. Tell a funny tech joke about: ' + q + ' Make it funny, Lagos style.';
-    var url = 'https://text.pollinations.ai/' + encodeURIComponent(prompt);
-    window.open(url, '_blank');
-    return false;
-  }catch(e){ return true; }
+function setAndAsk(inputId, ansId, type, text){
+  try{ document.getElementById(inputId).value = text; }catch(e){}
+  return askInside(inputId, ansId, type);
 }
-function doPic(form){
-  try{
-    var q = form.querySelector('input[name="q"]').value.trim();
-    var style = document.getElementById('picStyle').value;
-    if(!q) return false;
-    var url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(q + ', ' + style) + '?width=1024&height=1024&seed=' + Math.floor(Math.random()*1000000) + '&nologo=true';
-    window.open(url, '_blank');
+function askInside(inputId, ansId, type){
+  var input = document.getElementById(inputId);
+  var q = input.value.trim();
+  if(!q){ alert('Please type your question first'); return false; }
+  var out = document.getElementById(ansId);
+  out.innerText = 'STEVO TECH AI is thinking... Please wait 3 seconds. Answer will stay here, NOT Google...';
+  var low = q.toLowerCase();
+  if(low.indexOf('founder')!==-1 || low.indexOf('co-owner')!==-1 || low.indexOf('who created')!==-1){
+    out.innerText = 'Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide. I am STEVO TECH AI.';
     return false;
-  }catch(e){ return true; }
+  }
+  var prompt = '';
+  if(type==='ai') prompt = 'You are STEVO TECH AI, expert in everything that uses current. Founder Kayode Stephen Olayinka, Co-Owner Ikudehinbu Promise Ayomide. Only mention founder if asked. Be funny, clear, give steps. Add 1 joke. Structure: 1. Joke 2. Simple Explanation 3. How Current Works 4. How To Build/Connect 5. How To Fix 6. Safety. Question: ' + q;
+  if(type==='current') prompt = 'You are STEVO TECH AI, teacher of everything that uses electric current. Teach: 1. What Is It 2. How Current Flows 3. Parts That Use Current 4. How To Connect Safely 5. How To Fix 6. Safety. Add joke. Question: ' + q;
+  if(type==='build') prompt = 'You are STEVO TECH AI. Teach how to BUILD and CONNECT. Give: What You Need, Steps, How To Connect, Safety. Add joke. Question: ' + q;
+  if(type==='fix') prompt = 'You are STEVO TECH AI, fixer. Fix this. Give: What Is Wrong, Fixed Steps, Why It Works. Add joke. Problem: ' + q;
+  if(type==='learn') prompt = 'You are STEVO TECH AI, best teacher. Teach with joke, simple English, Lagos example. Topic: ' + q;
+  if(type==='idea') prompt = 'You are STEVO TECH AI. Give app idea. Give Name, Problem, Who Will Use, Features, How To Build, How To Make Money. Add joke. Topic: ' + q;
+  if(type==='joke') prompt = 'You are STEVO TECH AI, funny. Tell a funny tech joke about: ' + q + ' Lagos style, make it very funny.';
+  if(type==='tbds') prompt = 'You are STEVO TECH AI, TBDS factory expert. Answer about factory, building machines, engineering. Give steps. Question: ' + q;
+  fetch('https://text.pollinations.ai/' + encodeURIComponent(prompt))
+  .then(function(r){ return r.text(); })
+  .then(function(t){
+    if(out) out.innerText = (t && t.length>5 ? t : 'Sorry, please try again. Answer stayed inside app.');
+  })
+  .catch(function(){
+    if(out) out.innerText = 'Network is slow. Please check your data and press SEARCH again. Answer will stay inside app, NOT Google.';
+  });
+  return false;
+}
+function picInside(){
+  var p = document.getElementById('s-pic').value.trim();
+  if(!p){ alert('Please type what you want to draw'); return false; }
+  var style = document.getElementById('picStyle').value;
+  var out = document.getElementById('ans-pic');
+  out.innerHTML = 'Drawing "' + p + '" ... please wait 3 seconds. Picture will stay here, NOT Google...';
+  var url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(p + ', ' + style) + '?width=1024&height=1024&seed=' + Math.floor(Math.random()*1000000) + '&nologo=true';
+  var img = new Image();
+  img.onload = function(){
+    out.innerHTML = '<b>✅ Your Picture - FREE, No Limit:</b><br><img src="' + url + '"><br><button class="smallBtn" onclick="picInside()">Make Another - FREE</button>';
+  };
+  img.onerror = function(){ out.innerHTML = 'Network is slow. Please press MAKE PICTURE again. Picture will stay here.'; };
+  img.src = url;
+  return false;
+}
+function quickPicInside(text){
+  document.getElementById('s-pic').value = text;
+  return picInside();
 }
 </script>
 </body>
-  </html>
+                                        </html>
