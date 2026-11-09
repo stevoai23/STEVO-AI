@@ -5,276 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STEVO TECH AI</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#050510;color:#fff;font-family:Arial;padding:0;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;background:radial-gradient(600px 300px at 10% 10%,#00ffcc33,transparent),radial-gradient(600px 300px at 90% 20%,#0099ff33,transparent),radial-gradient(600px 400px at 50% 90%,#ff00aa22,transparent);pointer-events:none;z-index:0}
-.hero{position:relative;z-index:2;background:linear-gradient(135deg,rgba(0,4,40,.95),rgba(0,78,146,.95),rgba(0,255,204,.9));padding:20px 12px 16px;text-align:center;border-bottom:3px solid #00ffcc}
-.hero h1{margin:0;font-size:32px;letter-spacing:3px;text-shadow:0 0 20px #fff,0 0 30px #00ffcc}
-.hero .tag{color:#fff;font-size:12px;letter-spacing:1px;margin:6px 0;font-weight:bold}
-.creator{background:rgba(0,0,0,.45);padding:10px;border-radius:14px;display:inline-block;font-size:12px;line-height:1.7;backdrop-filter:blur(5px)}
+body{margin:0;background:#050510;color:#fff;font-family:Arial;padding:0}
+.hero{background:linear-gradient(135deg,#000428,#004e92,#00ffcc);padding:20px 12px;text-align:center;border-bottom:3px solid #00ffcc}
+.hero h1{margin:0;font-size:30px;letter-spacing:2px}
+.creator{background:rgba(0,0,0,.5);padding:10px;border-radius:12px;display:inline-block;font-size:12px;line-height:1.7}
 .creator b{color:#ffd700}
-.strip{position:relative;z-index:2;display:flex;gap:6px;overflow-x:auto;padding:10px;background:#0a0a1f;white-space:nowrap}
-.strip span{background:#151533;border:1px solid #00ffcc66;padding:7px 12px;border-radius:20px;font-size:11px;color:#00ffcc}
-.main{position:relative;z-index:2;padding:10px;padding-bottom:80px}
-.tbdsBar{background:linear-gradient(90deg,#ffcc00,#ff9900);color:#000;padding:12px;border-radius:16px;text-align:center;font-weight:bold;box-shadow:0 5px 20px #ffcc0055}
-button{border:none;border-radius:14px;padding:16px;font-weight:bold;cursor:pointer;min-height:52px;font-size:15px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;position:relative;z-index:5}
-button:active{transform:scale(.97)}
-.go{width:100%;background:linear-gradient(90deg,#00ffcc,#00ccff);color:#000;box-shadow:0 5px 20px #00ffcc55}
-.go2{width:100%;background:#ff6600;color:#fff}
-.go3{width:100%;background:linear-gradient(90deg,#ff00aa,#ff6600);color:#fff}
-.goPic{width:100%;background:linear-gradient(90deg,#00ffcc,#0099ff,#a100ff);color:#fff;font-size:16px;box-shadow:0 5px 25px #0099ff88}
-.small{background:rgba(255,255,255,.12);color:#00ffcc;padding:12px 14px;font-size:13px;margin:4px;border:1px solid #00ffcc44}
-.smallCurrent{background:rgba(255,255,0,.12);color:#ffff00;padding:12px 14px;font-size:13px;margin:4px;border:1px solid #ffff0055}
-.card{background:rgba(15,15,35,.92);padding:16px;border-radius:18px;margin-top:12px;display:none;border:1px solid #00ffcc33;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.card.show{display:block}
-input,textarea,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:7px 0;font-size:15px}
-.chat{height:280px;overflow-y:auto;background:#050514;padding:12px;border-radius:12px;border:1px solid #00ffcc33}
-.msg{padding:11px;border-radius:12px;margin:7px 0;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
-.u{background:#00ffcc;color:#000;margin-left:20px}
-.a{background:#222244}
-.jokeBox{background:#2a001a;border:1px solid #ff00aa;padding:12px;border-radius:12px;margin:8px 0}
+.main{padding:12px;padding-bottom:80px}
+a.btn{display:block;background:linear-gradient(135deg,#151533,#0f0f2a);border:1px solid #00ffcc55;color:#fff;text-decoration:none;padding:18px;border-radius:14px;margin:8px 0;font-size:16px;font-weight:bold}
+a.btn b{color:#00ffcc}
+a.btn small{color:#aaa;font-weight:normal;font-size:12px}
+a.go{display:block;background:#00ffcc;color:#000;text-decoration:none;text-align:center;padding:16px;border-radius:14px;font-weight:bold;margin:8px 0}
+a.go2{display:block;background:#ff6600;color:#fff;text-decoration:none;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin:8px 0}
+a.goPic{display:block;background:linear-gradient(90deg,#00ffcc,#0099ff);color:#000;text-decoration:none;text-align:center;padding:16px;border-radius:14px;font-weight:bold;margin:8px 0}
+.page{display:none;background:#0f0f1f;padding:16px;border-radius:16px;margin-top:12px;border:1px solid #00ffcc33}
+.page:target{display:block}
+#home{display:block}
+.page:target ~ #home{display:none}
+input,textarea,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:7px 0}
 .box{background:#1e1e40;padding:13px;border-radius:12px;margin:8px 0}
-.menuBtn{width:100%;text-align:left;background:linear-gradient(135deg,#151533,#0f0f2a);border:1px solid #00ffcc33;padding:18px;margin:8px 0;font-size:16px;color:#fff;display:block}
-.menuBtn b{color:#00ffcc;font-size:17px}
-.menuBtn small{color:#aaa;font-size:12px}
-.coins{color:#ffd700;font-weight:bold}
-img.pic{width:100%;border-radius:14px;margin-top:10px;border:2px solid #00ffcc44}
-.picGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.picGrid img{width:100%;border-radius:10px}
-.fixBar{background:#ff0000;color:#fff;padding:8px;border-radius:10px;text-align:center;font-size:12px;margin:8px 0}
+.tbds{background:#ffcc00;color:#000;padding:12px;border-radius:14px;text-align:center;font-weight:bold}
 </style>
 </head>
 <body>
 
 <div class="hero">
 <h1>⚡ STEVO TECH AI ⚡</h1>
-<div class="tag">✦ AI • ROBOT • CURRENT • SOLAR • CODING • APP • CIRCUIT ✦</div>
-<div class="creator">
-Created by <b>Kayode Stephen Olayinka</b><br>
-Co-Owner: <b>Ikudehinbu Promise Ayomide</b><br>
-<span class="coins"><span id="coinsHome">5000</span> Tech Coins</span>
-<br>
-<button class="small" onclick="dailyBonus()">Daily +500</button>
-<button class="small" onclick="testButton()">Test Buttons</button>
-<p id="testResult" style="font-size:12px;color:#00ffcc;margin:4px">Tap Test Buttons to check pressing.</p>
+<p style="font-size:12px">AI • ROBOT • CURRENT • SOLAR • CODING • APP • CIRCUIT</p>
+<div class="creator">Created by <b>Kayode Stephen Olayinka</b><br>Co-Owner: <b>Ikudehinbu Promise Ayomide</b></div>
 </div>
-</div>
-
-<div class="strip"><span>🤖 AI</span><span>⚡ CURRENT</span><span>🔧 BUILD</span><span>🔌 CONNECT</span><span>☀️ SOLAR</span><span>💻 CODE</span><span>🎨 PICTURE FREE</span><span>🏭 TBDS</span></div>
 
 <div class="main">
-<div class="tbdsBar">🏭 TBDS CONNECTED - FACTORY SIDE<br><button onclick="openTBDS()" style="background:#000;color:#ffcc00;margin-top:8px">OPEN TBDS ➤</button></div>
+<div class="tbds">🏭 TBDS CONNECTED<br><a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">OPEN TBDS ➤</a></div>
 
-<div class="fixBar">If a button does not press, press and hold 1 second, or refresh. This version has FIXED pressing.</div>
+<!-- THIS IS THE FIX: Links work even if JavaScript is blocked -->
 
-<!-- HOME -->
-<div id="home" class="card show">
-<p style="text-align:center;font-size:13px;color:#aaa">Tap one. It must open immediately.</p>
-<button class="menuBtn" onclick="showTab('ai')">🤖 <b>Ask Tech AI - Main</b><br><small>Ask anything. Teaches, jokes, gives steps. Fast.</small></button>
-<button class="menuBtn" onclick="showTab('pic')" style="border:2px solid #00ffcc">🎨 <b>Pictures - Anytime, NO LIMIT, FREE</b><br><small>Make as many pictures as you want. No coins. No limit.</small></button>
-<button class="menuBtn" onclick="showTab('current')" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>Phone, Laptop, Car, Robot, Solar, Motor, Fridge, Fan, TV, Charger, Inverter.</small></button>
-<button class="menuBtn" onclick="showTab('build')">🔧 <b>Build & Connect</b><br><small>How to build and connect: App, Website, Robot, Circuit, WiFi, Bluetooth, Solar.</small></button>
-<button class="menuBtn" onclick="showTab('fix')">💻 <b>Fix My Code / Fix My Device</b><br><small>Paste code or describe problem. It will fix it.</small></button>
-<button class="menuBtn" onclick="showTab('learn')">📚 <b>Learn Tech - All Topics</b><br><small>AI, Coding, Robot, Phone, Computer, Internet, Security.</small></button>
-<button class="menuBtn" onclick="showTab('idea')">💡 <b>App & Business Ideas</b><br><small>What to build, who will use it, how to make money.</small></button>
-<button class="menuBtn" onclick="showTab('joke')">😂 <b>Tech Jokes & Fun</b><br><small>Laugh small. Tech is not only serious.</small></button>
-<button class="menuBtn" onclick="showTab('tbds')">🏭 <b>TBDS</b><br><small>Factory side. Open TBDS.</small></button>
+<div id="ai" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>🤖 Ask Tech AI</h2>
+<p>This page is for asking Tech AI. If you are seeing this page, pressing is WORKING.</p>
+<div class="box">Hello! I am STEVO TECH AI. I teach everything that uses current - phone, car, robot, solar, motor, TV, fridge, fan, charger. Ask me anything.</div>
+<p><b>What to do now:</b><br>1. If this page opened when you pressed, pressing is FIXED.<br>2. Tell me "It opened" and I will add AI, Pictures, Current lessons inside this same working style.</p>
+<a class="go" href="#current">Go To Current ⚡</a>
+<a class="goPic" href="#pic">Go To Pictures 🎨</a>
 </div>
 
-<!-- AI -->
-<div id="ai" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>🤖 STEVO TECH AI - Ask Anything</b>
-<p style="font-size:12px;color:#aaa">Teaches EVERYTHING that uses current. Ask in any language.</p>
-<div id="chatBox" class="chat"><div class="msg a">Hello! I am STEVO TECH AI. I teach everything that uses current - phone, car, robot, solar, motor, TV, fridge, fan, charger. Ask me: Why is my phone not charging? How does current work?</div></div>
-<input id="q" placeholder="Ask any tech question...">
-<button class="small" onclick="setQ('What is electric current? Explain AC and DC with examples')">What Is Current?</button>
-<button class="small" onclick="setQ('Why is my phone not charging? How to fix it?')">Phone Not Charging</button>
-<button class="small" onclick="setQ('How to build a robot that uses current?')">Build Robot</button>
-<br>
-<button class="go" onclick="askTechAI()">Ask Tech AI - Fast</button>
-<button class="goPic" style="margin-top:8px" onclick="showTab('pic')">🎨 Or Make A Picture - FREE, No Limit</button>
-<button class="go3" style="margin-top:8px" onclick="tellJoke()">Tell Me A Tech Joke</button>
-<div id="jokeOut"></div>
+<div id="pic" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>🎨 Pictures - Anytime, NO LIMIT, FREE</h2>
+<p>Pictures will be here. No coins. No limit.</p>
+<div class="box">Example picture - Robot in Lagos:<br><br><img src="https://image.pollinations.ai/prompt/A%20futuristic%20robot%20engineer%20in%20Lagos%20neon%20tech%20lab?width=800&height=800&nologo=true" style="width:100%;border-radius:12px"></div>
+<a class="go" href="https://image.pollinations.ai/prompt/A%20gold%20electric%20car%20with%20solar%20roof%20in%20Lagos%20futuristic?width=800&height=800&nologo=true" target="_blank">🎨 Make Electric Car Picture - Press Here</a>
+<a class="go" href="https://image.pollinations.ai/prompt/A%20solar%20powered%20smart%20house%20in%20Lekki%20futuristic%20tech?width=800&height=800&nologo=true" target="_blank">🏠 Make Solar House Picture - Press Here</a>
+<a class="go" href="https://image.pollinations.ai/prompt/A%20circuit%20board%20with%20glowing%20blue%20lines%20tech?width=800&height=800&nologo=true" target="_blank">🔌 Make Circuit Picture - Press Here</a>
 </div>
 
-<!-- PICTURE -->
-<div id="pic" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>🎨 Pictures - Anytime, NO LIMIT, FREE</b>
-<p style="font-size:12px;color:#00ffcc">No coins. No limit. Make 1 or 100. Free.</p>
-<p style="font-size:12px">Pictures made: <b id="picCount" style="color:#00ffcc">0</b> | Unlimited</p>
-<textarea id="picPrompt" rows="2" placeholder="Type ANYTHING... e.g A futuristic robot in Lagos"></textarea>
-<select id="picStyle">
-<option value="realistic, high quality, professional photo, tech style">📸 Real Photo - Tech</option>
-<option value="futuristic, neon, sci-fi, high tech, glowing">⚡ Futuristic Tech</option>
-<option value="cartoon, colorful, 3D pixar style">🎬 Cartoon / 3D</option>
-<option value="anime, beautiful">✨ Anime</option>
-<option value="cinematic, movie poster, tech">🎥 Movie Poster</option>
-<option value="blueprint, technical diagram, engineering drawing">📐 Blueprint / Diagram</option>
-<option value="logo, clean, minimal, tech">🏷️ Logo - Tech</option>
-</select>
-<button class="goPic" onclick="genPic()">🎨 GENERATE PICTURE - FREE, NO LIMIT</button>
-<div style="margin-top:8px">
-<button class="small" onclick="quickPic('A futuristic robot engineer in Lagos, neon, tech lab')">🤖 Robot</button>
-<button class="small" onclick="quickPic('A gold electric car with solar roof in Lagos, futuristic')">🚗 Electric Car</button>
-<button class="small" onclick="quickPic('A solar powered smart house in Lekki, futuristic, tech')">🏠 Solar House</button>
-<button class="small" onclick="quickPic('A circuit board with glowing blue lines, tech, macro')">🔌 Circuit</button>
-<button class="small" onclick="surprisePic()">🎲 Surprise</button>
-</div>
-<div id="picOut"><p style="font-size:12px;color:#aaa">Your pictures will appear here. No limit.</p></div>
-<div id="picGallery" class="picGrid"></div>
-<button class="small" onclick="downloadPic()">⬇️ Save Last Picture</button>
-<button class="small" onclick="clearPics()">Clear Pictures</button>
+<div id="current" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>⚡ EVERYTHING THAT USES CURRENT</h2>
+<p>If it uses current, STEVO TECH AI teaches it.</p>
+<div class="box"><b>What Is Current?</b><br>Current is electricity flowing, like water flowing in a pipe. Voltage is pressure. Resistance is blockage. Formula: V = I x R</div>
+<div class="box"><b>Phone & Charger</b><br>Charger changes AC from NEPA to DC for your phone battery. If phone is not charging, check cable, charger, socket, charging port.</div>
+<div class="box"><b>Car</b><br>Car battery gives current to starter motor to start engine. Alternator charges battery while engine runs.</div>
+<div class="box"><b>Solar</b><br>Solar panel takes light from sun and makes DC current. Inverter changes DC to AC for house.</div>
+<a class="go" href="#ai">Back To AI 🤖</a>
 </div>
 
-<!-- CURRENT -->
-<div id="current" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>⚡ EVERYTHING THAT USES CURRENT</b>
-<p style="font-size:12px;color:#ffff00">If it uses current, STEVO TECH AI will teach you: What it is, How it works, How to build it, How to connect it, How to fix it.</p>
-<p><b>Basics:</b></p>
-<button class="smallCurrent" onclick="learnCurrent('What is electric current? Explain voltage, current, resistance with formula V=IR, AC vs DC')">What Is Current?</button>
-<button class="smallCurrent" onclick="learnCurrent('How to measure current with multimeter? Give steps and safety')">Measure Current</button>
-<button class="smallCurrent" onclick="learnCurrent('What is AC and DC? Which one is in house, which one is in battery?')">AC vs DC</button>
-<p><b>House:</b></p>
-<button class="smallCurrent" onclick="learnCurrent('How does a phone charger work? Explain current, AC to DC, why phone gets hot')">Phone & Charger</button>
-<button class="smallCurrent" onclick="learnCurrent('How does a laptop work? Explain battery, charger, current flow')">Laptop</button>
-<button class="smallCurrent" onclick="learnCurrent('How does a fridge work? Explain motor, current, compressor')">Fridge</button>
-<button class="smallCurrent" onclick="learnCurrent('How does a fan work? Explain motor and current')">Fan</button>
-<p><b>Things That Move:</b></p>
-<button class="smallCurrent" onclick="learnCurrent('How does a car use current? Explain battery, starter motor, alternator')">Car</button>
-<button class="smallCurrent" onclick="learnCurrent('How does an electric car work? Explain battery, motor, controller')">Electric Car</button>
-<button class="smallCurrent" onclick="learnCurrent('How does a robot use current? Explain motor, sensor, battery')">Robot</button>
-<p><b>Power:</b></p>
-<button class="smallCurrent" onclick="learnCurrent('How does solar panel work? Explain current from sun, how to connect panel, battery, inverter')">Solar Panel</button>
-<button class="smallCurrent" onclick="learnCurrent('How does an inverter work? Explain DC to AC, battery connection')">Inverter</button>
-<button class="smallCurrent" onclick="learnCurrent('How does a battery work? Explain charging and discharging')">Battery</button>
-<p><b>Fix It:</b></p>
-<button class="smallCurrent" onclick="learnCurrent('Why is my phone not charging? Give all reasons and how to fix each one')">Phone Not Charging</button>
-<button class="smallCurrent" onclick="learnCurrent('Why does my socket spark? Is it dangerous? How to fix it safely?')">Socket Sparks</button>
-<button class="smallCurrent" onclick="learnCurrent('How to stay safe with current? 10 safety rules for home')">Safety With Current</button>
-<div id="currentOut"></div>
+<div id="build" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>🔧 Build & Connect</h2>
+<div class="box"><b>Build Website:</b> 1. Write HTML 2. Add CSS 3. Add JavaScript 4. Put online</div>
+<div class="box"><b>Build Robot:</b> 1. Motor + Battery + Sensor + Brain 2. Connect motor to battery 3. Connect sensor to brain 4. Test</div>
+<div class="box"><b>Build Solar:</b> 1. Solar panel 2. Battery 3. Inverter 4. Connect panel to battery, battery to inverter. Safety first.</div>
 </div>
 
-<!-- BUILD -->
-<div id="build" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>🔧 Build & Connect</b><br><br>
-<button class="small" onclick="buildThing('How to build a simple website and connect it to the internet? Give steps and code')">Build Website</button>
-<button class="small" onclick="buildThing('How to build a mobile app and connect it to a database? Give steps')">Build App</button>
-<button class="small" onclick="buildThing('How to build a robot and connect motor, sensor and battery? Give wiring and code')">Build Robot</button>
-<button class="small" onclick="buildThing('How to build a solar power system and connect solar panel, battery, inverter? Give steps and safety')">Build Solar</button>
-<div id="buildOut"></div>
+<div id="fix" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>💻 Fix My Device</h2>
+<div class="box"><b>Phone Not Charging?</b> Try: 1. Change cable 2. Change charger 3. Clean charging port gently 4. Restart phone</div>
+<div class="box"><b>Socket Sparks?</b> Stop using it. Call electrician. Do not touch with wet hand.</div>
 </div>
 
-<!-- FIX -->
-<div id="fix" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>💻 Fix My Code / Fix My Device</b>
-<textarea id="codeInput" rows="4" placeholder="Paste your code OR describe your problem... e.g My phone is not charging"></textarea>
-<button class="go" onclick="fixCode()">Fix It Now</button>
-<div id="fixOut"></div>
+<div id="learn" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>📚 Learn Tech</h2>
+<div class="box"><b>AI:</b> Computer that learns from examples. Show it 100 cats, it learns cat.</div>
+<div class="box"><b>Coding:</b> Giving instructions to computer. HTML builds, CSS beautifies, JavaScript makes it work.</div>
+<div class="box"><b>Internet:</b> Computers talking to each other around the world.</div>
 </div>
 
-<!-- LEARN -->
-<div id="learn" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>📚 Learn Tech - Everything</b><br><br>
-<button class="small" onclick="learnTopic('Teach me Artificial Intelligence like I am 12 years old, with joke and real example')">What Is AI?</button>
-<button class="small" onclick="learnTopic('Teach me Coding - HTML, CSS, JavaScript - with simple example')">Coding</button>
-<button class="small" onclick="learnTopic('Teach me how the Internet works, with joke and example')">Internet</button>
-<button class="small" onclick="learnTopic('Teach me Cyber Security - how to protect my phone and password')">Security</button>
-<button class="small" onclick="learnTopic('Teach me Electronics - resistor, capacitor, transistor, with example')">Electronics</button>
-<div id="learnOut"></div>
+<div id="joke" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>😂 Tech Jokes</h2>
+<div class="box">Why do programmers prefer dark mode? Because light attracts bugs! And in Nigeria, light also attracts mosquitoes.</div>
+<div class="box">Why did the robot break up with his girlfriend? She said he had no feelings. He said: I have sensors, that is enough!</div>
+<div class="box">My code was working yesterday. Today it is not working. I did not touch anything. The code is like NEPA light - it goes when it wants.</div>
 </div>
 
-<!-- IDEAS -->
-<div id="idea" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>💡 App & Business Ideas</b><br><br>
-<button class="small" onclick="getIdea('Give me a simple tech idea for students in Nigeria I can build in 1 week')">For Students</button>
-<button class="small" onclick="getIdea('Give me a tech idea for business owners in Lagos')">For Business</button>
-<button class="small" onclick="getIdea('Give me a tech idea that uses current - solar, charging, electric - and can make money')">Current Business Idea</button>
-<div id="ideaOut"></div>
+<div id="tbds" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>🏭 TBDS - Factory Side</h2>
+<p>TBDS is the factory side. STEVO TECH AI teaches you everything that uses current, then TBDS helps you build it for real.</p>
+<a class="go" style="background:#ffcc00" href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank">OPEN TBDS</a>
 </div>
 
-<!-- JOKES -->
-<div id="joke" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>😂 Tech Jokes</b><br><br>
-<button class="go3" onclick="tellJoke()">Tell Me A Joke</button>
-<div id="jokePageOut"></div>
-</div>
-
-<!-- TBDS -->
-<div id="tbds" class="card">
-<button class="go2" onclick="showTab('home')">← Back To Home</button><br><br>
-<b>🏭 TBDS - Factory Side</b><br><br>
-<b style="color:#00ffcc">https://t-b-d-s-engineering-hub.ai.studio</b><br><br>
-<button class="go" style="background:#ffcc00;color:#000" onclick="openTBDS()">OPEN TBDS</button>
-<p style="font-size:12px;color:#aaa">TBDS is the factory side. STEVO TECH AI teaches you everything that uses current, then TBDS helps you build it for real.</p>
+<!-- HOME - MUST BE LAST FOR THE FIX TO WORK -->
+<div id="home" class="page" style="display:block">
+<p style="text-align:center;font-size:13px;color:#aaa">Tap one. It must open immediately. No JavaScript needed.</p>
+<a class="btn" href="#ai">🤖 <b>Ask Tech AI - Main</b><br><small>Ask anything. Teaches, jokes, gives steps.</small></a>
+<a class="btn" href="#pic" style="border:2px solid #00ffcc">🎨 <b>Pictures - Anytime, NO LIMIT, FREE</b><br><small>Make as many pictures as you want. No coins. No limit.</small></a>
+<a class="btn" href="#current" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>Phone, Laptop, Car, Robot, Solar, Motor, Fridge, Fan, TV, Charger, Inverter.</small></a>
+<a class="btn" href="#build">🔧 <b>Build & Connect</b><br><small>How to build and connect: App, Website, Robot, Circuit, WiFi, Bluetooth, Solar.</small></a>
+<a class="btn" href="#fix">💻 <b>Fix My Code / Fix My Device</b><br><small>Fix it when it spoils.</small></a>
+<a class="btn" href="#learn">📚 <b>Learn Tech - All Topics</b><br><small>AI, Coding, Robot, Phone, Computer, Internet, Security.</small></a>
+<a class="btn" href="#joke">😂 <b>Tech Jokes & Fun</b><br><small>Laugh small. Tech is not only serious.</small></a>
+<a class="btn" href="#tbds">🏭 <b>TBDS</b><br><small>Factory side. Open TBDS.</small></a>
+<p style="text-align:center;font-size:12px;color:#00ffcc">If this page opens when you press, pressing is FIXED.</p>
 </div>
 
 </div>
-
-<script>
-// SAFE MODE - If one thing fails, others still work
-var TBDS_URL = "https://t-b-d-s-engineering-hub.ai.studio";
-var coins = 5000;
-try { coins = parseInt(localStorage.getItem('stevo_tech_coins') || '5000'); } catch(e){ coins = 5000; }
-var chatHistory = [];
-var picCount = 0;
-var lastPic = '';
-var FOUNDER_INFO = "Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide.";
-var jokes = [
-  "Why did the computer go to the doctor? Because it had a virus! But don't worry, your phone virus is not Corona, it is just too many apps.",
-  "Why do programmers prefer dark mode? Because light attracts bugs! And in Nigeria, light also attracts mosquitoes.",
-  "My phone battery is like my motivation on Monday - it dies fast. But with STEVO TECH AI, both will last longer.",
-  "Why did the robot break up with his girlfriend? She kept saying he had no feelings. He said: I have sensors, that is enough!",
-  "Why did the WiFi go to school? To get a stronger connection. Just like you, you are here to get a stronger connection to tech.",
-  "My code was working yesterday. Today it is not working. I did not touch anything. The code is like NEPA light - it goes when it wants.",
-  "What is a computer's favorite snack? Micro-chips! And my favorite snack is puff puff while coding.",
-  "Why does current not like to be alone? Because it always wants to flow. Just like you, you want to flow to the top."
-];
-function refreshCoins(){ try{ var c=document.getElementById('coinsHome'); if(c) c.innerText=coins; localStorage.setItem('stevo_tech_coins',coins); }catch(e){} }
-function testButton(){ try{ var el=document.getElementById('testResult'); if(el) el.innerHTML='SUCCESS! Buttons are working. Now tap any menu.'; alert('SUCCESS! Buttons are working!'); }catch(e){ alert('Buttons working'); } }
-function dailyBonus(){ try{ coins+=500; refreshCoins(); alert('Daily Bonus +500 Coins. Balance: '+coins); }catch(e){} }
-function showTab(id){
-  try{
-    var all=['home','ai','pic','current','build','fix','learn','idea','joke','tbds'];
-    for(var i=0;i<all.length;i++){ var el=document.getElementById(all[i]); if(el) el.classList.remove('show'); }
-    var target=document.getElementById(id);
-    if(target) target.classList.add('show');
-    window.scrollTo(0,0);
-  }catch(e){ alert('Opening... Please try again'); }
-}
-function openTBDS(){ try{ window.open(TBDS_URL,'_blank'); }catch(e){ window.location.href=TBDS_URL; } }
-function setQ(t){ try{ document.getElementById('q').value=t; }catch(e){} }
-function tellJoke(){
-  try{
-    var j = jokes[Math.floor(Math.random()*jokes.length)];
-    var html = '<div class="jokeBox"><b>😂 Tech Joke:</b><br><br>'+j+'<br><br><button class="small" onclick="tellJoke()">Another Joke</button></div>';
-    var o1=document.getElementById('jokeOut'); if(o1) o1.innerHTML=html;
-    var o2=document.getElementById('jokePageOut'); if(o2) o2.innerHTML=html;
-  }catch(e){}
-}
-function askTechAI(){
-  try{
-    var inp=document.getElementById('q'); var q=inp.value.trim();
-    if(!q){ alert('Please type your tech question first'); return; }
-    inp.value='';
-    var box=document.getElementById('chatBox');
-    box.innerHTML += '<div class="msg u">'+q.replace(/</g,'&lt;')+'</div>';
-    var id='ans'+Date.now();
-    box.innerHTML += '<div class="msg a" id="'+id+'">STEVO TECH AI is thinking fast...</div>';
-    box.scrollTop=box.scrollHeight;
-    var low=q.toLowerCase();
-    if(low.indexOf('founder')!==-1 || low.indexOf('co-owner')!==-1 || low.indexOf('cofounder')!==-1 || low.indexOf('who created')!==-1){
-      document.getElementById(id).innerText = FOUNDER_INFO + ' I am STEVO TECH AI.';
-      coins+=10; refreshCoins(); return;
-    }
-    var variety = ['Give a fresh answer.','Use a new Lagos example.','Add a funny joke at start.','Explain with a story.','Use simple steps.'];
-    var v = variety[Math.floor(Math.random()*variety.length)];
-    chatHistory.push('User: '+q);
-    va
+</body>
+  </html>
