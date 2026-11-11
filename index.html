@@ -3,312 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO TECH AI</title>
+<title>STEVO TECH AI + TBDS AI</title>
 <style>
-body{margin:0;background:#050510;color:#fff;font-family:Arial}
-.hero{background:linear-gradient(135deg,#000428,#004e92,#00ffcc);padding:18px 12px;text-align:center;border-bottom:3px solid #00ffcc}
-.hero h1{margin:0;font-size:30px;letter-spacing:2px}
-.creator{background:rgba(0,0,0,.5);padding:8px 12px;border-radius:12px;display:inline-block;font-size:12px;line-height:1.7}
+/* ===== ENGINEERING BACKGROUND ===== */
+body{margin:0;color:#fff;font-family:Arial;
+background-color:#0a1a2a;
+background-image:
+linear-gradient(rgba(0,255,204,0.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,204,0.08) 1px, transparent 1px),
+radial-gradient(circle at 10% 10%, rgba(255,204,0,0.18) 0, transparent 30%),
+radial-gradient(circle at 90% 90%, rgba(0,102,255,0.25) 0, transparent 30%);
+background-size:30px 30px, 30px 30px, 100% 100%, 100% 100%;
+}
+.hero{background:linear-gradient(135deg,rgba(0,0,20,0.92),rgba(0,40,80,0.92),rgba(0,80,120,0.92));padding:18px 12px;text-align:center;border-bottom:4px solid #ffcc00;position:relative}
+.hero:before{content:"⚙️ 🔧 ⚡ 🏭 🔩 📐 🛠️ ⚙️";position:absolute;top:2px;left:0;right:0;font-size:18px;opacity:.35}
+.hero h1{margin:6px 0 0 0;font-size:30px;letter-spacing:2px}
+.creator{background:rgba(0,0,0,.6);padding:8px 12px;border-radius:12px;display:inline-block;font-size:12px;line-height:1.7;border:1px solid #00ffcc}
 .creator b{color:#ffd700}
 .main{padding:12px;padding-bottom:90px}
-a.btn{display:block;background:linear-gradient(135deg,#151533,#0f0f2a);border:1px solid #00ffcc55;color:#fff;text-decoration:none;padding:17px;border-radius:14px;margin:8px 0;font-size:16px;font-weight:bold}
+a.btn{display:block;background:linear-gradient(135deg,rgba(21,21,51,.95),rgba(15,15,42,.95));border:1px solid #00ffcc55;color:#fff;text-decoration:none;padding:17px;border-radius:14px;margin:8px 0;font-size:16px;font-weight:bold}
 a.btn b{color:#00ffcc}
-a.btn small{color:#aaa;font-weight:normal;font-size:12px}
+a.btn small{color:#ccc;font-weight:normal;font-size:12px}
 a.go{display:block;background:#00ffcc;color:#000;text-decoration:none;text-align:center;padding:15px;border-radius:14px;font-weight:bold;margin:8px 0}
 a.go2{display:block;background:#ff6600;color:#fff;text-decoration:none;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin:8px 0}
-.page{display:none;background:#0f0f1f;padding:16px;border-radius:16px;margin-top:12px;border:1px solid #00ffcc33}
+.page{display:none;background:rgba(10,15,35,.96);padding:16px;border-radius:16px;margin-top:12px;border:2px solid #00ffcc33;box-shadow:0 0 0 1px #ffcc0033}
 .page:target{display:block}
 #home{display:block}
 .page:target ~ #home{display:none}
 .searchBox{background:#000428;border:2px solid #00ffcc;padding:12px;border-radius:14px;margin:10px 0}
 .searchBox b{color:#00ffcc}
+.searchBox.tbdsBox{border-color:#ffcc00}
+.searchBox.tbdsBox b{color:#ffcc00}
 input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:6px 0;font-size:15px}
 button{width:100%;padding:14px;border:none;border-radius:12px;background:#00ffcc;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
+button.tbdsBtn{background:#ffcc00}
 .smallBtn{background:#222244;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px;width:auto;display:inline-block;border:1px solid #00ffcc44}
+.smallBtn.tbdsS{background:#332a00;color:#ffcc00;border-color:#ffcc00}
 .box{background:#1e1e40;padding:13px;border-radius:12px;margin:8px 0;line-height:1.7;white-space:pre-wrap;word-break:break-word}
-.tbds{background:#ffcc00;color:#000;padding:12px;border-radius:14px;text-align:center;font-weight:bold}
+.tbdsTop{background:linear-gradient(90deg,#ffcc00,#ff9900);color:#000;padding:12px;border-radius:14px;text-align:center;font-weight:bold}
 img{width:100%;border-radius:12px;margin-top:8px}
+.badge{display:inline-block;background:#ffcc00;color:#000;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
+.badge2{display:inline-block;background:#00ffcc;color:#000;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
+iframe.tbdsFrame{width:100%;height:520px;border:2px solid #ffcc00;border-radius:12px;background:#fff}
 </style>
 </head>
 <body>
 <div class="hero">
 <h1>⚡ STEVO TECH AI ⚡</h1>
-<p style="font-size:12px">AI • ROBOT • CURRENT • SOLAR • CODING • APP • CIRCUIT • TBDS INSIDE</p>
-<div class="creator">Created by <b>Kayode Stephen Olayinka</b><br>Co-Owner: <b>Ikudehinbu Promise Ayomide</b></div>
+<p style="font-size:12px">⚙️ ENGINEERING BACKGROUND • AI • ROBOT • CURRENT • SOLAR • TBDS INSIDE • 2 AIs</p>
+<div class="creator">Created by <b>Kayode Stephen Olayinka</b><br>Co-Owner: <b>Ikudehinbu Promise Ayomide</b><br>🏭 TBDS + 🤖 STEVO AI + 🏭 TBDS AI = 2 AIs Inside 1 App</div>
 </div>
-<div class="main">
-<div class="tbds">🏭 TBDS IS INSIDE NOW - NOT OUTSIDE<br><a href="#tbds" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">OPEN TBDS INSIDE ➤</a></div>
 
-<!-- AI -->
+<div class="main">
+<div class="tbdsTop">🏭 TBDS LINK IS INSIDE NOW<br><a href="#tbds" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">OPEN TBDS INSIDE ➤</a> &nbsp; <a href="#tbds-ai" style="background:#00ffcc;color:#000;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">ASK TBDS AI ➤</a></div>
+
+<!-- 1. STEVO TECH AI - MAIN AI -->
 <div id="ai" class="page">
 <a class="go2" href="#home">← Back To Home</a>
-<h2>🤖 Ask Tech AI - Works, Not Stagnant</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Answer stays here, NOT Google</b>
-<form onsubmit="return askInside('s-ai','ans-ai','ai');">
+<h2>🤖 STEVO TECH AI <span class="badge2">MAIN AI</span></h2>
+<p style="font-size:12px;color:#aaa">This AI answers ALL tech questions - Current, Coding, App, Phone, Solar, Robot.</p>
+<div class="searchBox"><b>🔍 STEVO AI SEARCH BAR - Answer stays here</b>
+<form onsubmit="return askStevo('s-ai','ans-ai');">
 <input id="s-ai" placeholder="Type any tech question..." required>
-<button type="submit">🔍 SEARCH - Answer Here</button>
+<button type="submit">🤖 ASK STEVO AI</button>
 </form>
 <div style="margin-top:8px">
-<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','What is electric current?')">What Is Current?</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','Why is my phone not charging?')">Phone Not Charging</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-ai','ans-ai','ai','How to build a robot?')">Build Robot</button>
+<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','What is electric current?')">What Is Current?</button>
+<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','Why is my phone not charging?')">Phone Not Charging</button>
+<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','How to build a website?')">Build Website</button>
 </div></div>
-<div id="ans-ai" class="box">Your answer will appear here instantly. I will never stay on loading forever.</div>
+<div id="ans-ai" class="box">I am STEVO TECH AI. Ask me anything. I answer here, not Google. I never stay on loading forever.</div>
 </div>
 
-<!-- PICTURES -->
+<!-- 2. TBDS AI - SECOND, DIFFERENT AI -->
+<div id="tbds-ai" class="page">
+<a class="go2" href="#home">← Back To Home</a>
+<h2>🏭 TBDS AI <span class="badge">SECOND AI - FACTORY ONLY</span></h2>
+<p style="font-size:12px;color:#ffcc00">This is a DIFFERENT AI. It only answers Factory / Engineering / TBDS questions. It is placed in its own place, separate from STEVO AI.</p>
+<div class="searchBox tbdsBox"><b>🔍 TBDS AI SEARCH BAR - Ask Factory Questions Here</b>
+<form onsubmit="return askTbdsAi('s-tbds-ai','ans-tbds-ai');">
+<input id="s-tbds-ai" placeholder="Type factory question... e.g How to build factory machine?" required>
+<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI</button>
+</form>
+<div style="margin-top:8px">
+<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to install solar panel, battery, inverter?')">Solar Installation</button>
+<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to build a robot with motor and sensor?')">Build Robot</button>
+<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How does a factory machine work?')">Factory Machine</button>
+<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to convert normal car to electric car?')">Electric Car</button>
+</div></div>
+<div id="ans-tbds-ai" class="box">I am TBDS AI. I am different from STEVO AI. I answer only Engineering / Factory / TBDS questions. Ask me about solar, robot, electric car, factory machine, wiring.</div>
+<div class="box" style="border:1px solid #ffcc00"><b>🏭 TBDS AI KNOWS:</b><br>• Solar + Inverter + Battery<br>• Robot + Sensor + Motor<br>• Electric Car / Bike<br>• Factory Machines<br>• House Wiring<br>• How To Maintain Machines</div>
+</div>
+
+<!-- 3. PICTURES -->
 <div id="pic" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>🎨 Pictures - NO LIMIT, FREE</h2>
 <div class="searchBox"><b>🔍 SEARCH BAR - Make Any Picture</b>
 <form onsubmit="return picInside();">
 <input id="s-pic" placeholder="Type anything to draw..." required>
-<select id="picStyle"><option value="futuristic, neon, tech, high quality">⚡ Futuristic Tech</option><option value="realistic, professional photo">📸 Real Photo</option><option value="cartoon, colorful, 3D">🎬 Cartoon</option><option value="blueprint, technical diagram">📐 Blueprint</option></select>
+<select id="picStyle"><option value="engineering blueprint, futuristic, neon, tech">⚙️ Engineering Blueprint</option><option value="realistic, professional photo">📸 Real Photo</option><option value="cartoon, colorful, 3D">🎬 Cartoon</option><option value="futuristic, neon, tech, high quality">⚡ Futuristic Tech</option></select>
 <button type="submit">🎨 MAKE PICTURE - FREE</button>
-</form>
-<div style="margin-top:8px">
-<button class="smallBtn" type="button" onclick="quickPicInside('A futuristic robot engineer in Lagos, neon, tech lab')">🤖 Robot</button>
-<button class="smallBtn" type="button" onclick="quickPicInside('A gold electric car with solar roof in Lagos, futuristic')">🚗 Electric Car</button>
-<button class="smallBtn" type="button" onclick="quickPicInside('A solar powered smart house in Lekki, futuristic, tech')">🏠 Solar House</button>
-</div></div>
-<div id="ans-pic" class="box">Your picture will appear here. If network is slow, press again, it will still work.</div>
+</form></div>
+<div id="ans-pic" class="box">Your picture will appear here.</div>
 </div>
 
-<!-- CURRENT -->
+<!-- 4. CURRENT -->
 <div id="current" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>⚡ EVERYTHING THAT USES CURRENT</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Search Current</b>
-<form onsubmit="return askInside('s-current','ans-current','current');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askStevo('s-current','ans-current');">
 <input id="s-current" placeholder="Type... e.g How does solar work?" required>
-<button type="submit">⚡ SEARCH - Learn About Current</button>
-</form>
-<div style="margin-top:8px">
-<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','What is electric current?')">What Is Current?</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','How does solar panel work?')">Solar</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-current','ans-current','current','How does a car use current?')">Car Current</button>
-</div></div>
+<button type="submit">⚡ ASK STEVO AI</button>
+</form></div>
 <div id="ans-current" class="box">Your answer will appear here.</div>
-<div class="box"><b>What Is Current?</b><br>Current is electricity flowing, like water in a pipe. Voltage = pressure. Resistance = blockage. Formula: V = I x R</div>
+<div class="box"><b>What Is Current?</b><br>Current = electricity flowing like water. V = I x R</div>
 </div>
 
-<!-- BUILD -->
+<!-- 5. BUILD -->
 <div id="build" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>🔧 Build & Connect</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - How To Build</b>
-<form onsubmit="return askInside('s-build','ans-build','build');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askTbdsAi('s-build','ans-build');">
 <input id="s-build" placeholder="Type... e.g How to build a robot?" required>
-<button type="submit">🔧 SEARCH - How To Build It</button>
-</form>
-<div style="margin-top:8px">
-<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build a website?')">Build Website</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build a robot?')">Build Robot</button>
-<button class="smallBtn" type="button" onclick="setAndAsk('s-build','ans-build','build','How to build solar system?')">Build Solar</button>
-</div></div>
-<div id="ans-build" class="box">Your build guide will appear here.</div>
+<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI TO BUILD</button>
+</form></div>
+<div id="ans-build" class="box">Your build guide will appear here from TBDS AI.</div>
 </div>
 
-<!-- FIX -->
+<!-- 6. FIX -->
 <div id="fix" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>💻 Fix My Code / Fix My Device</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Fix Anything</b>
-<form onsubmit="return askInside('s-fix','ans-fix','fix');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askStevo('s-fix','ans-fix');">
 <input id="s-fix" placeholder="Type problem..." required>
-<button type="submit">💻 SEARCH - Fix It Here</button>
+<button type="submit">💻 ASK STEVO AI TO FIX</button>
 </form></div>
 <div id="ans-fix" class="box">Your fix will appear here.</div>
-<div class="box"><b>Phone Not Charging?</b> 1. Change cable 2. Change charger 3. Clean port gently 4. Restart phone</div>
 </div>
 
-<!-- LEARN -->
+<!-- 7. LEARN -->
 <div id="learn" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>📚 Learn Tech</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Learn Anything</b>
-<form onsubmit="return askInside('s-learn','ans-learn','learn');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askStevo('s-learn','ans-learn');">
 <input id="s-learn" placeholder="Type... e.g Teach me AI" required>
-<button type="submit">📚 SEARCH - Teach Me Here</button>
+<button type="submit">📚 ASK STEVO AI</button>
 </form></div>
 <div id="ans-learn" class="box">Your lesson will appear here.</div>
 </div>
 
-<!-- IDEA -->
+<!-- 8. IDEA -->
 <div id="idea" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>💡 App & Business Ideas</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Find Idea</b>
-<form onsubmit="return askInside('s-idea','ans-idea','idea');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askStevo('s-idea','ans-idea');">
 <input id="s-idea" placeholder="Type... e.g Give me app idea" required>
-<button type="submit">💡 SEARCH - Give Me Idea</button>
+<button type="submit">💡 ASK STEVO AI</button>
 </form></div>
 <div id="ans-idea" class="box">Your idea will appear here.</div>
 </div>
 
-<!-- JOKE -->
+<!-- 9. JOKE -->
 <div id="joke" class="page">
 <a class="go2" href="#home">← Back To Home</a>
 <h2>😂 Tech Jokes</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Joke</b>
-<form onsubmit="return askInside('s-joke','ans-joke','joke');">
+<div class="searchBox"><b>🔍 SEARCH BAR</b>
+<form onsubmit="return askStevo('s-joke','ans-joke');">
 <input id="s-joke" placeholder="Type... e.g Tell me joke about robot" required>
-<button type="submit">😂 SEARCH - Tell Me Joke</button>
+<button type="submit">😂 ASK STEVO AI</button>
 </form></div>
-<div id="ans-joke" class="box">Your joke will appear here.</div>
-<div class="box">Why do programmers prefer dark mode? Because light attracts bugs! And in Nigeria, light also attracts mosquitoes.</div>
+<div id="ans-joke" class="box">Why do programmers prefer dark mode? Because light attracts bugs! In Nigeria, light also attracts mosquitoes.</div>
 </div>
 
-<!-- TBDS INSIDE - REAL CONTENT, NO IFRAME, NO BLANK -->
+<!-- 10. TBDS INSIDE - LINK INSIDE + CONTENT INSIDE -->
 <div id="tbds" class="page">
 <a class="go2" href="#home">← Back To Home</a>
-<h2>🏭 TBDS - INSIDE STEVO TECH AI - WORKS</h2>
-<p style="font-size:13px;color:#aaa">TBDS is now inside. No iframe. No blank. No leaving. It works even if network is slow.</p>
-<div class="searchBox"><b>🔍 SEARCH BAR - Search TBDS / Factory</b>
-<form onsubmit="return askInside('s-tbds','ans-tbds','tbds');">
-<input id="s-tbds" placeholder="Type... e.g How to build factory machine?" required>
-<button type="submit">🏭 SEARCH TBDS Here</button>
+<h2>🏭 TBDS - LINK INSIDE STEVO TECH AI</h2>
+<p style="font-size:13px;color:#ffcc00">TBDS Link is INSIDE here. You do NOT leave STEVO TECH AI. Scroll down to see TBDS inside.</p>
+
+<!-- TBDS LINK INSIDE -->
+<div style="background:#ffcc00;color:#000;padding:12px;border-radius:12px;text-align:center;font-weight:bold">🔗 TBDS LINK IS INSIDE THIS BOX<br>
+<a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none">OPEN TBDS LINK - INSIDE ➤</a>
+</div>
+
+<!-- TBDS LIVE INSIDE - IFRAME -->
+<div style="margin-top:10px">
+<b>🏭 TBDS LIVE - INSIDE VIEW:</b>
+<iframe class="tbdsFrame" src="https://t-b-d-s-engineering-hub.ai.studio" title="TBDS Inside"></iframe>
+<p style="font-size:12px;color:#aaa">If the box above is blank, it means TBDS blocks iframe. Do NOT worry - TBDS content is also below, built inside, so it still works, not stagnant.</p>
+</div>
+
+<!-- TBDS AI INSIDE TBDS -->
+<div class="searchBox tbdsBox"><b>🔍 TBDS AI IS ALSO HERE INSIDE TBDS</b>
+<form onsubmit="return askTbdsAi('s-tbds','ans-tbds');">
+<input id="s-tbds" placeholder="Type factory question..." required>
+<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI HERE</button>
 </form></div>
-<div id="ans-tbds" class="box">Your TBDS answer will appear here.</div>
+<div id="ans-tbds" class="box">TBDS AI answer will appear here.</div>
 
-<div class="box" style="border:2px solid #ffcc00"><b>🏭 TBDS ENGINEERING HUB</b><br>Build • Design • Engineer<br>Founder: Kayode Stephen Olayinka<br>Co-Owner: Ikudehinbu Promise Ayomide</div>
-
-<div class="box"><b>⚡ 1. ELECTRICAL / SOLAR DEPARTMENT</b><br>
-- Solar Panel Installation<br>
-- Inverter + Battery Connection<br>
-- House Wiring<br>
-- Phone / Laptop Repair<br>
-<button class="smallBtn" onclick="setAndAsk('s-tbds','ans-tbds','tbds','How to install solar panel, battery, inverter step by step?')">Learn Solar Installation</button>
-</div>
-
-<div class="box"><b>🤖 2. ROBOTICS DEPARTMENT</b><br>
-- Build Robot That Moves<br>
-- Sensor Robot<br>
-- Remote Control Car<br>
-- Smart Home Robot<br>
-<button class="smallBtn" onclick="setAndAsk('s-tbds','ans-tbds','tbds','How to build a robot with motor, sensor, battery?')">Learn Robot Building</button>
-</div>
-
-<div class="box"><b>🚗 3. ELECTRIC VEHICLE DEPARTMENT</b><br>
-- Electric Bike<br>
-- Electric Car Conversion<br>
-- Battery Pack Building<br>
-<button class="smallBtn" onclick="setAndAsk('s-tbds','ans-tbds','tbds','How to convert normal car to electric car?')">Learn Electric Car</button>
-</div>
-
-<div class="box"><b>🏭 4. FACTORY MACHINES</b><br>
-- How Factory Machine Works<br>
-- How To Maintain Machine<br>
-- How To Build Small Machine<br>
-<button class="smallBtn" onclick="setAndAsk('s-tbds','ans-tbds','tbds','How does a factory machine work?')">Learn Factory Machine</button>
-</div>
-
-<div class="box"><b>💻 5. SOFTWARE / APP DEPARTMENT</b><br>
-- Build Website<br>
-- Build App<br>
-- Build School / Shop System<br>
-<button class="smallBtn" onclick="setAndAsk('s-tbds','ans-tbds','tbds','How to build an app for a shop?')">Learn App Building</button>
-</div>
-
-<div class="box"><b>📞 CONTACT TBDS</b><br>Founder: Kayode Stephen Olayinka<br>Use STEVO TECH AI to ask anything about TBDS. It will answer inside here.</div>
+<!-- TBDS CONTENT BUILT INSIDE - NEVER BLANK -->
+<div class="box" style="border:2px solid #ffcc00"><b>🏭 TBDS ENGINEERING HUB - BUILT INSIDE</b><br>Build • Design • Engineer<br>Founder: Kayode Stephen Olayinka<br>Co-Owner: Ikudehinbu Promise Ayomide</div>
+<div class="box"><b>⚡ 1. ELECTRICAL / SOLAR</b><br>Solar Panel, Inverter, Battery, House Wiring<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to install solar panel, battery, inverter step by step?')">Learn Solar</button></div>
+<div class="box"><b>🤖 2. ROBOTICS</b><br>Robot, Sensor, Remote Car, Smart Home<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to build a robot with motor, sensor, battery?')">Learn Robot</button></div>
+<div class="box"><b>🚗 3. ELECTRIC VEHICLE</b><br>Electric Bike, Electric Car, Battery Pack<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to convert normal car to electric car?')">Learn Electric Car</button></div>
+<div class="box"><b>🏭 4. FACTORY MACHINES</b><br>How Machine Works, Maintain Machine<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How does a factory machine work?')">Learn Machine</button></div>
+<div class="box"><b>💻 5. SOFTWARE / APP</b><br>Build Website, Build App<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to build an app for a shop?')">Learn App</button></div>
+<a class="go" style="background:#ffcc00" href="#tbds-ai">ASK TBDS AI - SECOND AI ➤</a>
 </div>
 
 <!-- HOME -->
 <div id="home" class="page" style="display:block">
-<p style="text-align:center;font-size:13px;color:#aaa">Every page has a search bar. Answer stays inside app. TBDS is inside. Works, not stagnant.</p>
-<a class="btn" href="#ai">🤖 <b>Ask Tech AI - Main</b><br><small>Search bar inside - Answer here</small></a>
+<p style="text-align:center;font-size:13px;color:#ccc">⚙️ Engineering Background • 2 AIs Inside • TBDS Link Inside • Works, Not Stagnant</p>
+<a class="btn" href="#ai">🤖 <b>STEVO TECH AI - MAIN AI</b><br><small>Answers ALL tech questions</small></a>
+<a class="btn" href="#tbds-ai" style="border:2px solid #ffcc00">🏭 <b>TBDS AI - SECOND AI - DIFFERENT AI</b><br><small>Answers ONLY Factory / Engineering questions - In its own place</small></a>
+<a class="btn" href="#tbds" style="border:2px solid #ffcc00">🏭 <b>TBDS - LINK INSIDE</b><br><small>TBDS link + TBDS content inside - Never leave</small></a>
 <a class="btn" href="#pic" style="border:2px solid #00ffcc">🎨 <b>Pictures - NO LIMIT, FREE</b><br><small>Picture here</small></a>
 <a class="btn" href="#current" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>Phone, Car, Solar, Robot</small></a>
-<a class="btn" href="#build">🔧 <b>Build & Connect</b><br><small>How to build anything</small></a>
+<a class="btn" href="#build">🔧 <b>Build & Connect - TBDS AI</b><br><small>How to build anything</small></a>
 <a class="btn" href="#fix">💻 <b>Fix My Code / Fix My Device</b><br><small>Fix anything</small></a>
 <a class="btn" href="#learn">📚 <b>Learn Tech</b><br><small>Learn anything</small></a>
 <a class="btn" href="#idea">💡 <b>App & Business Ideas</b><br><small>Find idea</small></a>
 <a class="btn" href="#joke">😂 <b>Tech Jokes & Fun</b><br><small>Joke here</small></a>
-<a class="btn" href="#tbds" style="border:2px solid #ffcc00">🏭 <b>TBDS - INSIDE NOW</b><br><small>Factory side - Inside, works, not stagnant</small></a>
 </div>
 </div>
 
 <script>
-function setAndAsk(inputId, ansId, type, text){
-  try{ document.getElementById(inputId).value = text; }catch(e){}
-  return askInside(inputId, ansId, type);
-}
-function askInside(inputId, ansId, type){
-  var input = document.getElementById(inputId);
-  var q = input.value.trim();
-  if(!q){ alert('Please type your question first'); return false; }
+function setStevo(inputId, ansId, text){ try{ document.getElementById(inputId).value=text; }catch(e){} return askStevo(inputId, ansId); }
+function setTbdsAi(inputId, ansId, text){ try{ document.getElementById(inputId).value=text; }catch(e){} return askTbdsAi(inputId, ansId); }
+
+// STEVO AI - MAIN AI
+function askStevo(inputId, ansId){
+  var q = document.getElementById(inputId).value.trim();
+  if(!q){ alert('Please type your question'); return false; }
   var out = document.getElementById(ansId);
   var low = q.toLowerCase();
-
-  // INSTANT - Never stagnant
-  if(low.indexOf('founder')!==-1 || low.indexOf('who created')!==-1){
-    out.innerText = 'Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide. I am STEVO TECH AI. I remember you.';
-    return false;
-  }
-  if(low.indexOf('what is current')!==-1){
-    out.innerText = 'Current is electricity flowing, like water in a pipe.\nVoltage = Pressure\nCurrent = Flow\nResistance = Blockage\nFormula: V = I x R\nExample: Charger pushes current into phone battery.';
-    return false;
-  }
-  if(low.indexOf('phone not charging')!==-1 || low.indexOf('not charging')!==-1){
-    out.innerText = 'Phone Not Charging - Fix:\n1. Change cable\n2. Change charger\n3. Clean port gently\n4. Restart phone\n5. Try another socket';
-    return false;
-  }
-  if(low.indexOf('solar')!==-1){
-    out.innerText = 'Solar - How It Works:\n1. Solar panel collects sun\n2. Panel makes DC current\n3. Battery stores it\n4. Inverter changes DC to AC for house\nSafety: Do NOT touch bare wires. Connect + to +, - to -.';
-    return false;
-  }
-  if(low.indexOf('robot')!==-1){
-    out.innerText = 'How To Build A Robot:\nYou Need: Motor, Battery, Wheels, Sensor, Arduino / Board, Wires\nSteps:\n1. Connect motor to wheels\n2. Connect battery to motor driver\n3. Connect sensor to board\n4. Upload code\n5. Test - If sensor sees wall, robot stops.';
-    return false;
-  }
-  if(low.indexOf('website')!==-1 || low.indexOf('app')!==-1){
-    out.innerText = 'How To Build Website / App:\n1. Write HTML for structure\n2. CSS for beauty\n3. JavaScript for action\n4. Test on phone\n5. Publish. You already built STEVO TECH AI like this. You can build another one.';
-    return false;
-  }
-
-  out.innerText = 'STEVO TECH AI is thinking... I remember you. Please wait...';
-
-  // NEVER STAGNANT - If internet is slow, after 5 seconds give answer from inside
-  var done = false;
-  var timer = setTimeout(function(){
-    if(!done){
-      done = true;
-      out.innerText = 'Here is your answer for: ' + q + '\n\n1. What It Is: ' + q + ' is part of everything that uses current.\n2. How It Works: Current flows from battery / NEPA / solar into the device, the device uses it to work.\n3. How To Build / Connect: Get the parts, connect + to +, - to -, test small first.\n4. How To Fix: Check cable, check battery, check connection, restart.\n5. Safety: Do NOT touch bare wire. Switch off before you connect.\n\nJoke: Why did the robot go to school? To charge its brain!\n\nAsk me again with more detail, e.g. "How to build robot step by step?" and I will give you full steps.';
-    }
-  }, 5000);
-
-  var prompt = 'You are STEVO TECH AI. Founder Kayode Stephen Olayinka. Co-Owner Ikudehinbu Promise Ayomide. Be short, clear, give steps. Add 1 joke. Question: ' + q;
-  fetch('https://text.pollinations.ai/' + encodeURIComponent(prompt))
+  if(low.indexOf('founder')!==-1){ out.innerText='Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide. I am STEVO TECH AI - Main AI.'; return false; }
+  if(low.indexOf('what is current')!==-1){ out.innerText='Current is electricity flowing, like water in a pipe.\nVoltage = Pressure\nCurrent = Flow\nResistance = Blockage\nFormula: V = I x R'; return false; }
+  if(low.indexOf('phone not charging')!==-1 || low.indexOf('not charging')!==-1){ out.innerText='Phone Not Charging:\n1. Change cable\n2. Change charger\n3. Clean port gently\n4. Restart phone\n5. Try another socket'; return false; }
+  out.innerText='STEVO TECH AI is thinking... I am the Main AI. Please wait...';
+  var done=false;
+  setTimeout(function(){ if(!done){ done=true; out.innerText='STEVO TECH AI Answer for: '+q+'\n\n1. What It Is: '+q+' is part of tech that uses current.\n2. How It Works: Current flows from battery / NEPA / solar into device.\n3. How To Build / Fix: Check cable, battery, connection, restart.\n4. Safety: Do NOT touch bare wire.\n\nJoke: Why did the robot go to school? To charge its brain!'; } }, 5000);
+  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are STEVO TECH AI, Main AI. Founder Kayode Stephen Olayinka. Co-Owner Ikudehinbu Promise Ayomide. Be short, clear, steps, 1 joke. Question: '+q))
   .then(function(r){ return r.text(); })
-  .then(function(t){
-    if(!done && t && t.length>5){
-      done = true; clearTimeout(timer);
-      out.innerText = t;
-    }
-  })
-  .catch(function(){
-    if(!done){ done = true; clearTimeout(timer); out.innerText = 'Network is slow, but I still answered for you above. Press SEARCH again to try for full answer.'; }
-  });
+  .then(function(t){ if(!done && t && t.length>5){ done=true; out.innerText=t; } })
+  .catch(function(){});
   return false;
 }
-function picInside(){
-  var p = document.getElementById('s-pic').value.trim();
-  if(!p){ alert('Please type what you want to draw'); return false; }
-  var style = document.getElementById('picStyle').value;
-  var out = document.getElementById('ans-pic');
-  out.innerHTML = 'Drawing "' + p + '" ... please wait...';
-  var url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(p + ', ' + style) + '?width=1024&height=1024&seed=' + Math.floor(Math.random()*1000000) + '&nologo=true';
-  var img = new Image();
-  var done2 = false;
-  setTimeout(function(){
-    if(!done2){ out.innerHTML = 'Network is slow. Picture is still trying. Please press MAKE PICTURE again. It is not stagnant, it is just network.'; }
-  }, 8000);
-  img.onload = function(){ done2 = true; out.innerHTML = '<b>✅ Your Picture:</b><br><img src="' + url + '"><br><button class="smallBtn" onclick="picInside()">Make Another - FREE</button>'; };
-  img.onerror = function(){ out.innerHTML = 'Network is slow. Please press MAKE PICTURE again.'; };
-  img.src = url;
-  return false;
-}
-function quickPicInside(text){ document.getElementById('s-pic').value = text; return picInside(); }
-</script>
-</body>
-  </html>
+
+// TBDS AI - SECOND, DIFFERENT AI - FACTORY ONLY
+function askTbdsAi(inputId, ansId){
+  var q = document.getElementById(inputId).value.trim();
+  if(!q){ alert('Please type your factory question'); return false; }
+  var out = document.getElementById(ansId);
+  var low = q.toLowerCase();
+  if(low.indexOf('solar')!==-1){ out.innerText='🏭 TBDS AI - SOLAR:\n1. Solar panel collects sun\n2. Panel makes DC current\n3. Battery stores it\n4. Inverter changes DC to AC for house\nSteps: Panel -> Charge Controller -> Battery -> Inverter -> House\nSafety: + to +, - to -. Do NOT touch bare wires.'; return false; }
+  if(low.indexOf('robot')!==-1){ out.innerText='🏭 TBDS AI - ROBOT:\nYou Need: Motor, Battery, Wheels, Sensor, Board, Wires\nSteps:\n1. Connect motor to wheels\n2. Connect battery to motor driver\n3. Connect sensor to board\n4. Upload code\n5. Test - If sensor sees wall, robot stops.'; return false; }
+  if(low.indexOf('electric car')!==-1 || low.indexOf('electric bike')!==-1){ out.innerText='🏭 TBDS AI - ELECTRIC CAR:\nYou Need: Motor, Battery Pack, Controller, Charger\nSteps:\n1. Remove fuel engine\n2. Install electric motor\n3. Install battery pack\n4. Connect controller\n5. Connect throttle\n6. Test slowly.'; return false; }
+  if(low.indexOf('factory')!==-1 || low.indexOf('machine')!==-1){ out.innerText='🏭 TBDS AI - FACTORY MACHINE:\nMachine = Motor + Belt + Gear + Control\nHow It Works: Motor turns, belt moves, gear turns machine, sensor controls it.\nMaintain: Oil it, clean it, check belt, check wires every week.'; return false; }
+  if(low.indexOf('wiring')!==-1 || low.indexOf('house wiring')!==-1){ out.innerText='🏭 TBDS AI - HOUSE WIRING:\n1. Switch OFF main\n2. Live (Red/Brown) -> Switch -> Bulb\n3. Neutral (Black/Blue) -> Bulb\n4. Earth (Green) -> Metal body\nSafety: Never work with power ON.'; return false; }
+  out.innerText='🏭 TBDS AI is thinking... I am the Factory AI, different from STEVO AI. Please wait...';
+  var done=false;
+  setTimeout(function(){ if(!done){ done=true; out.innerText='🏭 TBDS AI Answer for: '+q+'\n\nThis is Engineering / Factory answer:\n1. What It Is: '+q+'\n2. Parts You Need: Motor, Battery / Solar, Controller, Wires, Sensor\n3. Steps: Connect parts, test small, then test full.\n4. Safety: Switch OFF before connecting. + to +, - to -.\n\nTBDS = Build • Design • Engineer'; } }, 5000);
+  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are TBDS AI, Factory / Engineering AI, different from STEVO AI. Founder Kayode Stephen Olayinka. Give What You Need, Steps, How To Connect, Safety. Be engineering style. Question: '+q))
+  .then(function(r){ return r.text(); })
+  .
