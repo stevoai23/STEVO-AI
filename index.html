@@ -3,273 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO TECH AI + TBDS AI</title>
+<title>STEVO TECH AI - BLACK EXCELLENCE</title>
 <style>
-/* ===== ENGINEERING BACKGROUND ===== */
-body{margin:0;color:#fff;font-family:Arial;
-background-color:#0a1a2a;
-background-image:
-linear-gradient(rgba(0,255,204,0.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(0,255,204,0.08) 1px, transparent 1px),
-radial-gradient(circle at 10% 10%, rgba(255,204,0,0.18) 0, transparent 30%),
-radial-gradient(circle at 90% 90%, rgba(0,102,255,0.25) 0, transparent 30%);
-background-size:30px 30px, 30px 30px, 100% 100%, 100% 100%;
-}
-.hero{background:linear-gradient(135deg,rgba(0,0,20,0.92),rgba(0,40,80,0.92),rgba(0,80,120,0.92));padding:18px 12px;text-align:center;border-bottom:4px solid #ffcc00;position:relative}
-.hero:before{content:"⚙️ 🔧 ⚡ 🏭 🔩 📐 🛠️ ⚙️";position:absolute;top:2px;left:0;right:0;font-size:18px;opacity:.35}
-.hero h1{margin:6px 0 0 0;font-size:30px;letter-spacing:2px}
-.creator{background:rgba(0,0,0,.6);padding:8px 12px;border-radius:12px;display:inline-block;font-size:12px;line-height:1.7;border:1px solid #00ffcc}
+body{margin:0;color:#fff;font-family:Arial;background:#0a0a0a;background-image:linear-gradient(rgba(255,204,0,0.07) 1px, transparent 1px),linear-gradient(90deg, rgba(255,204,0,0.07) 1px, transparent 1px);background-size:30px 30px}
+.hero{background:linear-gradient(135deg,#000,#1a0d00,#006400,#000);padding:14px 12px;text-align:center;border-bottom:4px solid #ffcc00}
+.hero h1{margin:0;font-size:27px}
+.creator{background:rgba(0,0,0,.7);padding:10px 12px;border-radius:12px;display:inline-block;font-size:12px;line-height:1.8;border:2px solid #ffcc00}
 .creator b{color:#ffd700}
+.langBar{background:#ffcc00;color:#000;padding:10px;text-align:center;font-weight:bold}
+.langBar select{width:auto;padding:10px;border-radius:10px;border:2px solid #000;font-weight:bold;font-size:14px}
 .main{padding:12px;padding-bottom:90px}
-a.btn{display:block;background:linear-gradient(135deg,rgba(21,21,51,.95),rgba(15,15,42,.95));border:1px solid #00ffcc55;color:#fff;text-decoration:none;padding:17px;border-radius:14px;margin:8px 0;font-size:16px;font-weight:bold}
-a.btn b{color:#00ffcc}
-a.btn small{color:#ccc;font-weight:normal;font-size:12px}
-a.go{display:block;background:#00ffcc;color:#000;text-decoration:none;text-align:center;padding:15px;border-radius:14px;font-weight:bold;margin:8px 0}
-a.go2{display:block;background:#ff6600;color:#fff;text-decoration:none;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin:8px 0}
-.page{display:none;background:rgba(10,15,35,.96);padding:16px;border-radius:16px;margin-top:12px;border:2px solid #00ffcc33;box-shadow:0 0 0 1px #ffcc0033}
-.page:target{display:block}
-#home{display:block}
-.page:target ~ #home{display:none}
+.btn{display:block;background:#151533;border:1px solid #ffcc00;color:#fff;text-align:left;padding:17px;border-radius:14px;margin:8px 0;font-size:16px;font-weight:bold;width:100%;cursor:pointer}
+.btn b{color:#00ffcc}
+.btn small{color:#ccc;font-weight:normal;font-size:12px}
+.go{display:block;background:#00ffcc;color:#000;text-align:center;padding:15px;border-radius:14px;font-weight:bold;margin:8px 0;width:100%;border:none;font-size:15px;cursor:pointer}
+.go2{display:block;background:#ff6600;color:#fff;text-align:center;padding:14px;border-radius:14px;font-weight:bold;margin:8px 0;width:100%;border:none;font-size:15px;cursor:pointer}
+.page{display:none;background:#101020;padding:16px;border-radius:16px;margin-top:12px;border:2px solid #ffcc00}
+.page.active{display:block}
 .searchBox{background:#000428;border:2px solid #00ffcc;padding:12px;border-radius:14px;margin:10px 0}
 .searchBox b{color:#00ffcc}
 .searchBox.tbdsBox{border-color:#ffcc00}
 .searchBox.tbdsBox b{color:#ffcc00}
-input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:6px 0;font-size:15px}
-button{width:100%;padding:14px;border:none;border-radius:12px;background:#00ffcc;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
-button.tbdsBtn{background:#ffcc00}
-.smallBtn{background:#222244;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px;width:auto;display:inline-block;border:1px solid #00ffcc44}
+input,select{width:100%;padding:14px;border-radius:12px;border:1px solid #333;background:#1a1a35;color:#fff;margin:6px 0;font-size:15px;box-sizing:border-box}
+button.ask{width:100%;padding:14px;border:none;border-radius:12px;background:#00ffcc;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
+button.askTbds{width:100%;padding:14px;border:none;border-radius:12px;background:#ffcc00;color:#000;font-weight:bold;font-size:15px;cursor:pointer}
+.smallBtn{background:#222244;color:#00ffcc;padding:10px 12px;font-size:12px;margin:3px;width:auto;display:inline-block;border:1px solid #00ffcc44;border-radius:10px;cursor:pointer}
 .smallBtn.tbdsS{background:#332a00;color:#ffcc00;border-color:#ffcc00}
 .box{background:#1e1e40;padding:13px;border-radius:12px;margin:8px 0;line-height:1.7;white-space:pre-wrap;word-break:break-word}
-.tbdsTop{background:linear-gradient(90deg,#ffcc00,#ff9900);color:#000;padding:12px;border-radius:14px;text-align:center;font-weight:bold}
-img{width:100%;border-radius:12px;margin-top:8px}
 .badge{display:inline-block;background:#ffcc00;color:#000;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
 .badge2{display:inline-block;background:#00ffcc;color:#000;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:bold}
-iframe.tbdsFrame{width:100%;height:520px;border:2px solid #ffcc00;border-radius:12px;background:#fff}
+img{width:100%;border-radius:12px;margin-top:8px}
 </style>
 </head>
 <body>
+
+<!-- LANGUAGE SELECT - TOP - PEOPLE SELECT LANGUAGE THEY WANT -->
+<div class="langBar">🌍 <span id="langTitle">SELECT YOUR LANGUAGE / CHOOSE LANGUAGE:</span>
+<select id="langSelect" onchange="changeLanguage()">
+<option value="en">🇺🇸 English</option>
+<option value="yo">🇳🇬 Yoruba</option>
+<option value="pcm">🇳🇬 Pidgin</option>
+<option value="pt">🇧🇷 Português - Brazil</option>
+<option value="jam">🇯🇲 Patois - Jamaica</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="es">🇪🇸 Español</option>
+<option value="sw">🇰🇪 Kiswahili</option>
+<option value="ha">🇳🇬 Hausa</option>
+<option value="ig">🇳🇬 Igbo</option>
+<option value="ar">🇪🇬 Arabic</option>
+</select>
+</div>
+
 <div class="hero">
-<h1>⚡ STEVO TECH AI ⚡</h1>
-<p style="font-size:12px">⚙️ ENGINEERING BACKGROUND • AI • ROBOT • CURRENT • SOLAR • TBDS INSIDE • 2 AIs</p>
-<div class="creator">Created by <b>Kayode Stephen Olayinka</b><br>Co-Owner: <b>Ikudehinbu Promise Ayomide</b><br>🏭 TBDS + 🤖 STEVO AI + 🏭 TBDS AI = 2 AIs Inside 1 App</div>
+<h1 id="heroTitle">✊🏿 STEVO TECH AI ✊🏿</h1>
+<p id="heroSub">BLACK EXCELLENCE • BUILT BY BLACK HANDS • FOR BLACK PEOPLE</p>
+<div class="creator">Created by <b>Kayode Stephen Olayinka</b><br>Co-Owner: <b>Ikudehinbu Promise Ayomide</b><br>🌍 Nigeria • Brazil • Jamaica • All Black Nations</div>
 </div>
 
 <div class="main">
-<div class="tbdsTop">🏭 TBDS LINK IS INSIDE NOW<br><a href="#tbds" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">OPEN TBDS INSIDE ➤</a> &nbsp; <a href="#tbds-ai" style="background:#00ffcc;color:#000;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none;font-weight:bold">ASK TBDS AI ➤</a></div>
 
-<!-- 1. STEVO TECH AI - MAIN AI -->
-<div id="ai" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>🤖 STEVO TECH AI <span class="badge2">MAIN AI</span></h2>
-<p style="font-size:12px;color:#aaa">This AI answers ALL tech questions - Current, Coding, App, Phone, Solar, Robot.</p>
-<div class="searchBox"><b>🔍 STEVO AI SEARCH BAR - Answer stays here</b>
-<form onsubmit="return askStevo('s-ai','ans-ai');">
-<input id="s-ai" placeholder="Type any tech question..." required>
-<button type="submit">🤖 ASK STEVO AI</button>
-</form>
-<div style="margin-top:8px">
-<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','What is electric current?')">What Is Current?</button>
-<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','Why is my phone not charging?')">Phone Not Charging</button>
-<button class="smallBtn" type="button" onclick="setStevo('s-ai','ans-ai','How to build a website?')">Build Website</button>
-</div></div>
-<div id="ans-ai" class="box">I am STEVO TECH AI. Ask me anything. I answer here, not Google. I never stay on loading forever.</div>
+<!-- ===== LOGIN / REGISTER - BOTH FOUND HERE ===== -->
+<div id="page-login" class="page active">
+<h2 style="text-align:center" id="welcomeTxt">✊🏿 WELCOME TO STEVO TECH AI ✊🏿</h2>
+<p style="text-align:center;font-size:13px">Built by Kayode Stephen Olayinka & Ikudehinbu Promise Ayomide<br>For Black Excellence</p>
+
+<div class="box" style="border:2px solid #ffcc00;text-align:center">
+<b>👇 YOU WILL FIND BOTH HERE - CHOOSE ONE 👇</b><br>
+<b>1. REGISTER / LOGIN</b> - If you want your account saved<br>
+<b>2. CONTINUE AS GUEST</b> - If you just want to look inside quickly<br>
+Both are here. Both work. Both press.
 </div>
 
-<!-- 2. TBDS AI - SECOND, DIFFERENT AI -->
-<div id="tbds-ai" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>🏭 TBDS AI <span class="badge">SECOND AI - FACTORY ONLY</span></h2>
-<p style="font-size:12px;color:#ffcc00">This is a DIFFERENT AI. It only answers Factory / Engineering / TBDS questions. It is placed in its own place, separate from STEVO AI.</p>
-<div class="searchBox tbdsBox"><b>🔍 TBDS AI SEARCH BAR - Ask Factory Questions Here</b>
-<form onsubmit="return askTbdsAi('s-tbds-ai','ans-tbds-ai');">
-<input id="s-tbds-ai" placeholder="Type factory question... e.g How to build factory machine?" required>
-<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI</button>
-</form>
-<div style="margin-top:8px">
-<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to install solar panel, battery, inverter?')">Solar Installation</button>
-<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to build a robot with motor and sensor?')">Build Robot</button>
-<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How does a factory machine work?')">Factory Machine</button>
-<button class="smallBtn tbdsS" type="button" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to convert normal car to electric car?')">Electric Car</button>
-</div></div>
-<div id="ans-tbds-ai" class="box">I am TBDS AI. I am different from STEVO AI. I answer only Engineering / Factory / TBDS questions. Ask me about solar, robot, electric car, factory machine, wiring.</div>
-<div class="box" style="border:1px solid #ffcc00"><b>🏭 TBDS AI KNOWS:</b><br>• Solar + Inverter + Battery<br>• Robot + Sensor + Motor<br>• Electric Car / Bike<br>• Factory Machines<br>• House Wiring<br>• How To Maintain Machines</div>
+<div class="searchBox">
+<b>📝 1. REGISTER - CREATE ACCOUNT</b><br>
+<span style="font-size:12px;color:#ccc">Register once, login anytime.</span>
+<input id="reg-email" type="email" placeholder="Type your email... e.g kayode@gmail.com">
+<input id="reg-pass" type="password" placeholder="Create password...">
+<select id="reg-country">
+<option value="Nigeria">🇳🇬 Nigeria</option>
+<option value="Brazil">🇧🇷 Brazil</option>
+<option value="Jamaica">🇯🇲 Jamaica</option>
+<option value="Ghana">🇬🇭 Ghana</option>
+<option value="Kenya">🇰🇪 Kenya</option>
+<option value="South Africa">🇿🇦 South Africa</option>
+<option value="USA">🇺🇸 USA</option>
+<option value="UK">🇬🇧 UK</option>
+<option value="Canada">🇨🇦 Canada</option>
+<option value="France">🇫🇷 France</option>
+<option value="Haiti">🇭🇹 Haiti</option>
+<option value="Trinidad">🇹🇹 Trinidad & Tobago</option>
+<option value="Barbados">🇧🇧 Barbados</option>
+<option value="Other">🌍 Other</option>
+</select>
+<button class="ask" onclick="registerUser()">✅ REGISTER - PRESS HERE</button>
 </div>
 
-<!-- 3. PICTURES -->
-<div id="pic" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>🎨 Pictures - NO LIMIT, FREE</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR - Make Any Picture</b>
-<form onsubmit="return picInside();">
-<input id="s-pic" placeholder="Type anything to draw..." required>
-<select id="picStyle"><option value="engineering blueprint, futuristic, neon, tech">⚙️ Engineering Blueprint</option><option value="realistic, professional photo">📸 Real Photo</option><option value="cartoon, colorful, 3D">🎬 Cartoon</option><option value="futuristic, neon, tech, high quality">⚡ Futuristic Tech</option></select>
-<button type="submit">🎨 MAKE PICTURE - FREE</button>
-</form></div>
-<div id="ans-pic" class="box">Your picture will appear here.</div>
+<div class="searchBox tbdsBox">
+<b>🔑 2. ALREADY REGISTERED? LOGIN HERE</b>
+<input id="login-email" type="email" placeholder="Your email">
+<input id="login-pass" type="password" placeholder="Your password">
+<button class="askTbds" onclick="loginUser()">🔑 LOGIN - PRESS HERE</button>
 </div>
 
-<!-- 4. CURRENT -->
-<div id="current" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>⚡ EVERYTHING THAT USES CURRENT</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askStevo('s-current','ans-current');">
-<input id="s-current" placeholder="Type... e.g How does solar work?" required>
-<button type="submit">⚡ ASK STEVO AI</button>
-</form></div>
-<div id="ans-current" class="box">Your answer will appear here.</div>
-<div class="box"><b>What Is Current?</b><br>Current = electricity flowing like water. V = I x R</div>
-</div>
-
-<!-- 5. BUILD -->
-<div id="build" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>🔧 Build & Connect</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askTbdsAi('s-build','ans-build');">
-<input id="s-build" placeholder="Type... e.g How to build a robot?" required>
-<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI TO BUILD</button>
-</form></div>
-<div id="ans-build" class="box">Your build guide will appear here from TBDS AI.</div>
-</div>
-
-<!-- 6. FIX -->
-<div id="fix" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>💻 Fix My Code / Fix My Device</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askStevo('s-fix','ans-fix');">
-<input id="s-fix" placeholder="Type problem..." required>
-<button type="submit">💻 ASK STEVO AI TO FIX</button>
-</form></div>
-<div id="ans-fix" class="box">Your fix will appear here.</div>
-</div>
-
-<!-- 7. LEARN -->
-<div id="learn" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>📚 Learn Tech</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askStevo('s-learn','ans-learn');">
-<input id="s-learn" placeholder="Type... e.g Teach me AI" required>
-<button type="submit">📚 ASK STEVO AI</button>
-</form></div>
-<div id="ans-learn" class="box">Your lesson will appear here.</div>
-</div>
-
-<!-- 8. IDEA -->
-<div id="idea" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>💡 App & Business Ideas</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askStevo('s-idea','ans-idea');">
-<input id="s-idea" placeholder="Type... e.g Give me app idea" required>
-<button type="submit">💡 ASK STEVO AI</button>
-</form></div>
-<div id="ans-idea" class="box">Your idea will appear here.</div>
-</div>
-
-<!-- 9. JOKE -->
-<div id="joke" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>😂 Tech Jokes</h2>
-<div class="searchBox"><b>🔍 SEARCH BAR</b>
-<form onsubmit="return askStevo('s-joke','ans-joke');">
-<input id="s-joke" placeholder="Type... e.g Tell me joke about robot" required>
-<button type="submit">😂 ASK STEVO AI</button>
-</form></div>
-<div id="ans-joke" class="box">Why do programmers prefer dark mode? Because light attracts bugs! In Nigeria, light also attracts mosquitoes.</div>
-</div>
-
-<!-- 10. TBDS INSIDE - LINK INSIDE + CONTENT INSIDE -->
-<div id="tbds" class="page">
-<a class="go2" href="#home">← Back To Home</a>
-<h2>🏭 TBDS - LINK INSIDE STEVO TECH AI</h2>
-<p style="font-size:13px;color:#ffcc00">TBDS Link is INSIDE here. You do NOT leave STEVO TECH AI. Scroll down to see TBDS inside.</p>
-
-<!-- TBDS LINK INSIDE -->
-<div style="background:#ffcc00;color:#000;padding:12px;border-radius:12px;text-align:center;font-weight:bold">🔗 TBDS LINK IS INSIDE THIS BOX<br>
-<a href="https://t-b-d-s-engineering-hub.ai.studio" target="_blank" style="background:#000;color:#ffcc00;padding:10px 16px;border-radius:9px;display:inline-block;margin-top:8px;text-decoration:none">OPEN TBDS LINK - INSIDE ➤</a>
-</div>
-
-<!-- TBDS LIVE INSIDE - IFRAME -->
-<div style="margin-top:10px">
-<b>🏭 TBDS LIVE - INSIDE VIEW:</b>
-<iframe class="tbdsFrame" src="https://t-b-d-s-engineering-hub.ai.studio" title="TBDS Inside"></iframe>
-<p style="font-size:12px;color:#aaa">If the box above is blank, it means TBDS blocks iframe. Do NOT worry - TBDS content is also below, built inside, so it still works, not stagnant.</p>
-</div>
-
-<!-- TBDS AI INSIDE TBDS -->
-<div class="searchBox tbdsBox"><b>🔍 TBDS AI IS ALSO HERE INSIDE TBDS</b>
-<form onsubmit="return askTbdsAi('s-tbds','ans-tbds');">
-<input id="s-tbds" placeholder="Type factory question..." required>
-<button class="tbdsBtn" type="submit">🏭 ASK TBDS AI HERE</button>
-</form></div>
-<div id="ans-tbds" class="box">TBDS AI answer will appear here.</div>
-
-<!-- TBDS CONTENT BUILT INSIDE - NEVER BLANK -->
-<div class="box" style="border:2px solid #ffcc00"><b>🏭 TBDS ENGINEERING HUB - BUILT INSIDE</b><br>Build • Design • Engineer<br>Founder: Kayode Stephen Olayinka<br>Co-Owner: Ikudehinbu Promise Ayomide</div>
-<div class="box"><b>⚡ 1. ELECTRICAL / SOLAR</b><br>Solar Panel, Inverter, Battery, House Wiring<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to install solar panel, battery, inverter step by step?')">Learn Solar</button></div>
-<div class="box"><b>🤖 2. ROBOTICS</b><br>Robot, Sensor, Remote Car, Smart Home<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to build a robot with motor, sensor, battery?')">Learn Robot</button></div>
-<div class="box"><b>🚗 3. ELECTRIC VEHICLE</b><br>Electric Bike, Electric Car, Battery Pack<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to convert normal car to electric car?')">Learn Electric Car</button></div>
-<div class="box"><b>🏭 4. FACTORY MACHINES</b><br>How Machine Works, Maintain Machine<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How does a factory machine work?')">Learn Machine</button></div>
-<div class="box"><b>💻 5. SOFTWARE / APP</b><br>Build Website, Build App<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to build an app for a shop?')">Learn App</button></div>
-<a class="go" style="background:#ffcc00" href="#tbds-ai">ASK TBDS AI - SECOND AI ➤</a>
+<button class="go2" onclick="enterAsGuest()">👀 3. CONTINUE AS GUEST - PRESS HERE - No Register</button>
+<p style="text-align:center;font-size:11px;color:#aaa">Both options are here. Choose any one. Both will enter STEVO TECH AI.</p>
+<div id="login-msg" class="box" style="display:none"></div>
 </div>
 
 <!-- HOME -->
-<div id="home" class="page" style="display:block">
-<p style="text-align:center;font-size:13px;color:#ccc">⚙️ Engineering Background • 2 AIs Inside • TBDS Link Inside • Works, Not Stagnant</p>
-<a class="btn" href="#ai">🤖 <b>STEVO TECH AI - MAIN AI</b><br><small>Answers ALL tech questions</small></a>
-<a class="btn" href="#tbds-ai" style="border:2px solid #ffcc00">🏭 <b>TBDS AI - SECOND AI - DIFFERENT AI</b><br><small>Answers ONLY Factory / Engineering questions - In its own place</small></a>
-<a class="btn" href="#tbds" style="border:2px solid #ffcc00">🏭 <b>TBDS - LINK INSIDE</b><br><small>TBDS link + TBDS content inside - Never leave</small></a>
-<a class="btn" href="#pic" style="border:2px solid #00ffcc">🎨 <b>Pictures - NO LIMIT, FREE</b><br><small>Picture here</small></a>
-<a class="btn" href="#current" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>Phone, Car, Solar, Robot</small></a>
-<a class="btn" href="#build">🔧 <b>Build & Connect - TBDS AI</b><br><small>How to build anything</small></a>
-<a class="btn" href="#fix">💻 <b>Fix My Code / Fix My Device</b><br><small>Fix anything</small></a>
-<a class="btn" href="#learn">📚 <b>Learn Tech</b><br><small>Learn anything</small></a>
-<a class="btn" href="#idea">💡 <b>App & Business Ideas</b><br><small>Find idea</small></a>
-<a class="btn" href="#joke">😂 <b>Tech Jokes & Fun</b><br><small>Joke here</small></a>
+<div id="page-home" class="page">
+<p style="text-align:center;font-size:13px" id="homeTxt">✊🏿 This app is written for Black people, by Black founders. Everyone is welcome to learn, but this is OUR story.</p>
+<button class="btn" onclick="showPage('ai')">🤖 <b>STEVO TECH AI - GENERAL AI</b><br><small>Answers EVERYTHING - Non-Engineering too - PRESS HERE</small></button>
+<button class="btn" onclick="showPage('tbds-ai')" style="border:2px solid #ffcc00">🏭 <b>TBDS AI - ENGINEERING AI</b><br><small>Answers ONLY Factory / Engineering - PRESS HERE</small></button>
+<button class="btn" onclick="showPage('tbds')" style="border:2px solid #ffcc00">🏭 <b>TBDS - LINK INSIDE</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('black')" style="background:#1a0d00">🌍 <b>BLACK NATIONS OF THE WORLD</b><br><small>Every Country That Has Black People - PRESS HERE</small></button>
+<button class="btn" onclick="showPage('name')" style="border:2px solid #00ff00">📛 <b>OUR NAMES IN EVERY LANGUAGE</b><br><small>Kayode + Ikudehinbu Promise Ayomide - PRESS HERE</small></button>
+<button class="btn" onclick="showPage('pic')" style="border:2px solid #00ffcc">🎨 <b>Pictures - NO LIMIT, FREE</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('current')" style="border:2px solid #ffff00">⚡ <b>EVERYTHING THAT USES CURRENT</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('build')">🔧 <b>Build & Connect - TBDS AI</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('fix')">💻 <b>Fix My Code / Fix My Device</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('learn')">📚 <b>Learn Tech</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('idea')">💡 <b>App & Business Ideas</b><br><small>PRESS HERE</small></button>
+<button class="btn" onclick="showPage('joke')">😂 <b>Tech Jokes & Fun</b><br><small>PRESS HERE</small></button>
+<button class="go2" onclick="logoutUser()">🚪 LOGOUT - PRESS HERE</button>
 </div>
+
+<!-- STEVO AI -->
+<div id="page-ai" class="page">
+<button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button>
+<h2>🤖 STEVO TECH AI <span class="badge2">GENERAL AI</span></h2>
+<p style="font-size:12px">Answers EVERYTHING - General + Tech. Jokes, Ideas, Phone, Code, Current.</p>
+<div class="searchBox"><b>🔍 STEVO AI SEARCH BAR</b>
+<input id="s-ai" placeholder="Type any question...">
+<button class="ask" onclick="askStevo('s-ai','ans-ai')">🤖 ASK STEVO AI - PRESS HERE</button>
+<div style="margin-top:8px">
+<button class="smallBtn" onclick="setStevo('s-ai','ans-ai','What is electric current?')">What Is Current?</button>
+<button class="smallBtn" onclick="setStevo('s-ai','ans-ai','Why is my phone not charging?')">Phone Not Charging</button>
+<button class="smallBtn" onclick="setStevo('s-ai','ans-ai','Tell me about Black inventors in tech')">Black Inventors</button>
+</div></div>
+<div id="ans-ai" class="box">I am STEVO TECH AI. Built by Kayode Stephen Olayinka & Ikudehinbu Promise Ayomide. Ask me anything.</div>
 </div>
 
-<script>
-function setStevo(inputId, ansId, text){ try{ document.getElementById(inputId).value=text; }catch(e){} return askStevo(inputId, ansId); }
-function setTbdsAi(inputId, ansId, text){ try{ document.getElementById(inputId).value=text; }catch(e){} return askTbdsAi(inputId, ansId); }
+<!-- TBDS AI -->
+<div id="page-tbds-ai" class="page">
+<button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button>
+<h2>🏭 TBDS AI <span class="badge">ENGINEERING AI</span></h2>
+<div class="searchBox tbdsBox"><b>🔍 TBDS AI SEARCH BAR</b>
+<input id="s-tbds-ai" placeholder="Type factory question...">
+<button class="askTbds" onclick="askTbdsAi('s-tbds-ai','ans-tbds-ai')">🏭 ASK TBDS AI - PRESS HERE</button>
+<div style="margin-top:8px">
+<button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to install solar panel, battery, inverter?')">Solar</button>
+<button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How to build a robot with motor and sensor?')">Robot</button>
+<button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds-ai','ans-tbds-ai','How does a factory machine work?')">Machine</button>
+</div></div>
+<div id="ans-tbds-ai" class="box">I am TBDS AI. Engineering / Factory only.</div>
+</div>
 
-// STEVO AI - MAIN AI
-function askStevo(inputId, ansId){
-  var q = document.getElementById(inputId).value.trim();
-  if(!q){ alert('Please type your question'); return false; }
-  var out = document.getElementById(ansId);
-  var low = q.toLowerCase();
-  if(low.indexOf('founder')!==-1){ out.innerText='Founder: Kayode Stephen Olayinka. Co-Owner: Ikudehinbu Promise Ayomide. I am STEVO TECH AI - Main AI.'; return false; }
-  if(low.indexOf('what is current')!==-1){ out.innerText='Current is electricity flowing, like water in a pipe.\nVoltage = Pressure\nCurrent = Flow\nResistance = Blockage\nFormula: V = I x R'; return false; }
-  if(low.indexOf('phone not charging')!==-1 || low.indexOf('not charging')!==-1){ out.innerText='Phone Not Charging:\n1. Change cable\n2. Change charger\n3. Clean port gently\n4. Restart phone\n5. Try another socket'; return false; }
-  out.innerText='STEVO TECH AI is thinking... I am the Main AI. Please wait...';
-  var done=false;
-  setTimeout(function(){ if(!done){ done=true; out.innerText='STEVO TECH AI Answer for: '+q+'\n\n1. What It Is: '+q+' is part of tech that uses current.\n2. How It Works: Current flows from battery / NEPA / solar into device.\n3. How To Build / Fix: Check cable, battery, connection, restart.\n4. Safety: Do NOT touch bare wire.\n\nJoke: Why did the robot go to school? To charge its brain!'; } }, 5000);
-  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are STEVO TECH AI, Main AI. Founder Kayode Stephen Olayinka. Co-Owner Ikudehinbu Promise Ayomide. Be short, clear, steps, 1 joke. Question: '+q))
-  .then(function(r){ return r.text(); })
-  .then(function(t){ if(!done && t && t.length>5){ done=true; out.innerText=t; } })
-  .catch(function(){});
-  return false;
-}
+<!-- BLACK NATIONS -->
+<div id="page-black" class="page">
+<button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button>
+<h2>🌍 BLACK NATIONS OF THE WORLD</h2>
+<div class="box"><b>🌍 AFRICA - ALL 54:</b><br>Nigeria 🇳🇬, Ghana 🇬🇭, Kenya 🇰🇪, South Africa 🇿🇦, Ethiopia 🇪🇹, Egypt 🇪🇬, Morocco 🇲🇦, Algeria 🇩🇿, Tunisia 🇹🇳, Libya 🇱🇾, Sudan 🇸🇩, South Sudan 🇸🇸, Cameroon 🇨🇲, Senegal 🇸🇳, Mali 🇲🇱, Niger 🇳🇪, Chad 🇹🇩, Guinea 🇬🇳, Burkina Faso 🇧🇫, Benin 🇧🇯, Togo 🇹🇬, Sierra Leone 🇸🇱, Liberia 🇱🇷, Ivory Coast 🇨🇮, Gambia 🇬🇲, Guinea-Bissau 🇬🇼, Cape Verde 🇨🇻, Mauritania 🇲🇷, Angola 🇦🇴, Zambia 🇿🇲, Zimbabwe 🇿🇼, Mozambique 🇲🇿, Namibia 🇳🇦, Botswana 🇧🇼, Lesotho 🇱🇸, Eswatini 🇸🇿, Malawi 🇲🇼, Tanzania 🇹🇿, Uganda 🇺🇬, Rwanda 🇷🇼, Burundi 🇧🇮, DR Congo 🇨🇩, Congo 🇨🇬, Gabon 🇬🇦, Equatorial Guinea 🇬🇶, Central African Republic 🇨🇫, Somalia 🇸🇴, Djibouti 🇩🇯, Eritrea 🇪🇷, Madagascar 🇲🇬, Mauritius 🇲🇺, Seychelles 🇸🇨, Comoros 🇰🇲, Sao Tome & Principe 🇸🇹</div>
+<div class="box"><b>🌎 CARIBBEAN:</b><br>Jamaica 🇯🇲, Haiti 🇭🇹, Trinidad & Tobago 🇹🇹, Barbados 🇧🇧, Bahamas 🇧🇸, Grenada 🇬🇩, St Lucia 🇱🇨, St Vincent 🇻🇨, Dominica 🇩🇲, Antigua & Barbuda 🇦🇬, St Kitts & Nevis 🇰🇳, Belize 🇧🇿, Guyana 🇬🇾, Suriname 🇸🇷, Dominican Republic 🇩🇴, Cuba 🇨🇺, Puerto Rico 🇵🇷, US Virgin Islands 🇻🇮, Cayman Islands 🇰🇾, Bermuda 🇧🇲, Aruba 🇦🇼, Curacao 🇨🇼, Martinique 🇲🇶, Guadeloupe 🇬🇵</div>
+<div class="box"><b>🌎 AMERICAS:</b><br>Brazil 🇧🇷 - Biggest Black population outside Africa, USA 🇺🇸, Canada 🇨🇦, Mexico 🇲🇽, Colombia 🇨🇴, Venezuela 🇻🇪, Peru 🇵🇪, Ecuador 🇪🇨, Bolivia 🇧🇴, Chile 🇨🇱, Argentina 🇦🇷, Uruguay 🇺🇾, Paraguay 🇵🇾, Panama 🇵🇦, Costa Rica 🇨🇷, Nicaragua 🇳🇮, Honduras 🇭🇳, El Salvador 🇸🇻, Guatemala 🇬🇹</div>
+<div class="box"><b>🌍 EUROPE:</b><br>United Kingdom 🇬🇧, France 🇫🇷, Germany 🇩🇪, Netherlands 🇳🇱, Belgium 🇧🇪, Spain 🇪🇸, Portugal 🇵🇹, Italy 🇮🇹, Switzerland 🇨🇭, Austria 🇦🇹, Sweden 🇸🇪, Norway 🇳🇴, Denmark 🇩🇰, Finland 🇫🇮, Ireland 🇮🇪, Poland 🇵🇱, Greece 🇬🇷, Russia 🇷🇺, Ukraine 🇺🇦</div>
+<div class="box"><b>🌏 ASIA & OCEANIA & MIDDLE EAST:</b><br>India 🇮🇳, Pakistan 🇵🇰, Saudi Arabia 🇸🇦, UAE 🇦🇪, Qatar 🇶🇦, Kuwait 🇰🇼, Bahrain 🇧🇭, Oman 🇴🇲, Jordan 🇯🇴, Lebanon 🇱🇧, Israel 🇮🇱, Yemen 🇾🇪, Iraq 🇮🇶, Iran 🇮🇷, Turkey 🇹🇷, China 🇨🇳, Japan 🇯🇵, South Korea 🇰🇷, Malaysia 🇲🇾, Indonesia 🇮🇩, Philippines 🇵🇭, Australia 🇦🇺, New Zealand 🇳🇿, Fiji 🇫🇯, Papua New Guinea 🇵🇬</div>
+</div>
 
-// TBDS AI - SECOND, DIFFERENT AI - FACTORY ONLY
-function askTbdsAi(inputId, ansId){
-  var q = document.getElementById(inputId).value.trim();
-  if(!q){ alert('Please type your factory question'); return false; }
-  var out = document.getElementById(ansId);
-  var low = q.toLowerCase();
-  if(low.indexOf('solar')!==-1){ out.innerText='🏭 TBDS AI - SOLAR:\n1. Solar panel collects sun\n2. Panel makes DC current\n3. Battery stores it\n4. Inverter changes DC to AC for house\nSteps: Panel -> Charge Controller -> Battery -> Inverter -> House\nSafety: + to +, - to -. Do NOT touch bare wires.'; return false; }
-  if(low.indexOf('robot')!==-1){ out.innerText='🏭 TBDS AI - ROBOT:\nYou Need: Motor, Battery, Wheels, Sensor, Board, Wires\nSteps:\n1. Connect motor to wheels\n2. Connect battery to motor driver\n3. Connect sensor to board\n4. Upload code\n5. Test - If sensor sees wall, robot stops.'; return false; }
-  if(low.indexOf('electric car')!==-1 || low.indexOf('electric bike')!==-1){ out.innerText='🏭 TBDS AI - ELECTRIC CAR:\nYou Need: Motor, Battery Pack, Controller, Charger\nSteps:\n1. Remove fuel engine\n2. Install electric motor\n3. Install battery pack\n4. Connect controller\n5. Connect throttle\n6. Test slowly.'; return false; }
-  if(low.indexOf('factory')!==-1 || low.indexOf('machine')!==-1){ out.innerText='🏭 TBDS AI - FACTORY MACHINE:\nMachine = Motor + Belt + Gear + Control\nHow It Works: Motor turns, belt moves, gear turns machine, sensor controls it.\nMaintain: Oil it, clean it, check belt, check wires every week.'; return false; }
-  if(low.indexOf('wiring')!==-1 || low.indexOf('house wiring')!==-1){ out.innerText='🏭 TBDS AI - HOUSE WIRING:\n1. Switch OFF main\n2. Live (Red/Brown) -> Switch -> Bulb\n3. Neutral (Black/Blue) -> Bulb\n4. Earth (Green) -> Metal body\nSafety: Never work with power ON.'; return false; }
-  out.innerText='🏭 TBDS AI is thinking... I am the Factory AI, different from STEVO AI. Please wait...';
-  var done=false;
-  setTimeout(function(){ if(!done){ done=true; out.innerText='🏭 TBDS AI Answer for: '+q+'\n\nThis is Engineering / Factory answer:\n1. What It Is: '+q+'\n2. Parts You Need: Motor, Battery / Solar, Controller, Wires, Sensor\n3. Steps: Connect parts, test small, then test full.\n4. Safety: Switch OFF before connecting. + to +, - to -.\n\nTBDS = Build • Design • Engineer'; } }, 5000);
-  fetch('https://text.pollinations.ai/'+encodeURIComponent('You are TBDS AI, Factory / Engineering AI, different from STEVO AI. Founder Kayode Stephen Olayinka. Give What You Need, Steps, How To Connect, Safety. Be engineering style. Question: '+q))
-  .then(function(r){ return r.text(); })
-  .
+<!-- NAMES IN EVERY LANGUAGE - BOTH NAMES -->
+<div id="page-name" class="page">
+<button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button>
+<h2>📛 OUR NAMES IN EVERY LANGUAGE</h2>
+<p style="font-size:13px">Both founders, in every language. Kayode = Joy has come. Ikudehinbu Promise Ayomide = Promise of joy, my joy has come.</p>
+
+<div class="box" style="border:2px solid #ffcc00"><b>🇳🇬 YORUBA - OUR HOME:</b><br>
+<b>Kayode Stephen Olayinka</b> - "Ayọ̀ dé, Ọlá yí mi ká" - Joy has come, Wealth surrounds me<br><br>
+<b>Ikudehinbu Promise Ayomide</b> - "Ìkúdéhinbù Promise Ayọ̀míde" - Promise, My Joy Has Come, Joy has come to meet me</div>
+
+<div class="box" style="border:2px solid #00ff00"><b>🇳🇬 PIDGIN:</b><br>
+<b>Kayode Stephen Olayinka</b> - Na pesin wey bring joy come<br>
+<b>Ikudehinbu Promise Ayomide</b> - Na promise wey bring joy come, my joy don come</div>
+
+<div class="box" style="border:2px solid #ffcc00"><b>🇧🇷 BRAZIL - PORTUGUESE:</b><br>
+<b>Kayode Stephen Olayinka</b> - "Aquele que traz alegria e riqueza"<br>
+<b>Ikudehinbu Promise Ayomide</b> - "A promessa que traz alegria, minha alegria chegou"<br>
+Brazil = Biggest Black nation outside Africa. Both names live in Brazil.</div>
+
+<div class="box" style="border:2px solid #00ff00"><b>🇯🇲 JAMAICA - PATOIS:</b><br>
+<b>Kayode Stephen Olayinka</b> - "Di man weh bring joy come"<br>
+<b>Ikudehinbu Promise Ayomide</b> - "Di promise weh bring joy come, mi joy don come"<br>
+Jamaica = Our brother island. Both names live in Jamaica.</div>
+
+<div class="box"><b>🇳🇬 IGBO:</b> Kayode - Onye na-eweta ọṅụ | Ikudehinbu Promise Ayomide - Nkwa nke na-eweta ọṅụ, ọṅụ m abiala<br>
+<b>🇳🇬 HAUSA:</b> Kayode - Mai kawo farin ciki | Ikudehinbu Promise Ayomide - Alkawarin da ke kawo farin ciki, farin cikina ya zo<br>
+<b>🇬🇭 TWI:</b> Kayode - Deɛ ɔde anigyeɛ bae | Ikudehinbu Promise Ayomide - Bɔhyɛ a ɛde anigyeɛ ba, m'anigyeɛ aba<br>
+<b>🇿🇦 ZULU:</b> Kayode - Olethe injabulo | Ikudehinbu Promise Ayomide - Isithembiso esiletha injabulo, injabulo yami ifikile<br>
+<b>🇰🇪 SWAHILI:</b> Kayode - Aliyeleta furaha | Ikudehinbu Promise Ayomide - Ahadi inayosababisha furaha, furaha yangu imekuja</div>
+
+<div class="box"><b>🇫🇷 FRENCH:</b> Kayode - Celui qui apporte la joie | Ikudehinbu Promise Ayomide - La promesse qui apporte la joie, ma joie est venue<br>
+<b>🇪🇸 SPANISH:</b> Kayode - El que trae alegría | Ikudehinbu Promise Ayomide - La promesa que trae alegría, mi alegría ha llegado<br>
+<b>🇪🇬 ARABIC:</b> كايودي ستيفن أولايينكا | إيكوديهينبو بروميس أيوميدي<br>
+<b>🇪🇹 AMHARIC:</b> ካዮዴ ስቴፈን ኦላዪንካ | ኢኩደሂንቡ ፕሮሚስ አዮሚደ<br>
+<b>🇩🇪 GERMAN:</b> Kayode - Der Freude bringt | Ikudehinbu Promise Ayomide - Das Versprechen, das Freude bringt<br>
+<b>🇮🇹 ITALIAN:</b> Kayode - Colui che porta gioia | Ikudehinbu Promise Ayomide - La promessa che porta gioia<br>
+<b>🇺🇸 ENGLISH:</b> Kayode Stephen Olayinka - He who brings joy has come | Ikudehinbu Promise Ayomide - Promise, My Joy Has Come<br>
+<b>🇷🇺 RUSSIAN:</b> Кайоде Стивен Олайинка | Икудехинбу Промис Айомиде<br>
+<b>🇨🇳 CHINESE:</b> 卡约德·斯蒂芬·奥拉因卡 | 伊库德欣布·普罗米斯·阿约米德<br>
+<b>🇯🇵 JAPANESE:</b> カヨデ・スティーブン・オライインカ | イクデヒンブ・プロミス・アヨミデ<br>
+<b>🇰🇷 KOREAN:</b> 카요데 스티븐 올라잉카 | 이쿠데힌부 프로미스 아요미데<br>
+<b>🇮🇳 HINDI:</b> कायोडे स्टीफन ओलायिन्का | इकुदेहिन्बु प्रॉमिस अयोमिदे</div>
+
+<div class="box" style="border:2px solid #ffcc00"><b>✊🏿 BOTH NAMES ARE GLOBAL:</b><br>From Yoruba to Brazil, from Jamaica to China, both founders are remembered. Kayode + Ikudehinbu Promise Ayomide = Joy + Promise + Wealth.</div>
+</div>
+
+<!-- TBDS -->
+<div id="page-tbds" class="page">
+<button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button>
+<h2>🏭 TBDS - LINK INSIDE</h2>
+<div style="background:#ffcc00;color:#000;padding:12px;border-radius:12px;text-align:center;font-weight:bold">🔗 TBDS LINK INSIDE<br>
+<button class="go" style="background:#000;color:#ffcc00" onclick="window.open('https://t-b-d-s-engineering-hub.ai.studio','_blank')">OPEN TBDS LINK - PRESS HERE ➤</button></div>
+<div class="searchBox tbdsBox"><b>🔍 TBDS AI HERE</b>
+<input id="s-tbds" placeholder="Type factory question...">
+<button class="askTbds" onclick="askTbdsAi('s-tbds','ans-tbds')">🏭 ASK TBDS AI - PRESS HERE</button></div>
+<div id="ans-tbds" class="box">TBDS AI answer will appear here.</div>
+<div class="box" style="border:2px solid #ffcc00"><b>🏭 TBDS ENGINEERING HUB - BUILT INSIDE</b><br>Build • Design • Engineer<br>Founder: Kayode Stephen Olayinka<br>Co-Owner: Ikudehinbu Promise Ayomide</div>
+<div class="box"><b>⚡ SOLAR:</b> Solar, Inverter, Battery<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to install solar panel, battery, inverter step by step?')">Learn Solar - PRESS</button></div>
+<div class="box"><b>🤖 ROBOTICS:</b> Robot, Sensor<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to build a robot with motor, sensor, battery?')">Learn Robot - PRESS</button></div>
+<div class="box"><b>🚗 ELECTRIC VEHICLE:</b> Electric Bike, Car<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How to convert normal car to electric car?')">Learn Electric Car - PRESS</button></div>
+<div class="box"><b>🏭 FACTORY:</b> Machines<br><button class="smallBtn tbdsS" onclick="setTbdsAi('s-tbds','ans-tbds','How does a factory machine work?')">Learn Machine - PRESS</button></div>
+</div>
+
+<!-- OTHER PAGES -->
+<div id="page-pic" class="page"><button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button><h2>🎨 Pictures</h2><div class="searchBox"><b>🔍 Make Any Picture</b><input id="s-pic" placeholder="Type anything to draw..."><select id="picStyle"><option value="Black excellence, futuristic, neon, tech">✊🏿 Black Excellence</option><option value="realistic, professional photo">📸 Real Photo</option><option value="cartoon, colorful, 3D">🎬 Cartoon</option></select><button class="ask" onclick="picInside()">🎨 MAKE PICTURE - PRESS HERE</button></div><div id="ans-pic" class="box">Your picture will appear here.</div></div>
+<div id="page-current" class="page"><button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button><h2>⚡ EVERYTHING THAT USES CURRENT</h2><div class="searchBox"><b>🔍 SEARCH BAR</b><input id="s-current" placeholder="Type..."><button class="ask" onclick="askStevo('s-current','ans-current')">⚡ ASK STEVO AI - PRESS HERE</button></div><div id="ans-current" class="box">Your answer will appear here.</div><div class="box">Current = electricity flowing like water. V = I x R</div></div>
+<div id="page-build" class="page"><button class="go2" onclick="showPage('home')">← Back To Home - PRESS HERE</button><h2>🔧 Build & Connect</h2><div class="searchBox tbdsBox"><b>🔍 BUILD</b><input id="s-build" placeholder="Type..."><button class="askTbds" onclick="askTbdsAi('s-build','ans-build')"
