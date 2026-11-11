@@ -3,129 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEVO AI - Built by Kayode Stephen Olayinka & Ikudehinbu Promise Ayomide</title>
+<title>STEVO AI - Kayode Stephen Olayinka & Ikudehinbu Promise Ayomide</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:Arial,sans-serif;padding:10px}
-h1{color:#ffcc00;text-align:center;font-size:26px;margin:5px}h2{color:#00ffcc}h3{color:#ffcc00}
+h1{color:#ffcc00;text-align:center;font-size:30px;margin:5px;text-shadow:0 0 15px #ffcc00}
 .page{display:none}.page.show{display:block}
-.box{background:#111;border:1px solid #333;padding:12px;border-radius:12px;margin:10px 0}
-.btn,.gBtn,.yBtn,.oBtn{display:block;width:100%;padding:14px;margin:8px 0;border:none;border-radius:12px;font-weight:bold;cursor:pointer;font-size:15px;text-align:left}
-.btn{background:#ffcc00;color:#000}.gBtn{background:#00ffcc;color:#000;text-align:center}.yBtn{background:#ffcc00;color:#000;text-align:center}.oBtn{background:#fff;color:#000;text-align:center}
-input,select,textarea{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #555;background:#222;color:#fff;font-size:15px}
-img{width:100%;border-radius:12px}small{font-weight:normal}
+.box{background:#111;border:2px solid #333;padding:12px;border-radius:14px;margin:10px 0}
+input,select{width:100%;padding:14px;margin:6px 0;border-radius:12px;border:2px solid #555;background:#222;color:#fff;font-size:16px}
+
+/* BIG ATTENTION BUTTONS - THEY PULSE SO PEOPLE PRESS THEM */
+.bigBtn{display:block;width:100%;padding:18px;margin:12px 0;border:4px solid #fff;border-radius:16px;font-weight:900;font-size:18px;cursor:pointer;text-align:center;line-height:1.3;animation:pulse 1.5s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+.yellow{background:#ffcc00;color:#000}
+.green{background:#00ff33;color:#000}
+.cyan{background:#00e5ff;color:#000}
+.pink{background:#ff00aa;color:#fff}
+.orange{background:#ff6600;color:#fff}
+.white{background:#fff;color:#000}
+.small{font-size:13px;font-weight:normal}
 </style>
 </head>
 <body>
 
 <h1>✊🏿 STEVO AI</h1>
-<p style="text-align:center;margin:0">Built by Kayode Stephen Olayinka<br>Co-Developer: Ikudehinbu Promise Ayomide<br>For Black Excellence - Nigeria • Brazil • Jamaica • All Black Nations</p>
+<p style="text-align:center">Creator: Kayode Stephen Olayinka<br>Co-Developer: Ikudehinbu Promise Ayomide<br>For Black Excellence</p>
 
 <!-- HOME -->
 <div id="page-home" class="page show">
-<div style="background:#00ffcc;color:#000;padding:14px;border-radius:14px;text-align:center;font-weight:bold;border:3px solid #ffcc00">
-👥 <span id="realCount">Loading real users...</span><br>
-<span style="font-size:12px">Real count only - No fake number</span><br>
-<button onclick="joinReal()" style="background:#000;color:#ffcc00;padding:10px 18px;border-radius:10px;border:none;font-weight:bold;margin-top:8px;cursor:pointer">✊🏿 I USE STEVO AI - COUNT ME - PRESS HERE</button>
+
+<!-- PEOPLE COUNT - NEW WORKING COUNTER -->
+<div style="background:#00ff33;color:#000;padding:16px;border-radius:16px;text-align:center;border:4px solid #ffcc00">
+<div style="font-size:28px">👥 <span id="realCount">Loading real people...</span></div>
+<div style="font-size:13px">REAL PEOPLE - NO FAKE - If 0, it means 0. If 5, it means 5.</div>
+<button onclick="joinReal()" style="background:#000;color:#ffcc00;padding:16px;border-radius:12px;font-weight:900;width:100%;margin-top:10px;font-size:18px;border:none;cursor:pointer">✊🏿 PRESS HERE - COUNT ME AS REAL USER</button>
+<div id="peopleList" style="margin-top:10px;text-align:left;background:#fff;color:#000;padding:10px;border-radius:10px">People who joined:<br>No one yet - Be first!</div>
 </div>
 
-<div style="background:#fff;color:#000;padding:12px;border-radius:12px;text-align:center;border:3px solid #00ffcc">
-<b>🧪 TEST ALL - PRESS TO CHECK</b><br>
-<button onclick="testAll()" style="background:#00ffcc;color:#000;padding:12px;border:none;border-radius:10px;font-weight:bold;width:100%;cursor:pointer;margin-top:6px">🧪 TEST ALL NOW - PRESS HERE</button>
-<div id="testResult" style="text-align:left;font-size:13px;margin-top:8px;white-space:pre-wrap"></div>
+<button class="bigBtn yellow" onclick="go('normal')">🤖 STEVO AI - ASK ANYTHING<br><span class="small">PRESS HERE - IT WORKS</span></button>
+<button class="bigBtn green" onclick="go('courses')">🎓 ALL COURSES - EVERY COURSE HAS ITS OWN AI<br><span class="small">Engineering, Medicine, Law, JAMB, WAEC, IELTS - PRESS HERE</span></button>
+<button class="bigBtn cyan" onclick="go('chat')">💬 CHAT - TALK TO PEOPLE LIVE<br><span class="small">PRESS HERE TO CHAT</span></button>
+<button class="bigBtn pink" onclick="go('meet')">👥 MEET PEOPLE - VIDEO ROOM<br><span class="small">PRESS HERE TO SEE PEOPLE</span></button>
+<button class="bigBtn orange" onclick="go('black')">🌍 BLACK NATIONS - 54 AFRICA + BRAZIL + JAMAICA<br><span class="small">PRESS HERE</span></button>
+<button class="bigBtn white" onclick="go('name')">👑 NAMES - KAYODE & IKUDEHINBU<br><span class="small">PRESS HERE</span></button>
+<button class="bigBtn yellow" onclick="go('pic')">🖼️ DRAW PICTURES<br><span class="small">PRESS HERE</span></button>
+<button class="bigBtn green" onclick="go('tbds')">🏭 TBDS - OPEN FACTORY HUB<br><span class="small">PRESS HERE - https://t-b-d-s-engineering-hub.ai.studio</span></button>
+<button class="bigBtn white" onclick="go('trust')">✅ NOT SCAM - NO LOGIN - NO PASSWORD - NO MONEY<br><span class="small">PRESS HERE TO READ WHY WE TRUST</span></button>
+
+<div class="box"><b>🧪 IF BUTTON NOT PRESSING, PRESS THIS TEST:</b><br><button onclick="testPress()" style="width:100%;padding:14px;background:#ffcc00;border:none;border-radius:10px;font-weight:bold;cursor:pointer">🧪 TEST PRESS - PRESS HERE</button><div id="testOut"></div></div>
 </div>
 
-<label><b>🌍 LANGUAGE:</b></label>
-<select id="langSel" onchange="changeLang()"><option value="en">English</option><option value="yo">Yoruba</option><option value="pt">Portuguese - Brazil</option><option value="fr">French - Haiti</option><option value="es">Spanish</option><option value="ha">Hausa</option><option value="ig">Igbo</option></select>
-
-<button class="btn" onclick="go('normal')">🤖 STEVO AI - NORMAL AI - Ask Anything<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('courses')">🎓 ALL COURSES - EVERY COURSE HAS ITS OWN AI<br><small>Engineering, Medicine, Law, JAMB, WAEC, IELTS + More - PRESS HERE</small></button>
-<button class="btn" onclick="go('pic')">🖼️ PICTURES - DRAW PICTURES<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('chat')">💬 CHAT - TALK TO PEOPLE LIVE<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('meet')">👥 MEET PEOPLE - VIDEO ROOM<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('black')">🌍 BLACK NATIONS - 54 AFRICA + BRAZIL + JAMAICA + ALL<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('name')">👑 NAMES - KAYODE & IKUDEHINBU IN EVERY BLACK LANGUAGE<br><small>PRESS HERE</small></button>
-<button class="btn" onclick="go('tbds')">🏭 TBDS - FACTORY - OPEN TBDS HUB<br><small>https://t-b-d-s-engineering-hub.ai.studio - PRESS HERE</small></button>
-<button class="btn" onclick="go('trust')" style="border:2px solid #00ff00">✅ WHY WE TRUST STEVO AI - NO SCAM - NO LOGIN<br><small>No Gmail, No Password, No Money - PRESS HERE</small></button>
-<div class="box"><b>✅ STEVO AI IS FREE. No Gmail. No Password. No Money. If anyone asks you for money or password for STEVO AI, that person is scam.</b></div>
-</div>
-
-<!-- NORMAL AI -->
+<!-- NORMAL -->
 <div id="page-normal" class="page">
-<button class="oBtn" onclick="go('home')">← BACK TO HOME</button>
-<h2>🤖 STEVO AI - NORMAL AI</h2>
-<div class="box">Ask anything. If you ask who created me, I will tell you my Creator.</div>
-<input id="q-normal" placeholder="Type question... e.g Who is your creator?">
-<button class="gBtn" onclick="askStevo('normal','You are STEVO AI - Normal AI, answer everything.','q-normal','a-normal')">ASK STEVO AI - PRESS HERE</button>
-<div class="box" id="a-normal">Your answer will show here. Online only.</div>
+<button class="bigBtn white" onclick="go('home')">← BACK TO HOME - PRESS HERE</button>
+<h2>🤖 STEVO AI</h2>
+<input id="q-normal" placeholder="Type... e.g Who is your creator?">
+<button class="bigBtn green" onclick="askStevo('normal','You are STEVO AI Normal AI.','q-normal','a-normal')">ASK STEVO AI - PRESS HERE</button>
+<div class="box" id="a-normal">Answer will show here.</div>
 </div>
 
-<!-- COURSES LIST -->
+<!-- COURSES -->
 <div id="page-courses" class="page">
-<button class="oBtn" onclick="go('home')">← BACK TO HOME</button>
-<h2>🎓 ALL COURSES - PICK YOUR COURSE</h2>
-<div class="box">Each course has its own AI. No mixing.</div>
-<button class="btn" onclick="go('course-engineering')">🔧 ENGINEERING AI - Car, Electric Car, Robot, Machines</button>
-<button class="btn" onclick="go('course-medicine')">🩺 MEDICINE AI - Doctor, Body, Disease</button>
-<button class="btn" onclick="go('course-nursing')">💉 NURSING AI - Patient Care</button>
-<button class="btn" onclick="go('course-pharmacy')">💊 PHARMACY AI - Drugs</button>
-<button class="btn" onclick="go('course-law')">⚖️ LAW AI - Rights, Court</button>
-<button class="btn" onclick="go('course-computer')">💻 COMPUTER SCIENCE AI - Coding, Website, Game</button>
-<button class="btn" onclick="go('course-business')">💼 BUSINESS AI - Business, Marketing</button>
-<button class="btn" onclick="go('course-accounting')">📊 ACCOUNTING AI - Money, Tax</button>
-<button class="btn" onclick="go('course-agriculture')">🌾 AGRICULTURE AI - Farm, Crops</button>
-<button class="btn" onclick="go('course-education')">📚 EDUCATION AI - Teaching, School</button>
-<button class="btn" onclick="go('course-science')">🔬 SCIENCE AI - Physics, Chemistry, Biology, Maths</button>
-<button class="btn" onclick="go('course-art')">🎨 ART AI - Art, Music, Design</button>
-<button class="btn" onclick="go('course-jamb')">📝 JAMB / WAEC / NECO AI - Exam Prep Nigeria</button>
-<button class="btn" onclick="go('course-ielts')">✈️ IELTS / TOEFL AI - Travel, English Exam</button>
-<button class="btn" onclick="go('course-tbds')">🏭 TBDS AI - Factory</button>
+<button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button>
+<h2>🎓 ALL COURSES</h2>
+<button class="bigBtn yellow" onclick="go('course-engineering')">🔧 ENGINEERING AI - Car, Electric Car, Robot</button>
+<button class="bigBtn green" onclick="go('course-medicine')">🩺 MEDICINE AI - Body, Disease</button>
+<button class="bigBtn cyan" onclick="go('course-law')">⚖️ LAW AI - Rights, Court</button>
+<button class="bigBtn pink" onclick="go('course-jamb')">📝 JAMB / WAEC / NECO AI - Exam Prep</button>
+<button class="bigBtn orange" onclick="go('course-ielts')">✈️ IELTS / TOEFL AI - Travel English</button>
+<button class="bigBtn white" onclick="go('course-computer')">💻 COMPUTER AI - Coding, Website, Game</button>
+<button class="bigBtn yellow" onclick="go('course-business')">💼 BUSINESS AI</button>
+<button class="bigBtn green" onclick="go('course-agriculture')">🌾 AGRICULTURE AI</button>
+<button class="bigBtn cyan" onclick="go('course-science')">🔬 SCIENCE AI - Physics, Chemistry, Biology</button>
+<button class="bigBtn pink" onclick="go('course-tbds')">🏭 TBDS AI</button>
 </div>
 
-<!-- COURSE TEMPLATE PAGES - ALL USE SAME FUNCTION -->
-<div id="page-course-engineering" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🔧 ENGINEERING AI</h2><div class="box">Ask ONLY Engineering: Car, Electric Car, Robot, Engine, Battery, Factory</div><input id="q-engineering" placeholder="e.g How to make electric car motor?"><button class="gBtn" onclick="askStevo('engineering','You are ENGINEERING AI - ONLY answer Engineering, Car, Electric Car, Robot, Machines, Factory, Civil, Mechanical, Electrical. Do NOT answer Medicine or Law.','q-engineering','a-engineering')">ASK ENGINEERING AI - PRESS HERE</button><div class="box"><button onclick="quickCourse('engineering','How to make electric car?')">🚗 Electric Car</button> <button onclick="quickCourse('engineering','How to make robot?')">🤖 Robot</button></div><div class="box" id="a-engineering">Answer here.</div></div>
+<!-- GENERIC COURSE PAGES - SHORT - SAME FUNCTION -->
+<div id="page-course-engineering" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>🔧 ENGINEERING AI</h2><input id="q-engineering" placeholder="e.g How to make electric car?"><button class="bigBtn green" onclick="askStevo('engineering','You are ENGINEERING AI - ONLY answer Engineering, Car, Electric Car, Robot, Machines, Factory.','q-engineering','a-engineering')">ASK ENGINEERING AI - PRESS HERE</button><div class="box" id="a-engineering">Answer here.</div></div>
+<div id="page-course-medicine" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>🩺 MEDICINE AI</h2><input id="q-medicine" placeholder="e.g What causes malaria?"><button class="bigBtn green" onclick="askStevo('medicine','You are MEDICINE AI - ONLY answer Medicine. Always say see real doctor.','q-medicine','a-medicine')">ASK MEDICINE AI - PRESS HERE</button><div class="box" id="a-medicine">Answer here.</div></div>
+<div id="page-course-law" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>⚖️ LAW AI</h2><input id="q-law" placeholder="e.g What are my rights?"><button class="bigBtn green" onclick="askStevo('law','You are LAW AI - ONLY answer Law.','q-law','a-law')">ASK LAW AI - PRESS HERE</button><div class="box" id="a-law">Answer here.</div></div>
+<div id="page-course-jamb" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>📝 JAMB / WAEC / NECO AI</h2><input id="q-jamb" placeholder="e.g Give me 5 JAMB Maths questions"><button class="bigBtn green" onclick="askStevo('jamb','You are JAMB WAEC NECO AI - ONLY answer JAMB, WAEC, NECO exam prep. Give questions and answers.','q-jamb','a-jamb')">ASK JAMB AI - PRESS HERE</button><div class="box" id="a-jamb">Answer here.</div></div>
+<div id="page-course-ielts" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>✈️ IELTS / TOEFL AI</h2><input id="q-ielts" placeholder="e.g How to get Band 7?"><button class="bigBtn green" onclick="askStevo('ielts','You are IELTS TOEFL AI - ONLY answer IELTS, TOEFL.','q-ielts','a-ielts')">ASK IELTS AI - PRESS HERE</button><div class="box" id="a-ielts">Answer here.</div></div>
+<div id="page-course-computer" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>💻 COMPUTER AI</h2><input id="q-computer" placeholder="e.g How to make website?"><button class="bigBtn green" onclick="askStevo('computer','You are COMPUTER AI - ONLY answer Coding, Website, Game.','q-computer','a-computer')">ASK COMPUTER AI - PRESS HERE</button><div class="box" id="a-computer">Answer here.</div></div>
+<div id="page-course-business" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>💼 BUSINESS AI</h2><input id="q-business" placeholder="e.g How to start business?"><button class="bigBtn green" onclick="askStevo('business','You are BUSINESS AI - ONLY answer Business.','q-business','a-business')">ASK BUSINESS AI - PRESS HERE</button><div class="box" id="a-business">Answer here.</div></div>
+<div id="page-course-agriculture" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>🌾 AGRICULTURE AI</h2><input id="q-agriculture" placeholder="e.g How to grow maize?"><button class="bigBtn green" onclick="askStevo('agriculture','You are AGRICULTURE AI - ONLY answer Agriculture.','q-agriculture','a-agriculture')">ASK AGRICULTURE AI - PRESS HERE</button><div class="box" id="a-agriculture">Answer here.</div></div>
+<div id="page-course-science" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>🔬 SCIENCE AI</h2><input id="q-science" placeholder="e.g What is photosynthesis?"><button class="bigBtn green" onclick="askStevo('science','You are SCIENCE AI - ONLY answer Science.','q-science','a-science')">ASK SCIENCE AI - PRESS HERE</button><div class="box" id="a-science">Answer here.</div></div>
+<div id="page-course-tbds" class="page"><button class="bigBtn white" onclick="go('courses')">← BACK TO COURSES</button><h2>🏭 TBDS AI</h2><input id="q-tbds" placeholder="e.g What is TBDS?"><button class="bigBtn green" onclick="askStevo('tbds','You are TBDS AI - ONLY answer TBDS Factory.','q-tbds','a-tbds')">ASK TBDS AI - PRESS HERE</button><button class="bigBtn yellow" onclick="window.open('https://t-b-d-s-engineering-hub.ai.studio','_blank')">🌐 OPEN TBDS HUB - PRESS HERE</button><div class="box" id="a-tbds">Answer here.</div></div>
 
-<div id="page-course-medicine" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🩺 MEDICINE AI</h2><div class="box">Ask ONLY Medicine. For learning. See real doctor if sick.</div><input id="q-medicine" placeholder="e.g What causes malaria?"><button class="gBtn" onclick="askStevo('medicine','You are MEDICINE AI - ONLY answer Medicine, Body, Disease, Health, for learning. Always say see real doctor. Do NOT answer Engineering.','q-medicine','a-medicine')">ASK MEDICINE AI - PRESS HERE</button><div class="box"><button onclick="quickCourse('medicine','What is malaria?')">🦟 Malaria</button> <button onclick="quickCourse('medicine','What is diabetes?')">💉 Diabetes</button></div><div class="box" id="a-medicine">Answer here.</div></div>
+<!-- OTHER PAGES -->
+<div id="page-pic" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>🖼️ PICTURES</h2><input id="q-pic" placeholder="What to draw?"><button class="bigBtn green" onclick="makePic()">DRAW PICTURE - PRESS HERE</button><div class="box" id="a-pic">Picture will show here.</div></div>
+<div id="page-chat" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>💬 CHAT</h2><input id="chatName" placeholder="Your name"><button class="bigBtn green" onclick="enterChat()">💬 ENTER CHAT - PRESS HERE</button><div id="chatRoom" style="display:none"><iframe id="chatFrame" src="https://tlk.io/stevo-tech-ai-black-excellence" style="width:100%;height:520px;background:#fff;border-radius:12px"></iframe></div></div>
+<div id="page-meet" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>👥 MEET PEOPLE</h2><input id="meetName" placeholder="Your name"><button class="bigBtn green" onclick="joinMeet()">👥 JOIN VIDEO ROOM - PRESS HERE</button><div id="videoRoom" style="display:none"><iframe src="https://meet.jit.si/StevoTechAI-BlackExcellence-Kayode-Ikudehinbu" style="width:100%;height:500px" allow="camera; microphone; fullscreen"></iframe></div></div>
+<div id="page-black" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>🌍 BLACK NATIONS</h2><div class="box">AFRICA 54: Nigeria, Ghana, Kenya, South Africa, Ethiopia, Egypt, Morocco, Algeria, Tunisia, Libya, Sudan, South Sudan, Uganda, Tanzania, Rwanda, Burundi, DR Congo, Congo, Cameroon, Gabon, Equatorial Guinea, Chad, Niger, Mali, Burkina Faso, Senegal, Guinea, Guinea-Bissau, Sierra Leone, Liberia, Ivory Coast, Togo, Benin, Angola, Zambia, Zimbabwe, Botswana, Namibia, Mozambique, Malawi, Madagascar, Mauritius, Seychelles, Comoros, Djibouti, Eritrea, Somalia, Central African Republic, Sao Tome and Principe, Cape Verde, Gambia, Eswatini, Lesotho<br><br>DIASPORA: Brazil, Jamaica, Haiti, USA, UK, Canada, Trinidad, Barbados, Bahamas, Guyana, Suriname, Belize, Cuba, Dominican Republic, Colombia, Panama, Venezuela<br><br>We are One Black Family.</div></div>
+<div id="page-name" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>👑 NAMES</h2><div class="box"><b>Kayode Stephen Olayinka</b><br>Yoruba: He brings joy / Wealth surrounds me<br>Brazil: Ele traz alegria<br>Jamaica: Him bring joy<br><br><b>Ikudehinbu Promise Ayomide</b><br>Yoruba: Death cannot hold me / My Joy Has Come<br>Brazil: Minha alegria chegou<br>Jamaica: Mi joy come</div></div>
+<div id="page-tbds" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>🏭 TBDS</h2><button class="bigBtn yellow" onclick="window.open('https://t-b-d-s-engineering-hub.ai.studio','_blank')">🌐 OPEN TBDS HUB - PRESS HERE</button></div>
+<div id="page-trust" class="page"><button class="bigBtn white" onclick="go('home')">← BACK TO HOME</button><h2>✅ NOT SCAM</h2><div class="box" style="background:#fff;color:#000">✅ No Gmail, No Password, No Money, No OTP.<br><br>Creator: Kayode Stephen Olayinka<br>Co-Developer: Ikudehinbu Promise Ayomide<br><br>Real STEVO AI always has these names + TBDS Link. If anyone asks you for money, that person is scam.</div></div>
 
-<div id="page-course-nursing" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>💉 NURSING AI</h2><div class="box">Ask ONLY Nursing: Patient Care, Vital Signs</div><input id="q-nursing" placeholder="e.g How to check blood pressure?"><button class="gBtn" onclick="askStevo('nursing','You are NURSING AI - ONLY answer Nursing, Patient Care, Vital Signs, Injection, Wound Care.','q-nursing','a-nursing')">ASK NURSING AI - PRESS HERE</button><div class="box" id="a-nursing">Answer here.</div></div>
+<script>
+function go(name){try{var all=document.querySelectorAll('.page');for(var i=0;i<all.length;i++){all[i].classList.remove('show')}var el=document.getElementById('page-'+name);if(el){el.classList.add('show');window.scrollTo(0,0)}else{alert('Page '+name+' not found - check code')}}catch(e){alert('Press error: '+e.message)}}
+function testPress(){document.getElementById('testOut').innerHTML='<b style="color:#00ff33;font-size:20px">✅ PRESSING WORKS! If you see this, buttons work. Problem is cache - open Incognito.</b>';alert('✅ PRESSING WORKS! Buttons are working.')}
+function isCreatorQ(q){q=q.toLowerCase();return q.indexOf('creator')>-1||q.indexOf('who built')>-1||q.indexOf('who created')>-1||q.indexOf('who made')>-1||q.indexOf('founder')>-1||q.indexOf('owner')>-1}
+function creatorAnswer(){return "✊🏿 STEVO AI\n\nMy Creator is Kayode Stephen Olayinka.\nMy Co-Developer is Ikudehinbu Promise Ayomide."}
+function askStevo(course,who,inputId,outputId){
+  var q=document.getElementById(inputId).value.trim();
+  if(!q){alert('Type question first');return}
+  var out=document.getElementById(outputId);
+  if(isCreatorQ(q)){out.innerText=creatorAnswer();return}
+  out.innerText='Thinking... Please wait...';
+  var c=new AbortController();setTimeout(function(){c.abort()},15000);
+  fetch('https://text.pollinations.ai/'+encodeURIComponent(who+' Built by Kayode Stephen Olayinka Creator, Ikudehinbu Promise Ayomide Co-Developer. If asked creator say Creator is Kayode Stephen Olayinka, Co-Developer is Ikudehinbu Promise Ayomide. Answer short steps. Question: '+q),{signal:c.signal})
+  .then(function(r){return r.text()}).then(function(t){out.innerText=t&&t.length>5?t:'No internet. Connect internet.'}).catch(function(){out.innerText='❌ No internet or slow. Connect internet and press again.'})
+}
+function makePic(){var p=document.getElementById('q-pic').value;if(!p){alert('Type what to draw');return}var out=document.getElementById('a-pic');out.innerHTML='Drawing...';var url='https://image.pollinations.ai/prompt/'+encodeURIComponent(p)+'?width=1024&height=1024&seed='+Math.floor(Math.random()*1000000);var img=new Image();img.onload=function(){out.innerHTML='<img src="'+url+'" style="width:100%;border-radius:12px">'};img.onerror=function(){out.innerHTML='No internet.'};img.src=url}
+function enterChat(){var n=document.getElementById('chatName').value;if(!n){alert('Type name');return}document.getElementById('chatRoom').style.display='block';document.getElementById('chatFrame').src='https://tlk.io/stevo-tech-ai-black-excellence'}
+function joinMeet(){document.getElementById('videoRoom').style.display='block'}
 
-<div id="page-course-pharmacy" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>💊 PHARMACY AI</h2><div class="box">Ask ONLY Pharmacy: Drugs. Always say see pharmacist.</div><input id="q-pharmacy" placeholder="e.g What is paracetamol for?"><button class="gBtn" onclick="askStevo('pharmacy','You are PHARMACY AI - ONLY answer Pharmacy, Drugs, Medicine. Always say see pharmacist.','q-pharmacy','a-pharmacy')">ASK PHARMACY AI - PRESS HERE</button><div class="box" id="a-pharmacy">Answer here.</div></div>
-
-<div id="page-course-law" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>⚖️ LAW AI</h2><div class="box">Ask ONLY Law: Rights, Contract, Court</div><input id="q-law" placeholder="e.g What are my rights if police stops me?"><button class="gBtn" onclick="askStevo('law','You are LAW AI - ONLY answer Law, Rights, Contract, Court, Constitution for Nigeria, Brazil, Jamaica.','q-law','a-law')">ASK LAW AI - PRESS HERE</button><div class="box" id="a-law">Answer here.</div></div>
-
-<div id="page-course-computer" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>💻 COMPUTER SCIENCE AI</h2><div class="box">Ask ONLY Computer: Coding, Website, Game, App</div><input id="q-computer" placeholder="e.g How to make website?"><button class="gBtn" onclick="askStevo('computer','You are COMPUTER SCIENCE AI - ONLY answer Coding, Website, Game, App, HTML, Python.','q-computer','a-computer')">ASK COMPUTER AI - PRESS HERE</button><div class="box" id="a-computer">Answer here.</div></div>
-
-<div id="page-course-business" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>💼 BUSINESS AI</h2><div class="box">Ask ONLY Business: Start business, Marketing, Selling</div><input id="q-business" placeholder="e.g How to start small business?"><button class="gBtn" onclick="askStevo('business','You are BUSINESS AI - ONLY answer Business, Marketing, Selling, Shop, Management.','q-business','a-business')">ASK BUSINESS AI - PRESS HERE</button><div class="box" id="a-business">Answer here.</div></div>
-
-<div id="page-course-accounting" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>📊 ACCOUNTING AI</h2><div class="box">Ask ONLY Accounting: Money, Balance, Tax</div><input id="q-accounting" placeholder="e.g What is profit and loss?"><button class="gBtn" onclick="askStevo('accounting','You are ACCOUNTING AI - ONLY answer Accounting, Finance, Tax, Balance, Profit, Economics.','q-accounting','a-accounting')">ASK ACCOUNTING AI - PRESS HERE</button><div class="box" id="a-accounting">Answer here.</div></div>
-
-<div id="page-course-agriculture" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🌾 AGRICULTURE AI</h2><div class="box">Ask ONLY Agriculture: Farm, Crops, Animals</div><input id="q-agriculture" placeholder="e.g How to grow maize?"><button class="gBtn" onclick="askStevo('agriculture','You are AGRICULTURE AI - ONLY answer Farming, Crops, Animals, Soil, Poultry.','q-agriculture','a-agriculture')">ASK AGRICULTURE AI - PRESS HERE</button><div class="box" id="a-agriculture">Answer here.</div></div>
-
-<div id="page-course-education" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>📚 EDUCATION AI</h2><div class="box">Ask ONLY Education: Teaching, School, Exams</div><input id="q-education" placeholder="e.g How to teach children maths?"><button class="gBtn" onclick="askStevo('education','You are EDUCATION AI - ONLY answer Teaching, School, Exams, Learning.','q-education','a-education')">ASK EDUCATION AI - PRESS HERE</button><div class="box" id="a-education">Answer here.</div></div>
-
-<div id="page-course-science" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🔬 SCIENCE AI</h2><div class="box">Ask ONLY Science: Physics, Chemistry, Biology, Maths</div><input id="q-science" placeholder="e.g What is photosynthesis?"><button class="gBtn" onclick="askStevo('science','You are SCIENCE AI - ONLY answer Physics, Chemistry, Biology, Maths.','q-science','a-science')">ASK SCIENCE AI - PRESS HERE</button><div class="box" id="a-science">Answer here.</div></div>
-
-<div id="page-course-art" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🎨 ART AI</h2><div class="box">Ask ONLY Art: Art, Music, Design, Fashion</div><input id="q-art" placeholder="e.g How to draw face?"><button class="gBtn" onclick="askStevo('art','You are ART AI - ONLY answer Art, Music, Design, Fashion, Drawing.','q-art','a-art')">ASK ART AI - PRESS HERE</button><div class="box" id="a-art">Answer here.</div></div>
-
-<!-- JAMB / WAEC / NECO -->
-<div id="page-course-jamb" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>📝 JAMB / WAEC / NECO AI</h2><div class="box">Ask ONLY JAMB, WAEC, NECO Exam Prep Nigeria: English, Maths, Physics, Chemistry, Biology, Economics, Government. I will give you past questions, answers, and how to pass.</div><input id="q-jamb" placeholder="e.g JAMB Maths: What is 2x + 5 = 15?"><button class="gBtn" onclick="askStevo('jamb','You are JAMB WAEC NECO AI - ONLY answer JAMB, WAEC, NECO exam prep for Nigeria. Give past questions, correct answers, explanation, how to pass. Subjects: English, Maths, Physics, Chemistry, Biology, Economics, Government, Literature.','q-jamb','a-jamb')">ASK JAMB / WAEC AI - PRESS HERE</button><div class="box"><button onclick="quickCourse('jamb','Give me 5 JAMB English questions with answers')">📝 JAMB English</button> <button onclick="quickCourse('jamb','Give me 5 WAEC Maths questions with answers')">🔢 WAEC Maths</button> <button onclick="quickCourse('jamb','How to pass JAMB in one sitting?')">✅ How to Pass JAMB</button></div><div class="box" id="a-jamb">Answer here.</div></div>
-
-<!-- IELTS / TOEFL -->
-<div id="page-course-ielts" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>✈️ IELTS / TOEFL AI</h2><div class="box">Ask ONLY IELTS, TOEFL, English Exam for Travel: Reading, Writing, Speaking, Listening. For Brazil, Jamaica, Nigeria students who want to travel.</div><input id="q-ielts" placeholder="e.g How to pass IELTS Speaking?"><button class="gBtn" onclick="askStevo('ielts','You are IELTS TOEFL AI - ONLY answer IELTS, TOEFL, English exam, Reading, Writing, Speaking, Listening, for students from Nigeria, Brazil, Jamaica who want to travel. Give practice questions and answers.','q-ielts','a-ielts')">ASK IELTS / TOEFL AI - PRESS HERE</button><div class="box"><button onclick="quickCourse('ielts','Give me IELTS Speaking practice questions')">🗣️ IELTS Speaking</button> <button onclick="quickCourse('ielts','Give me IELTS Writing Task 2 example')">✍️ IELTS Writing</button> <button onclick="quickCourse('ielts','How to get Band 7 in IELTS?')">🏆 Get Band 7</button></div><div class="box" id="a-ielts">Answer here.</div></div>
-
-<!-- TBDS -->
-<div id="page-course-tbds" class="page"><button class="oBtn" onclick="go('courses')">← BACK TO COURSES</button><h2>🏭 TBDS AI</h2><div class="box">Ask ONLY TBDS: Factory, Engineering Hub, Solar, Machines</div><input id="q-tbds" placeholder="e.g What is TBDS factory?"><button class="gBtn" onclick="askStevo('tbds','You are TBDS AI - ONLY answer Factory, Engineering, Solar, Machines, TBDS Hub.','q-tbds','a-tbds')">ASK TBDS AI - PRESS HERE</button><div class="box"><button class="yBtn" onclick="window.open('https://t-b-d-s-engineering-hub.ai.studio','_blank')">🌐 OPEN TBDS HUB - PRESS HERE</button></div><div class="box" id="a-tbds">Answer here.</div></div>
-
-<!-- PICTURES -->
-<div id="page-pic" class="page"><button class="oBtn" onclick="go('home')">← BACK TO HOME</button><h2>🖼️ PICTURES - STEVO AI</h2><input id="q-pic" placeholder="What to draw? e.g Black king with electric car"><button class="gBtn" onclick="makePic()">DRAW PICTURE - PRESS HERE</button><div class="box" id="a-pic">Your picture will show here.</div></div>
-
-<!-- CHAT -->
-<div id="page-chat" class="page"><button class="oBtn" onclick="go('home')">← BACK TO HOME</button><h2>💬 CHAT - TALK TO PEOPLE LIVE</h2><div class="box"><b>YOUR NAME:</b><br><input id="chatName" placeholder="Type your name"><b>YOUR COUNTRY:</b><br><select id="chatCountry"><option>Nigeria 🇳🇬</option><option>Brazil 🇧🇷</option><option>Jamaica 🇯🇲</option><option>Ghana 🇬🇭</option><option>Kenya 🇰🇪</option><option>South Africa 🇿🇦</option><option>USA 🇺🇸</option><option>UK 🇬🇧</option><option>Haiti 🇭🇹</option><option>Other 🌍</option></select><button class="gBtn" onclick="enterChat()">💬 ENTER CHAT ROOM - PRESS HERE</button><div id="chatStatus">Not in chat yet.</div></div><div id="chatRoom" style="display:none"><iframe id="chatFrame" src="https://tlk.io/stevo-tech-ai-black-excellence" style="width:100%;height:520px;border:2px solid #00ffcc;border-radius:12px;background:#fff"></iframe><button class="oBtn" onclick="leaveChat()">❌ LEAVE CHAT</button></div></div>
-
-<!-- MEET -->
-<div id="page-meet" class="page"><button class="oBtn" onclick="go('home')">← BACK TO HOME</button><h2>👥 MEET PEOPLE - VIDEO ROOM</h2><div class="box"><b>YOUR NAME:</b><br><input id="meetName" placeholder="Type your name"><b>YOUR COUNTRY:</b><br><select id="meetCountry"><option>Nigeria 🇳🇬</option><option>Brazil 🇧🇷</option><option>Jamaica 🇯🇲</option><option>Ghana 🇬🇭</option><option>Other 🌍</option></select><button class="gBtn" onclick="joinMeet()">👥 JOIN MEET ROOM - PRESS HERE</button><div id="meetList">People will show here.</div></div><div id="videoRoom" style="display:none"><iframe src="https://meet.jit.si/StevoTechAI-BlackExcellence-Kayode-Ikudehinbu" style="width:100%;height:500px;border:2px solid #ffcc00;border-radius:12px" allow="camera; microphone; fullscreen; display-capture"></iframe><button class="oBtn" onclick="closeVideoMeet()">❌ CLOSE VIDEO ROOM</button></div></div>
-
-<!-- BLACK NATIONS -->
-<div id="page-black" class="page"><button class="oBtn" onclick="go('home')">← BACK TO HOME</button><h2>🌍 BLACK NATIONS - 54 AFRICA + BRAZIL + JAMAICA + ALL</h2><div class="box"><b>AFRICA - 54:</b><br>Nigeria, Ghana, Kenya, South Africa, Ethiopia, Egypt, Morocco, Algeria, Tunisia, Libya, Sudan, South Sudan, Uganda, Tanzania, Rwanda, Burundi, DR Congo, Congo, Cameroon, Gabon, Equatorial Guinea, Chad, Niger, Mali, Burkina Faso, Senegal, Guinea, Guinea-Bissau, Sierra Leone, Liberia, Ivory Coast, Togo, Benin, Angola, Zambia, Zimbabwe, Botswana, Namibia, Mozambique, Malawi, Madagascar, Mauritius, Seychelles, Comoros, Djibouti, Eritrea, Somalia, Central African Republic, Sao Tome and Principe, Cape Verde, Gambia, Eswatini, Lesotho<br><br><b>BLACK DIASPORA:</b><br>Brazil, Jamaica, Haiti, USA, UK, Canada, Trinidad and Tobago, Barbados, Bahamas, Guyana, Suriname, Belize, Cuba, Dominican Republic, Colombia, Panama, Venezuela<br><br><b>We are One Black Family. From Lagos to Sao Paulo to Kingston to Accra.</b></div></div>
-
-<!-- NAMES -->
-<div id="page-name" class="page"><button class="oBtn" onclick="go('home')">← BACK TO HOME</button><h2>👑 NAMES - KAYODE & IKUDEHINBU</h2><div class="box"><b>Kayode Stephen Olayinka</b><br>Yoruba: Kayode - He brings joy / Stephen - Crowned / Olayinka - Wealth surrounds me<br>Brazil Portuguese: Kayode - Ele traz alegria<br>Jamaica Patois
+// NEW WORKING PEOPLE COUNTER - ABACUS - NOT DEAD COUNTAPI
+var COUNTER_URL='https://abacus.jasoncameron.dev';
+function showRealCount(){
+  var el=document.getElementById('realCount');
+  fetch(COUNTER_URL+'/info/stevo-ai-real-users')
+  .then(function(r){return r.json()}).then(function(d){var v=d.value||0;if(el)el.innerText=v+' REAL PEOPLE';updatePeopleList(v)})
+  .catch(function(){if(el)el.innerText='Connect internet to see real people'})
+}
+function updatePeopleList(v){
+  var l=document.getElementById('peopleList');
+  if(l){if(v==0)l.innerHTML='People who joined:<br>No one yet - Be first! Press COUNT ME above.';else l.innerHTML='People who joined:<br>🔥 '+v+' real people have pressed COUNT ME! You are one of them. No fake.'}
+}
+function joinReal(){
+  fetch(COUNTER_URL+'/hit/stevo-ai-real-users')
+  .then(function(r){return r.json()}).then(function(d){var el=document.getElementById('realCount');if(el)el.innerText=d.value+' REAL PEOPLE';updatePeopleList(d.value);alert('Thank you! You are REAL user number '+d.value)}).catch(function(){alert('No internet. Connect internet.')})
+}
+showRealCount();
+</script>
+</body>
+  </html>
